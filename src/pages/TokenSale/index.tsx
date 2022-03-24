@@ -7,6 +7,15 @@ import Footer from "../../components/Footer"
 import Header from "../../components/Header"
 import ETH from "../../assets/png/ETH.png"
 import BNB from "../../assets/png/BNB.png"
+import USDT from "../../assets/png/USDT.png"
+import USDC from "../../assets/png/USDC.png"
+import SOL from "../../assets/png/SOL.png"
+import AVAX from "../../assets/png/AVAX.png"
+import DOGE from "../../assets/png/DOGE.png"
+import MATIC from "../../assets/png/MATIC.png"
+import CRO from "../../assets/png/CRO.png"
+import DAI from "../../assets/png/DAI.png"
+
 
 
 interface TokenSaleProps {
@@ -17,23 +26,107 @@ const TokenSale: React.FC<TokenSaleProps> = ({ handler }) => {
 
   const history = useHistory()
   const [pValue, setPValue] = useState(0)
+  const [coinPrice,setCoinPrice] = useState(0)
+  const [totalUSD,setTotalUSD] = useState(0)
+
+  useEffect(()=>{
+    let cryptoName = 'bitcoin';
+     fetch('https://api.coingecko.com/api/v3/coins/ethereum').then((res)=>res.json()).then((data)=>{
+         let usdPrice = data.market_data.current_price.usd;
+         console.log(usdPrice)
+         setCoinPrice(usdPrice);
+     });
+  },[])
   const handleNavigate = (idx: string) => {
     handler(idx)
     history.push('/')
   }
   const handlePlusBtn = () => {
-     let value = pValue + 1;
+     let value = Number(pValue) + 1;
      setPValue(value);
+     let usdTotal = value * Number(coinPrice);
+     setTotalUSD(usdTotal)
   }
   const handleMinusBtn = () => {
-    if (pValue >= 1 ){
-      let value = pValue -1 ;
+    if (Number(pValue) >= 1 ){
+      let value = Number(pValue) -1 ;
       setPValue(value);
+      let usdTotal = value * Number(coinPrice);
+      setTotalUSD(usdTotal)
     }
   }
+  const handleCoinInput = (e:any) => {
+     let coinValue = e.target.value;
+     console.log(coinValue)
+     if(parseInt(coinValue) >=1){
+        if(coinValue[0]=='0'){
+          coinValue = coinValue.slice(1);
+        }
+        console.log(coinValue)
+        setPValue(coinValue);
+        let usdTotal = Number(coinValue) * Number(coinPrice);
+        console.log(usdTotal)
+        setTotalUSD(usdTotal)
+     }
+     else if (coinValue >= 0) {
+      setPValue(coinValue);
+      if (coinValue == '') {
+        coinValue = '0'
+      }
+     let usdTotal = Number(coinValue) * Number(coinPrice);
+     console.log(usdTotal)
+     setTotalUSD(usdTotal)
+
+  }
+}
+  const handleSelectCoin = (e:any) => {
+      let coin = e.value;
+      let cryptoName = e.value;
+      fetch(`https://api.coingecko.com/api/v3/coins/${cryptoName}`).then((res)=>res.json()).then((data)=>{
+          let usdPrice = data.market_data.current_price.usd;
+          console.log(usdPrice)
+          setCoinPrice(usdPrice);
+          let usdTotal = pValue * Number(usdPrice);
+          setTotalUSD(usdTotal)
+      });
+
+  }
+
+  const handleUSDInput = (e:any) => {
+     let USDValue = e.target.value;
+     console.log(USDValue)
+     if(parseInt(USDValue) >=1){
+        if(USDValue[0]=='0'){
+          USDValue = USDValue.slice(1);
+        }
+        console.log(USDValue)
+        setTotalUSD(USDValue);
+        let tokenAmount = Number(USDValue) / coinPrice;
+        setPValue(tokenAmount);
+       
+     }
+     else if (USDValue >= 0) {
+      setTotalUSD(USDValue);
+      if (USDValue == '') {
+        USDValue = '0'
+      }
+    
+    
+
+  }
+  }
   const options = [
-    { value: 'ETH', label: <span><img src={ETH} className ="w-[20%] h-5 inline-block mr-1"  />ETH</span> },
-    { value: 'BNB', label: <span><img src={BNB} className ="w-[20%] h-5 inline-block mr-1"  />BNB</span> },
+    { value: 'ethereum', label: <span><img src={ETH} className ="w-[20%] h-4 inline-block mr-1"  />ETH</span> },
+    { value: 'binancecoin', label: <span><img src={BNB} className ="w-[20%] h-4 inline-block mr-1"  />BNB</span> },
+    { value: 'tether', label: <span><img src={USDT} className ="w-[20%] h-4 inline-block mr-1"  />USDT</span> },
+    { value: 'usd-coin', label: <span><img src={USDC} className ="w-[20%] h-4 inline-block mr-1"  />USDC</span> },
+    { value: 'solana', label: <span><img src={SOL} className ="w-[20%] h-4 inline-block mr-1"  />SOL</span> },
+    { value: 'avalanche-2', label: <span><img src={AVAX} className ="w-[20%] h-4 inline-block mr-1"  />AVAX</span> },
+    { value: 'dogecoin', label: <span><img src={DOGE} className ="w-[20%] h-4 inline-block mr-1"  />DOGE</span> },
+    { value: 'matic-network', label: <span><img src={MATIC} className ="w-[20%] h-4 inline-block mr-1"  />MATIC</span> },
+    { value: 'crypto-com-chain', label: <span><img src={CRO} className ="w-[20%] h-4 inline-block mr-1"  />CRO</span> },
+    { value: 'dai', label: <span><img src={DAI} className ="w-[20%] h-4 inline-block mr-1"  />DAI</span> },
+    
   ];
 
   const customStyles = {
@@ -56,17 +149,18 @@ const TokenSale: React.FC<TokenSaleProps> = ({ handler }) => {
                           <div className="flex justify-center mt-20">
                             <button onClick={handleMinusBtn} className=" text-white text-xl bg-blue-700 px-[19px] py-0 rounded-full hover:bg-indigo-900">-</button>
                             <div className="w-32 mx-2 md:w-32 mx-5">
-                                <input type="text" id="simple-email"  value={pValue} onChange={(e) => setPValue(Number(e.target.value))} className=" flex-1 appearance-none border border-gray-300 w-full py-2 pl-14 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"/>
+                                <input type="number" id="simple-email"  value={pValue} onChange={handleCoinInput} className=" flex-1 appearance-none border border-gray-300 w-full py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"/>
                             </div>
                             <button onClick={handlePlusBtn} className=" text-white text-lg bg-blue-700 px-[17px] py-0 rounded-full hover:bg-indigo-900">+</button>
                           </div>
                           <div className="flex justify-center mt-7 -mb-10">
-                              <input type="text" id="simple-email" className=" flex-1 w-20 md:w-72 rounded  appearance-none border focus: border-sky-300 w-full py-2 px-8 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"/>
+                              <input type="number" value = {totalUSD} onChange={handleUSDInput} className=" flex-1 w-20 md:w-72 rounded  appearance-none border focus: border-sky-300 w-full py-2 px-8 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"/>
                                <Select
                                   className=" w-28  rounded text-gray-700  border border-gray-300 bg-white  shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"  
                                   defaultValue={options[0]}
                                   options={options}
                                   styles = {customStyles}
+                                  onChange = {handleSelectCoin}
                                 />
                           </div>
 
