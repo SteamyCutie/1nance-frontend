@@ -190,8 +190,8 @@ export const RoadmapComponent = () => {
       <div className="mx-8 md:mx-12 xl:mx-16"><TitleComponent anchor="roadmap" title="Roadmap" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida." />
       </div>
       <div className="hidden xl:grid gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance1.svg')] bg-center bg-no-repeat min-h-[860px]"></div>
-      <div className="md:grid hidden gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance2.svg')] bg-center bg-no-repeat min-h-[1124px]"></div>
-      <div className="grid md:hidden xl:hidden gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance3.svg')] bg-center bg-no-repeat min-h-[766px]"></div>
+      <div className="md:grid lg:hidden xl:hidden gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance2.svg')] bg-center bg-no-repeat min-h-[766px]"></div>
+      <div className="lg:grid hidden xl:hidden gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance3.svg')] bg-center bg-no-repeat min-h-[1124px]"></div>
     </div>
   )
 }
