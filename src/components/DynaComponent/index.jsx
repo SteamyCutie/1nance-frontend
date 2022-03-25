@@ -49,7 +49,7 @@ export const IOCComponent = () => {
   const handlePlay = () => { }
   return (
     <div className="grid m-[12px] my-12 md:m-18 xl:m-24">
-      <TitleComponent anchor="ico" title="What is Crypto ICO" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida." />
+      <TitleComponent anchor="ico" title="What is Crypto ICO" content="The ICO will be done in BTC and ETH, on multiple platforms around the world." />
       <div className="flex m-auto items-center space-x-12">
         <div className="grid xl:flex gap-x-24 m-auto items-center">
           <div className="xl:order-last min-w-[30%] justify-center grid"><img src={ilustrWhatisICO1} alt="Illustrs" /><PlayButton handler={handlePlay} /></div>
@@ -105,7 +105,7 @@ export const SolutionsComponent = () => {
 export const WhitepaperComponent = () => {
   return (
     <div className="grid m-[18px] my-20 md:m-24 xl:m-36 mx-8 xl:mx-auto">
-      <TitleComponent anchor="whitepaper" title="White Paper" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida." />
+      <TitleComponent anchor="whitepaper" title="White Paper" content="Announce 1nance ICO plan, and release whitepaper to general public." />
       <div className="flex m-auto items-center gap-24 mt-2 xl:mt-20">
         <div className="hidden xl:flex min-w-[30%] justify-center"><img src={_1nanceWhite} alt="IOC ilustr" /></div>
         <div className="flex-row space-y-12 justify-items-center xl:justify-items-start grid">
@@ -122,7 +122,7 @@ export const TokenSaleComponent = () => {
   const fontSize = window.innerWidth / 1920 * 48
   return (
     <div className="grid m-[18px] my-20 md:m-10 xl:m-36">
-      <TitleComponent anchor="tokenSale" title="Token Sale" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida." />
+      <TitleComponent anchor="tokenSale" title="Token Sale" content="1nance will support trading pairs which involve the following coins: ● BTC ● ETH ● LTC ● NEO (ANS) ● 1nance Coin" />
       <div className="grid lg:flex items-center gap-4 xl:gap-16 mt-8 xl:mt-20">
         <div className="grid w-auto lg:w-1/2 h-full align-center justify-items-end">
           <div className="grid justify-items-end rounded-[16px] px-4 md:px-6 py-6 lg:px-6 lg:p-10 lg:pt-16 w-full h-full bg-gradient-to-b from-[#FFAF10] to-[#F97919]" >
@@ -163,7 +163,7 @@ export const TokenSaleComponent = () => {
 export const MobileAppComponent = () => {
   return (
     <div className="grid m-[18px] my-20 md:m-24 xl:m-36">
-      <TitleComponent anchor="mobile" title="Mobile App" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida." />
+      <TitleComponent anchor="mobile" title="Mobile App" content="We will support English, Chinese, Japanese and Korean on all our user interfaces." />
       <div className="grid xl:flex items-center gap-4 xl:gap-16 m-auto mt-8 xl:mt-20">
         <div className="flex-row space-y-4 px-2 xl:px-0 ">
           <div className="font-bold uppercase text-[20px] xl:text-[28px] leading-[32.81px] max-w-xl">ANDROID &amp; IOS APP</div>
@@ -187,7 +187,7 @@ export const MobileAppComponent = () => {
 export const RoadmapComponent = () => {
   return (
     <div className="grid my-36 mb-0">
-      <div className="mx-8 md:mx-12 xl:mx-16"><TitleComponent anchor="roadmap" title="Roadmap" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida." />
+      <div className="mx-8 md:mx-12 xl:mx-16"><TitleComponent anchor="roadmap" title="Roadmap" content="The time stated in the schedule below is in Universal Time Coordinated- UTC+8 hours." />
       </div>
       <div className="hidden xl:grid gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance1.svg')] bg-center bg-no-repeat min-h-[860px]"></div>
       <div className="md:grid lg:hidden xl:hidden gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance2.svg')] bg-center bg-no-repeat min-h-[766px]"></div>
@@ -199,7 +199,7 @@ export const RoadmapComponent = () => {
 export const OurCoinComponent = () => {
   return (
     <div className="grid m-[18px] my-20 md:m-24 xl:m-36">
-      <TitleComponent anchor="ourCoin" title="Our Coin" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida." />
+      <TitleComponent anchor="ourCoin" title="Our Coin" content="1nance Coin is an ERC 20 token since it exists on the ethereum blockchain." />
       <div className="grid xl:flex items-center gap-4 xl:gap-16 w-full mt-3 xl:mt-20 px-2 xl:px-0">
         <IllustComponent illust={ilustrOurCoin1} title="1NANCE COIN" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit sem suspendisse urna integer est. Ipsum vitae eu dui augue viverra. Enim purus erat commodo eleifend nec enim, ridiculus arcu in. Volutpat, aliquam consequat nulla lorem mauris. Adipiscing mauris eu ultrices et, volutpat, enim. Vitae pretium proin neque neque purus tellus ultrices accumsan. Habitant tellus faucibus volutpat viverra." />
       </div>
