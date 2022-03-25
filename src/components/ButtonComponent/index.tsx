@@ -54,7 +54,7 @@ export const PlayButton: React.FC<PlayButtonProps> = ({ handler }) => {
 
     const [modal, setModal] = useState(false);
     const [videoHeight, setVideoHeight] = useState(100);
-    const updateWindowDimensions = () => setVideoHeight(window.innerWidth/2.8);
+    const updateWindowDimensions = () => setVideoHeight(window.innerWidth/2.5);
 
     useEffect(() => {
         updateWindowDimensions();
@@ -64,13 +64,13 @@ export const PlayButton: React.FC<PlayButtonProps> = ({ handler }) => {
     return (
         <>
             {
-                modal ? <div className="modal w-[100%] h-[100%]" style={{ position: "fixed", top: "0", left: "0", right: "0", backgroundColor: "rgb(255,255,255,0.35)", zIndex: "1000" }} onClick={() => { setModal(!modal) }}>
-                    <div className="modal-dialog w-[55%] h-[50%] m-auto mt-[7%]" style={{ zIndex: "1001" }}>
-                        <div className="modal-content">
-                            <div className="modal-header">
+                modal ? <div className="modal w-[100%] h-[100%] m-auto" style={{ position: "fixed", top: "0", left: "0", right: "0", backgroundColor: "rgb(255,255,255,0.4)", zIndex: "1000",backdropFilter: "blur(4px)" }} onClick={() => { setModal(!modal) }}>
+                    <div className="modal-dialog w-[50%] h-{videoHeight} m-auto mt-[5%] rounded-[7px]" style={{ zIndex: "1001",backgroundColor: "rgb(240,240,240)" }}>
+                        <div className="modal-content m-auto">
+                            {/* <div className="modal-header">
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div className="modal-body">
+                            </div> */}
+                            <div className="modal-body p-2">
                                 <iframe
                                     width="100%"
                                     height={videoHeight}
@@ -78,7 +78,6 @@ export const PlayButton: React.FC<PlayButtonProps> = ({ handler }) => {
                                     title="Video Player"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
-
                                 ></iframe>
                             </div>
                         </div>
