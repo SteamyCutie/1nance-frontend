@@ -1,7 +1,7 @@
 import linkedin from "../../assets/svg/linkedin.svg"
 import { IconButton } from "../../components/ButtonComponent"
 import { useState, useEffect } from "react";
-import { rootCertificates } from "tls";
+// import { rootCertificates } from "tls";
 
 interface MemberComponentProps {
     profile?: any,
@@ -22,7 +22,7 @@ const MemberComponent: React.FC<MemberComponentProps> = ({ profile = null, name,
     const [buttonClassName, setButtonClassName] = useState(onCurrentColor);
     const [lineDeg, setLineDeg] = useState(onCurrentDeg);
     const [lineDegClass, setLineDegClass] = useState("line_rotato_stop");
-
+    
     const [videoHeight, setVideoHeight] = useState(100);
     const [videoWidth, setVideoWidth] = useState(100);
     const updateWindowDimensions = () => setVideoHeight(window.innerHeight / 20);
@@ -80,7 +80,7 @@ const MemberComponent: React.FC<MemberComponentProps> = ({ profile = null, name,
                     </div>
                 </div> : <></>
             }
-            <button className={`grid justify-items-center gap-2 ${className}`} onClick={() => { setModal(!modal); }}>
+            <div className={`grid justify-items-center gap-2 jello ${className}`} onClick={() => { setModal(!modal); }} style={{cursor:"pointer"}}>
                 <div className="grid place-content-center align-middle w-[255px] h-[255px] bg-gradient-radial" onMouseEnter={() => mouseEnterHandle()} onMouseLeave={() => mouseLeaveHandle()} style={{position:"relative"}}>
                     <div className={`grid place-content-center align-middle rounded- w-[255px] h-[4px] bg-gradient-radial ${buttonClassName} ${lineDegClass}`} style={{position:"absolute", marginTop: "123px", transform:`rotato(${lineDeg})`}}>
                     </div>
@@ -95,7 +95,7 @@ const MemberComponent: React.FC<MemberComponentProps> = ({ profile = null, name,
                     <p className="flex text-[18px]">{role}</p>
                     <a href={link} target="_blank" rel="noreferrer"><IconButton icon={linkedin} className="w-[24px] h-[24px]" /></a>
                 </div>
-            </button>
+            </div>
         </>
     )
 }

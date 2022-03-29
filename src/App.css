@@ -189,11 +189,11 @@ body {
   }
 
   22.2% {
-    transform: skewX(-12.5deg) skewY(-12.5deg)
+    transform: skewX(-6.5deg) skewY(-6.5deg)
   }
 
   33.3% {
-    transform: skewX(6.25deg) skewY(6.25deg)
+    transform: skewX(4.25deg) skewY(4.25deg)
   }
 
   44.4% {
@@ -222,7 +222,8 @@ body {
 }
 
 .jello {
-  animation       : jello 1s;
+  animation       : jello 4s infinite;
+  animation-duration: 4s;
   transform-origin: center
 }
 
