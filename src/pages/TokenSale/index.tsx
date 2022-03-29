@@ -82,16 +82,16 @@ const TokenSale: React.FC<TokenSaleProps> = ({ handler }) => {
                         <div className="grid justify-items-end rounded-[16px] md:px-10 py-6 lg:px-8 lg:p-10 lg:pt-16 w-full h-full bg-gradient-to-b from-[#FFAF10] to-[#F97919]" style={{ paddingTop: "95px" }}>
                             <div className="grid w-full grid-cols-3 place-items-center justify-items-center h-[50px]">
                                 <div className="mr-[-40px]">
-                                    <button className="token_sale_text grid rounded-[50px] w-[40px] h-[40px] bg-gradient-to-b from-[#03185B] via-[#133295] to-[#03185B] text-white font-[500] px-0" onClick={(e) => { changeAmount(-0.1) }}>-</button>
+                                    <button className="grid rounded-[50px] w-[40px] h-[40px] bg-gradient-to-b from-[#03185B] via-[#133295] to-[#03185B] text-white text-[24px] font-[500] px-0" onClick={(e) => { changeAmount(-0.1) }}>-</button>
                                 </div>
-                                <input type="Number" className="grid grid-cols-1 text-black h-[56px] font-[500] text-[24px] p-2" style={{ border: "1.5px solid #133295", borderRadius: "3px" }} value={pValue}></input>
+                                <input type="Number" className="grid grid-cols-1 text-black h-[56px] font-[500] text-[20px] p-2" style={{ border: "1.5px solid #133295", borderRadius: "3px" }} value={pValue}></input>
                                 <div className="ml-[-40px]">
-                                    <button className="token_sale_text grid rounded-[50px] w-[40px] h-[40px] bg-gradient-to-b from-[#03185B] via-[#133295] to-[#03185B] text-white font-[500] px-0" onClick={(e) => { pValue >= 0 ? setPValue(eval((pValue + 0.1).toFixed(2))) : setPValue(0) }}>+</button>
+                                    <button className="token_sale_text grid rounded-[50px] w-[40px] h-[40px] bg-gradient-to-b from-[#03185B] via-[#133295] to-[#03185B] text-white text-[24px] font-[500] px-0" onClick={(e) => { pValue >= 0 ? setPValue(eval((pValue + 0.1).toFixed(2))) : setPValue(0) }}>+</button>
                                 </div>
                             </div>
                             <div className="w-full bg-white rounded-[12px] p-1 px-1.5 lg:p-1.5 lg:px-2 grid grid-cols-2 text-black h-[70px] mt-24" style={{ display: "flex" }}>
                                 <div style={{ width: "70%", borderRight: "1px solid #3192DD" }}>
-                                    <input className="grid grid-cols-1 text-black h-full w-full token_sale_text" value={totalValue}></input>
+                                    <input className="grid grid-cols-1 text-black h-full w-full text-[24px]" value={totalValue}></input>
                                 </div>
                                 <div style={{ width: "30%" }}>
                                     <Form className="grid grid-cols-1 h-full w-100px">

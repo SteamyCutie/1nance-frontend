@@ -27,6 +27,8 @@ import { TokenSaleStepComponent } from '../StepComponent'
 import ArrowComponent from './ArrowComponent'
 import MemberComponent from '../MemberComponent'
 
+import { useEffect, useState } from 'react';
+
 export const HomeComponent = ({ handler }) => {
     return (
         <div className="grid m-[12px] my-12 md:m-18 xl:m-24">
@@ -124,7 +126,22 @@ export const WhitepaperComponent = () => {
 }
 
 export const TokenSaleComponent = () => {
-    const fontSize = window.innerWidth / 1920 * 48
+
+    const fontSize = window.innerWidth / 1920 * 48;
+    const [remainAmount, setRemainAmount] = useState(0);
+
+    async function update_balance(){
+        // let remainAmount = await load_balance(null);
+        setRemainAmount(remainAmount);
+    }
+
+    useEffect(() => {
+        async function fetchData() {
+            await update_balance();
+        }
+        fetchData();
+    }, []);
+
     return (
         <div className="grid m-[18px] my-20 md:m-10 xl:m-36">
             <TitleComponent anchor="tokenSale" title="Token Sale" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida." />
@@ -140,7 +157,10 @@ export const TokenSaleComponent = () => {
                                 fontFamily="fantasy"
                             />
                         </div>
-                        <div className="flex w-full justify-around lg:mt-16">
+                        <div className="grid w-full place-items-center justify-items-center mt-6 lg:mt-6 text-[24px] text-[#03185B]">
+                            Remain Amount : {remainAmount}
+                        </div>
+                        <div className="flex w-full justify-around lg:mt-6">
                             <TokenSaleStepComponent name="Pre-Sale" />
                             <TokenSaleStepComponent name="Soft Cap" />
                             <TokenSaleStepComponent name="Bonus" />
