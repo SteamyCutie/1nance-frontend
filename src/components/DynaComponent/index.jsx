@@ -129,14 +129,18 @@ export const TokenSaleComponent = () => {
   const fontSize = window.innerWidth / 1920 * 48;
   const [remainAmount, setRemainAmount] = useState(0);
 
-  async function update_balance() {
-    // let remainAmount = await load_balance(null);
+  const loadBalance = async () => {
+    return 5000;
+  }
+
+  const updateBalance = async () => {
+    let remainAmount = await loadBalance();
     setRemainAmount(remainAmount);
   }
 
   useEffect(() => {
     async function fetchData() {
-      await update_balance();
+      await updateBalance();
     }
     fetchData();
   }, []);

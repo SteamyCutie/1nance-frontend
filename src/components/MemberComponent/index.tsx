@@ -1,7 +1,6 @@
 import linkedin from "../../assets/svg/linkedin.svg"
 import { IconButton } from "../../components/ButtonComponent"
 import { useState, useEffect } from "react";
-import { rootCertificates } from "tls";
 
 interface MemberComponentProps {
   profile?: any,
@@ -23,19 +22,6 @@ const MemberComponent: React.FC<MemberComponentProps> = ({ profile = null, name,
   const [buttonClassName, setButtonClassName] = useState(onCurrentColor);
   const [lineDeg, setLineDeg] = useState(onCurrentDeg);
   const [lineDegClass, setLineDegClass] = useState("line_rotato_stop");
-
-  const [videoHeight, setVideoHeight] = useState(100);
-  const [videoWidth, setVideoWidth] = useState(100);
-  const updateWindowDimensions = () => setVideoHeight(window.innerHeight / 20);
-  const updateWindowWidthDimensions = () => setVideoWidth(window.innerWidth / 5);
-
-
-  useEffect(() => {
-    updateWindowDimensions();
-    updateWindowWidthDimensions();
-    window.addEventListener('resize', updateWindowDimensions);
-    window.addEventListener('resize', updateWindowWidthDimensions);
-  }, []);
 
   useEffect(() => {
     if (modal)
