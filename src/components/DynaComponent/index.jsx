@@ -143,7 +143,7 @@ export const TokenSaleComponent = () => {
       await updateBalance();
     }
     fetchData();
-  }, []);
+  });
 
   return (
     <div className="grid m-[18px] my-20 md:m-10 xl:m-36">
