@@ -1,124 +1,329 @@
-import { useEffect, useState } from "react"
-import { useHistory } from "react-router-dom"
-import TitleComponent from "../../components/DynaComponent/TitleComponent"
-import Footer from "../../components/Footer"
-import Header from "../../components/Header"
-import { Form } from '@themesberg/react-bootstrap';
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import Select from "react-select";
+import TitleComponent from "../../components/DynaComponent/TitleComponent";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import ETH from "../../assets/png/ETH.png";
+import BNB from "../../assets/png/BNB.png";
+import USDT from "../../assets/png/USDT.png";
+import USDC from "../../assets/png/USDC.png";
+import SOL from "../../assets/png/SOL.png";
+import AVAX from "../../assets/png/AVAX.png";
+import DOGE from "../../assets/png/DOGE.png";
+import MATIC from "../../assets/png/MATIC.png";
+import CRO from "../../assets/png/CRO.png";
+import DAI from "../../assets/png/DAI.png";
+
+import { useWeb3React } from "@web3-react/core";
+import { connectors } from "../../connectors";
+import { ethers } from "ethers";
+
+import NBICO from "../../artifacts/contracts/NBICO.sol/NBICO.json";
+import { NBICOAddress } from "../../config";
 
 interface TokenSaleProps {
-    handler: any
+  handler: any;
+}
+declare global {
+  interface Window {
+    ethereum?: any;
+  }
 }
 
 const TokenSale: React.FC<TokenSaleProps> = ({ handler }) => {
+  const history = useHistory();
+  const [pValue, setPValue] = useState(0);
+  const [tokenETHRate, setTokenETHRate] = useState(1 / 2700);
+  const [totalUSD, setTotalUSD] = useState(0);
+  const [ethPrice, setETHPrice] = useState(0);
+  const [ethCoinRate, setETHCoinRate] = useState(1);
+  const { activate } = useWeb3React();
 
-    const history = useHistory()
+  useEffect(() => {
+    fetch("https://api.coingecko.com/api/v3/coins/ethereum")
+      .then((res) => res.json())
+      .then((data) => {
+        let usdPrice = data.market_data.current_price.usd;
+        setETHPrice(usdPrice);
+      });
+    activate(connectors.injected);
 
-    const handleNavigate = (idx: string) => {
-        handler(idx)
-        history.push('/')
+  }, [activate]);
+
+  useEffect(() => {
+    setTokenETHRate(1 / ethPrice)
+  }, [ethPrice])
+
+  const handleNavigate = (idx: string) => {
+    handler(idx);
+    history.push("/");
+  };
+
+  const handlePlusBtn = () => {
+    let value = Number(pValue) + 1;
+    setPValue(value);
+    let usdTotal = value * tokenETHRate * ethCoinRate;
+    setTotalUSD(usdTotal);
+  };
+
+  const handleMinusBtn = () => {
+    if (Number(pValue) >= 1) {
+      let value = Number(pValue) - 1;
+      setPValue(value);
+      let usdTotal = value * tokenETHRate * ethCoinRate;
+      setTotalUSD(usdTotal);
     }
+  };
+  const handleCoinInput = (e: any) => {
+    let coinValue = e.target.value;
 
-    const [pValue, setPValue] = useState(0);
-    const [totalValue, setTotalValue] = useState(0);
-    // @souphamy; cryptocurrent type text
-    const [cryptoType, setCryptType] = useState("ETH");
-    // @souphamy; cryptocurrent icon url 
-    const [cryptoIconUrl, setCryptoIconUrl] = useState("url(http://cryptocompare.com//media/37746238/eth.png)");
 
-    const buyToken = async () => {
+    console.log(coinValue);
+    if (parseInt(coinValue) >= 1) {
+      if (coinValue[0] === "0") {
+        coinValue = coinValue.slice(1);
+      }
+      console.log(coinValue);
+      setPValue(coinValue);
 
+      let usdTotal = Number(coinValue) * tokenETHRate * ethCoinRate;
+      console.log(usdTotal);
+      setTotalUSD(usdTotal);
+    } else if (coinValue >= 0) {
+      setPValue(coinValue);
+      if (coinValue === "") {
+        coinValue = "0";
+      }
+      let usdTotal = Number(coinValue) * tokenETHRate * ethCoinRate;
+      console.log(usdTotal);
+      setTotalUSD(usdTotal);
     }
+  };
+  const handleSelectCoin = (e: any) => {
+    let cryptoName = e.value;
+    fetch(`https://api.coingecko.com/api/v3/coins/${cryptoName}`)
+      .then((res) => res.json())
+      .then((data) => {
+        let coinPrice = data.market_data.current_price.usd;
+        console.log(coinPrice);
+        let coinETHRate = ethPrice / coinPrice;
+        console.log("coinethrate=>", coinETHRate)
+        console.log("pvalue=>", pValue);
+        let usdTotal = pValue * tokenETHRate * coinETHRate;
+        console.log(usdTotal)
+        setTotalUSD(usdTotal);
+        setETHCoinRate(coinETHRate);
+      });
+  };
 
-    async function changeAmount(diff: any) {
-        if (diff === -1) {
-            if (pValue > 0) {
-                setPValue(eval((pValue - 0.1).toFixed(2)));
-            }
-            else {
-                setPValue(0);
-            }
-        } else {
-            if (pValue >= 0) {
-                setPValue(eval((pValue + 0.1).toFixed(2)));
-            }
-            else {
-                setPValue(0);
-            }
-        }
+  const handleUSDInput = (e: any) => {
+    let USDValue = e.target.value;
+    console.log(USDValue);
+    if (parseInt(USDValue) >= 1) {
+      if (USDValue[0] === "0") {
+        USDValue = USDValue.slice(1);
+      }
+      console.log(USDValue);
+      setTotalUSD(USDValue);
+      let tokenAmount = Number(USDValue) / (tokenETHRate * ethCoinRate);
+      setPValue(tokenAmount);
+    } else if (USDValue >= 0) {
+      setTotalUSD(USDValue);
+      if (USDValue === "") {
+        USDValue = "0";
+      }
     }
-    // @souphamy; CryptoCurrency dropDown onChange function
-    function handleCryptoTypeChange(e: any) {
-        setCryptType(e.target.value);
-        switch (e.target.value) {
-            case "ETH":
-                setCryptoIconUrl("url(http://cryptocompare.com//media/37746238/eth.png)");
-                break;
-            case "BTC":
-                setCryptoIconUrl("url(http://cryptocompare.com//media/37746251/btc.png)");
-                break;
-            case "BNB":
-                setCryptoIconUrl("url(http://cryptocompare.com//media/38553685/bnbch.png)");
-                break;
-            case "XRP":
-                setCryptoIconUrl("url(http://cryptocompare.com//media/37746238/eth.png)");
-                break;
-            default:
-                break;
-        }
+  };
+
+  const handleBuyToken = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    console.log("hi", provider);
+    const signer = provider.getSigner();
+    const nbICOContract = new ethers.Contract(
+      NBICOAddress,
+      NBICO.abi,
+      signer
+    );
+    console.log("ICO contract=>", provider, signer, nbICOContract);
+    const etherAmount = ethers.utils.parseUnits(totalUSD.toString(), 'ether');
+    try {
+      await nbICOContract.buyTokens({ value: etherAmount });
+    } catch (error) {
+      console.log(error)
     }
+  }
+  const options = [
+    {
+      value: "ethereum",
+      label: (
+        <span>
+          <img src={ETH} className="w-[20%] h-4 inline-block mr-1" alt="ETH" />
+          ETH
+        </span>
+      ),
+    },
+    {
+      value: "binancecoin",
+      label: (
+        <span>
+          <img src={BNB} className="w-[20%] h-4 inline-block mr-1" alt="BNB" />
+          BNB
+        </span>
+      ),
+    },
+    {
+      value: "tether",
+      label: (
+        <span>
+          <img src={USDT} className="w-[20%] h-4 inline-block mr-1" alt="USDT" />
+          USDT
+        </span>
+      ),
+    },
+    {
+      value: "usd-coin",
+      label: (
+        <span>
+          <img src={USDC} className="w-[20%] h-4 inline-block mr-1" alt="USDC" />
+          USDC
+        </span>
+      ),
+    },
+    {
+      value: "solana",
+      label: (
+        <span>
+          <img src={SOL} className="w-[20%] h-4 inline-block mr-1" alt="SOL" />
+          SOL
+        </span>
+      ),
+    },
+    {
+      value: "avalanche-2",
+      label: (
+        <span>
+          <img src={AVAX} className="w-[20%] h-4 inline-block mr-1" alt="AVAX" />
+          AVAX
+        </span>
+      ),
+    },
+    {
+      value: "dogecoin",
+      label: (
+        <span>
+          <img src={DOGE} className="w-[20%] h-4 inline-block mr-1" alt="DOGE" />
+          DOGE
+        </span>
+      ),
+    },
+    {
+      value: "matic-network",
+      label: (
+        <span>
+          <img src={MATIC} className="w-[20%] h-4 inline-block mr-1" alt="MATIC" />
+          MATIC
+        </span>
+      ),
+    },
+    {
+      value: "crypto-com-chain",
+      label: (
+        <span>
+          <img src={CRO} className="w-[20%] h-4 inline-block mr-1" alt="CRO" />
+          CRO
+        </span>
+      ),
+    },
+    {
+      value: "dai",
+      label: (
+        <span>
+          <img src={DAI} className="w-[20%] h-4 inline-block mr-1" alt="DAI" />
+          DAI
+        </span>
+      ),
+    },
+  ];
 
-    // useEffect(async () => {}, []);
+  const customStyles = {
+    dropdownIndicator: () => ({
+      width: 20,
+    }),
+  };
 
-    return (
-        <div className="m-auto">
-            <Header handler={handleNavigate} />
-            <div>
-                <TitleComponent title="Purchase Token" anchor="" content="" />
-                <div className="grid lg:flex items-center gap-4 xl:gap-16 mt-6 xl:mt-20 mx-12">
-                    <div className="grid text-[24px] font-bold tracking-[2px] grid w-auto lg:w-1/2 h-full justify-items-end">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae mauris lobortis imperdiet convallis mauris. Pulvinar facilisis quis nisl, pellentesque viverra erat amet. Elementum in lacus tempor lacus, neque. Tortor ornare velit vulputate pulvinar feugiat iaculis neque egestas tristique. Eros donec diam sem facilisis suspendisse in et ut gravida. Dui sed risus eu, tempor, sodales tellus id id vel. Nunc arcu malesuada turpis diam non integer cras pellentesque.
-                    </div>
-                    <div className="grid grid-cols-1 justify-items-center items-center bg-gradient-to-b from-[#FFAF10] to-[#F97919] h-[494px] flex-row w-full lg:w-1/2 space-y-6 xl:space-y-12 rounded-[10px]">
-                        <div className="grid justify-items-end rounded-[16px] md:px-10 py-6 lg:px-8 lg:p-10 lg:pt-16 w-full h-full bg-gradient-to-b from-[#FFAF10] to-[#F97919]" style={{ paddingTop: "95px" }}>
-                            <div className="grid w-full grid-cols-3 place-items-center justify-items-center h-[50px]">
-                                <div className="mr-[-40px]">
-                                    <button className="grid rounded-[50px] w-[40px] h-[40px] bg-gradient-to-b from-[#03185B] via-[#133295] to-[#03185B] text-white text-[24px] font-[500] px-0" onClick={(e) => { changeAmount(-0.1) }}>-</button>
-                                </div>
-                                <input type="Number" className="grid grid-cols-1 text-black h-[56px] font-[500] text-[20px] p-2" style={{ border: "1.5px solid #133295", borderRadius: "3px" }} value={pValue}></input>
-                                <div className="ml-[-40px]">
-                                    <button className="token_sale_text grid rounded-[50px] w-[40px] h-[40px] bg-gradient-to-b from-[#03185B] via-[#133295] to-[#03185B] text-white text-[24px] font-[500] px-0" onClick={(e) => { pValue >= 0 ? setPValue(eval((pValue + 0.1).toFixed(2))) : setPValue(0) }}>+</button>
-                                </div>
-                            </div>
-                            <div className="w-full bg-white rounded-[12px] p-1 px-1.5 lg:p-1.5 lg:px-2 grid grid-cols-2 text-black h-[70px] mt-24" style={{ display: "flex" }}>
-                                <div style={{ width: "70%", borderRight: "1px solid #3192DD" }}>
-                                    <input className="grid grid-cols-1 text-black h-full w-full text-[24px]" value={totalValue}></input>
-                                </div>
-                                <div style={{ width: "30%" }}>
-                                    <Form className="grid grid-cols-1 h-full w-100px">
-                                        <Form.Group className="w-full h-full">
-                                            <select className="w-full h-full token_sale_text" value={cryptoType} style={{
-                                                paddingLeft: "64px", backgroundImage: cryptoIconUrl, backgroundRepeat: "no-repeat, repeat", backgroundSize: "30% auto", backgroundPositionY: "center"
-                                            }} onChange={(e) => handleCryptoTypeChange(e)}>
-                                                <option value="ETH">
-                                                    ETH
-                                                </option>
-                                                <option value="BTC">BTC</option>
-                                                <option value="BNB">BNB</option>
-                                            </select>
-                                        </Form.Group>
-                                    </Form>
-                                </div>
-                            </div>
-                            <div className="grid justify-items-center w-full h-[0px] pb-0 mb-6" >
-                                <button className="text-[24px] w-full bg-gradient-to-b from-[#03185B] via-[#133295] to-[#03185B] text-white font-[500] h-[60px] rounded-[12px]" onClick={(e) => { buyToken() }}>BUY</button>
-                            </div>
-                        </div>
-                    </div>
+  return (
+    <div className="m-auto">
+      <Header handler={handleNavigate} />
+      <div>
+        <TitleComponent title="Purchase Token" anchor="" content="" />
+        <div className="flex items-center m-auto space-x-3">
+          <div className="grid items-start m-auto md:flex gap-x-1">
+            <div className="md:order-last flex-1 m-auto min-w-[60%] justify-center grid">
+              <div className="w-[350px] grid justify-center items-start md:w-[500px] rounded bg-gradient-to-b from-[#FFAF10] to-[#F97919] h-[400px]">
+                <div className="flex justify-center mt-20">
+                  <button
+                    onClick={handleMinusBtn}
+                    className=" text-white text-xl bg-blue-700 px-[19px] py-0 rounded-full hover:bg-indigo-900"
+                  >
+                    -
+                  </button>
+                  <div className="w-32 mx-2 mx-5 md:w-32">
+                    <input
+                      type="number"
+                      id="simple-email"
+                      value={pValue}
+                      onChange={handleCoinInput}
+                      className="flex-1 w-full px-2 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-gray-300 shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                  </div>
+                  <button
+                    onClick={handlePlusBtn}
+                    className=" text-white text-lg bg-blue-700 px-[17px] py-0 rounded-full hover:bg-indigo-900"
+                  >
+                    +
+                  </button>
                 </div>
-            </div>
-            <Footer />
-        </div >
-    )
-}
+                <div className="flex justify-center -mb-10 mt-7">
+                  <input
+                    type="number"
+                    value={totalUSD}
+                    onChange={handleUSDInput}
+                    className="flex-1 w-20 w-full px-8 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border rounded shadow-sm appearance-none md:w-72 focus: border-sky-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                  <Select
+                    className="text-gray-700 bg-white border border-gray-300 rounded shadow-sm w-28 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                    defaultValue={options[0]}
+                    options={options}
+                    styles={customStyles}
+                    onChange={handleSelectCoin}
+                  />
+                </div>
 
-export default TokenSale
+                <button onClick={handleBuyToken} className="px-6 py-1 text-lg text-white bg-blue-700 rounded hover:bg-indigo-900">
+                  BUY
+                </button>
+              </div>
+            </div>
+            <div className="mt-16 space-y-4 xl:mt-0">
+              <div className="font-light text-[14px] md:text-[18px] leading-[24px] md:leading-[28.13px] max-w-xl px-8 xl:px-0">
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Elit sem suspendisse urna
+                integer est. Ipsum vitae eu dui augue viverra.
+                Enim purus erat commodo eleifend nec enim,
+                ridiculus arcu in. Volutpat, aliquam consequat
+                nulla lorem mauris. Adipiscing mauris eu
+                ultrices et, volutpat, enim. Vitae pretium proin
+                neque neque purus tellus ultrices accumsan.
+                Habitant tellus faucibus volutpat viverra.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default TokenSale;
