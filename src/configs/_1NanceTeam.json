@@ -1,32 +1,44 @@
 [
   {
-    "name": "Logan S.Peréz",
-    "role": "CEO and CFO",
-    "link": "https://www.linkedin.com/",
+    "name": "Tiago Moura deOliveira",
+    "role": "Founder / CEO",
+    "link": "https://www.linkedin.com/in/tiago-moura-oliveira/",
+    "description": "Tiago Moura de Oliveira, a holder of a degree in Financial Management, has consolidated professional expertise and knowledge in the Logistics / Distribution / Purchasing and Warehousing gained from working in various sectors and multicultural environments. He has a track record in team building, relationship management, continuous improvement processes resulting in successful teams and top organisational performance.",
     "profile": "user-1.png"
   },
   {
-    "name": "Logan S.Peréz",
-    "role": "CEO and CFO",
-    "link": "https://www.linkedin.com/",
+    "name": "Dennis Han",
+    "role": "CTO",
+    "link": "https://www.linkedin.com/in/dennis-han-a27545227/",
+    "description": "",
     "profile": "user-2.png"
   },
   {
-    "name": "Logan S.Peréz",
-    "role": "CEO and CFO",
-    "link": "https://www.linkedin.com/",
+    "name": "Maxim Prishchepo",
+    "role": "Chief Architect",
+    "link": "https://www.linkedin.com/in/mprishchepo/",
+    "description": "Maxim, a holder of Software Engineering degree from Novosibirsk State Technical University (NSTU), has over seven years working in the blockchain industry and more than 15 years in the FinTech and the financial information security system sector. Also, he has much experience and interest in web 3.0 application development, mobile app development and cloud application development services.",
     "profile": "user-3.png"
   },
   {
-    "name": "Logan S.Peréz",
-    "role": "CEO and CFO",
-    "link": "https://www.linkedin.com/",
+    "name": "Souphamyxay Souphayxay",
+    "role": "VP of Engineering",
+    "link": "https://www.linkedin.com/in/souphamyxay-souphayxay-080b4a204/",
+    "description": "Souphamyxay Souphayxay is a full-Stack blockchain, web and mobile application developer with over 6 years experience.   He has launched many tokens, developed several exchange platforms, uploaded APIs and web wallets, launched DeFi tokens based on smart contract and Proof of Stake (PoS) algorithms as well as developed time-based rules for backing up and restoring systems.  In addition, he has garnered much experience in tasks maintenance on administrative Linux server, development of e-commerce web apps, customer web portals, documentary launch websites and donations web apps. To back up his experience and achievements, Souphamyxay has mastered advanced skills and knowledge about C/C++/C# and Objective Oriented Programming with a strong background in mathematics, algorithms, and data-processing logic.",
     "profile": "user-4.png"
   },
   {
-    "name": "Logan S.Peréz",
-    "role": "CEO and CFO",
-    "link": "https://www.linkedin.com/",
+    "name": "Gustavo Souphayxay",
+    "role": "Product Director",
+    "link": "https://www.linkedin.com/in/ggrossi91/",
+    "description": "Product Manager, Gustavo is a Crypto Enthusiast and SaaS Founder at Sendsign. Talks about #produtividade, #gestãodotempo, and #crescimentopessoal Talks about hashtag produtividade, hashtag gestãodotempo, and hashtag crescimentopessoal.",
     "profile": "user-5.png"
+  },
+  {
+    "name": "Claire Keyser",
+    "role": "Operations Director",
+    "link": "https://www.linkedin.com/in/clairehorne1",
+    "description": "Claire is a recruitment specialist, advisor and consultant with more than 15 years in the human resources management sector. With the advent of the blockchain industry, she has brought innovative and effective recruitment strategies to the sector and has worked in several decentralized organizations. She is an outstanding and renowned team leader who has recruited personnel at the entry, middle and senior executive levels, staffing organizations with individuals who proved to be respectable and successful leaders in their own right.",
+    "profile": "user-6.png"
   }
 ]
