@@ -28,10 +28,12 @@ interface DownloadButtonProps {
 export const DownloadButton: React.FC<DownloadButtonProps> = ({ url = "", lang, flag }) => {
   const [hover, setHover] = useState(false)
   return (
-    <div className="grid w-24 gap-2 cursor-pointer justify-items-center" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onMouseUp={() => setHover(true)} onMouseDown={() => setHover(false)}>
-      <div className="w-16 h-16"><img src={flag} className={`w-full transform-all duration-500 ${hover ? 'scale-105' : ''}`} alt="flag" /></div>
-      <div className="flex gap-2 text-[20px] leading-[23.44px] capitalize"><DownloadIcon className={`fill-[#FB941A] w-6 h-6 ${hover ? 'animate-bounce' : ''}`} />{lang}</div>
-    </div>
+    <a href={_1NanceLinks.whitepaper} target="_blank" rel="noreferrer">
+      <div className="grid w-24 gap-2 cursor-pointer justify-items-center" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onMouseUp={() => setHover(true)} onMouseDown={() => setHover(false)}>
+        <div className="w-16 h-16"><img src={flag} className={`w-full transform-all duration-500 ${hover ? 'scale-105' : ''}`} alt="flag" /></div>
+        <div className="flex gap-2 text-[20px] leading-[23.44px] capitalize"><DownloadIcon className={`fill-[#FB941A] w-6 h-6 ${hover ? 'animate-bounce' : ''}`} />{lang}</div>
+      </div>
+    </a>
   )
 }
 
