@@ -30,13 +30,13 @@ const MemberComponent: React.FC<MemberComponentProps> = ({ profile = null, name,
       document.body.style.overflow = 'unset'
   }, [modal])
 
-  function mouseEnterHandle() {
+  const mouseEnterHandle = () => {
     setButtonClassName(onHoverColor);
     setLineDeg(onHoverDeg);
     setLineDegClass("line_rotato");
   }
 
-  function mouseLeaveHandle() {
+  const mouseLeaveHandle = () => {
     setButtonClassName(onCurrentColor);
     setLineDeg(onCurrentDeg);
     setLineDegClass("line_rotato_stop");

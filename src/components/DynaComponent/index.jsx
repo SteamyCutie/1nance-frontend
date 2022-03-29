@@ -139,7 +139,7 @@ export const TokenSaleComponent = () => {
   }
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       await updateBalance();
     }
     fetchData();
