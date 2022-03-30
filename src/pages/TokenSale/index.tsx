@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import Select from "react-select";
 import TitleComponent from "../../components/DynaComponent/TitleComponent";
 import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 import ETH from "../../assets/png/ETH.png";
 import BNB from "../../assets/png/BNB.png";
 import USDT from "../../assets/png/USDT.png";
@@ -23,22 +21,18 @@ import NBICO from "../../artifacts/contracts/NBICO.sol/NBICO.json";
 import { NBICOAddress } from "../../config";
 import { CommonButton } from "../../components/ButtonComponent";
 
-interface TokenSaleProps {
-  handler: any;
-}
 declare global {
   interface Window {
     ethereum?: any;
   }
 }
 
-const TokenSale: React.FC<TokenSaleProps> = ({ handler }) => {
-  const history = useHistory();
-  const [pValue, setPValue] = useState(0);
-  const [tokenETHRate, setTokenETHRate] = useState(1 / 2700);
-  const [totalUSD, setTotalUSD] = useState(0);
-  const [ethPrice, setETHPrice] = useState(0);
-  const [ethCoinRate, setETHCoinRate] = useState(1);
+const TokenSale: React.FC = () => {
+  const [pValue, setPValue] = useState<number>(1);
+  const [tokenETHRate, setTokenETHRate] = useState<number>(1);
+  const [totalUSD, setTotalUSD] = useState<number>(1);
+  const [ethPrice, setETHPrice] = useState<number>(1);
+  const [ethCoinRate, setETHCoinRate] = useState<number>(1);
   const { activate } = useWeb3React();
 
   useEffect(() => {
@@ -49,47 +43,37 @@ const TokenSale: React.FC<TokenSaleProps> = ({ handler }) => {
         setETHPrice(usdPrice);
       });
     activate(connectors.injected);
-
   }, [activate]);
 
   useEffect(() => {
+    if (!ethPrice) return
     setTokenETHRate(1 / ethPrice)
   }, [ethPrice])
 
-  const handleNavigate = (idx: string) => {
-    handler(idx);
-    history.push("/");
-  };
+  useEffect(() => {
+    let usdTotal = pValue * tokenETHRate * ethCoinRate;
+    setTotalUSD(usdTotal);
+  }, [ethCoinRate, pValue, tokenETHRate])
 
   const handlePlusBtn = () => {
+    if (!ethCoinRate || !tokenETHRate) return
     let value = Number(pValue) + 1;
     setPValue(value);
-    let usdTotal = value * tokenETHRate * ethCoinRate;
-    setTotalUSD(usdTotal);
   };
 
   const handleMinusBtn = () => {
-    if (Number(pValue) >= 1) {
-      let value = Number(pValue) - 1;
-      setPValue(value);
-      let usdTotal = value * tokenETHRate * ethCoinRate;
-      setTotalUSD(usdTotal);
-    }
+    if (!ethCoinRate || !tokenETHRate) return
+    if (Number(pValue) > 0) setPValue(Number(pValue) - 1);
   };
+
   const handleCoinInput = (e: any) => {
+    if (!ethCoinRate || !tokenETHRate) return
     let coinValue = e.target.value;
-
-
-    console.log(coinValue);
     if (parseInt(coinValue) >= 1) {
-      if (coinValue[0] === "0") {
+      if (coinValue[0] === "0")
         coinValue = coinValue.slice(1);
-      }
-      console.log(coinValue);
       setPValue(coinValue);
-
       let usdTotal = Number(coinValue) * tokenETHRate * ethCoinRate;
-      console.log(usdTotal);
       setTotalUSD(usdTotal);
     } else if (coinValue >= 0) {
       setPValue(coinValue);
@@ -97,35 +81,32 @@ const TokenSale: React.FC<TokenSaleProps> = ({ handler }) => {
         coinValue = "0";
       }
       let usdTotal = Number(coinValue) * tokenETHRate * ethCoinRate;
-      console.log(usdTotal);
       setTotalUSD(usdTotal);
     }
   };
+
   const handleSelectCoin = (e: any) => {
+    if (!pValue || !tokenETHRate) return
     let cryptoName = e.value;
     fetch(`https://api.coingecko.com/api/v3/coins/${cryptoName}`)
       .then((res) => res.json())
       .then((data) => {
+        if (!ethPrice) return
         let coinPrice = data.market_data.current_price.usd;
-        console.log(coinPrice);
         let coinETHRate = ethPrice / coinPrice;
-        console.log("coinethrate=>", coinETHRate)
-        console.log("pvalue=>", pValue);
         let usdTotal = pValue * tokenETHRate * coinETHRate;
-        console.log(usdTotal)
         setTotalUSD(usdTotal);
         setETHCoinRate(coinETHRate);
       });
   };
 
   const handleUSDInput = (e: any) => {
+    if (!ethCoinRate || !tokenETHRate) return
     let USDValue = e.target.value;
-    console.log(USDValue);
     if (parseInt(USDValue) >= 1) {
       if (USDValue[0] === "0") {
         USDValue = USDValue.slice(1);
       }
-      console.log(USDValue);
       setTotalUSD(USDValue);
       let tokenAmount = Number(USDValue) / (tokenETHRate * ethCoinRate);
       setPValue(tokenAmount);
@@ -138,15 +119,14 @@ const TokenSale: React.FC<TokenSaleProps> = ({ handler }) => {
   };
 
   const handleBuyToken = async () => {
+    if (!totalUSD) return
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    console.log("hi", provider);
     const signer = provider.getSigner();
     const nbICOContract = new ethers.Contract(
       NBICOAddress,
       NBICO.abi,
       signer
     );
-    console.log("ICO contract=>", provider, signer, nbICOContract);
     const etherAmount = ethers.utils.parseUnits(totalUSD.toString(), 'ether');
     try {
       await nbICOContract.buyTokens({ value: etherAmount });
@@ -154,6 +134,7 @@ const TokenSale: React.FC<TokenSaleProps> = ({ handler }) => {
       console.log(error)
     }
   }
+
   const options = [
     {
       value: "ethereum",
@@ -255,7 +236,6 @@ const TokenSale: React.FC<TokenSaleProps> = ({ handler }) => {
 
   return (
     <div className="m-auto">
-      <Header handler={handleNavigate} />
       <div>
         <TitleComponent title="Purchase Token" anchor="" content="" />
         <div className="flex items-center m-auto space-x-3">

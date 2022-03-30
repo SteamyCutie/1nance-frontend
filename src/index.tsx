@@ -5,11 +5,10 @@ import reportWebVitals from './reportWebVitals';
 import { Web3ReactProvider } from "@web3-react/core";
 import { ethers } from "ethers";
 
-const getLibrary = (provider:any) => {
-    const library = new ethers.providers.Web3Provider(provider);
-    library.pollingInterval = 8000;
+const getLibrary = (provider: any) => {
+  const library = new ethers.providers.Web3Provider(provider);
+  library.pollingInterval = 8000;
 }
-
 
 ReactDOM.render(
   <React.StrictMode>
