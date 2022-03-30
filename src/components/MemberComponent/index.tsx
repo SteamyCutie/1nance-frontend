@@ -70,13 +70,9 @@ const MemberComponent: React.FC<MemberComponentProps> = ({ profile = null, name,
         </div> : <></>
       }
       <button className={`grid justify-items-center gap-2 ${className}`} onClick={() => { setModal(!modal); }}>
-        <div className="grid place-content-center align-middle w-[255px] h-[255px] bg-gradient-radial" onMouseEnter={() => mouseEnterHandle()} onMouseLeave={() => mouseLeaveHandle()} style={{ position: "relative" }}>
-          <div className={`grid place-content-center align-middle rounded- w-[255px] h-[4px] bg-gradient-radial ${buttonClassName} ${lineDegClass}`} style={{ position: "absolute", marginTop: "123px", transform: `rotato(${lineDeg})` }}>
-          </div>
-          <div className={`grid place-content-center align-middle rounded-full w-[175px] h-[175px] m-auto bg-gradient-radial ${buttonClassName}`} style={{ zIndex: "999" }}>
-            <div className="bg-white w-[160px] h-[160px] rounded-full" >
-              <img src={img} alt="profile" className="w-full h-full rounded-full" />
-            </div>
+        <div className={`grid place-content-center align-middle rounded-full w-[180px] h-[180px] m-auto bg-gradient-radial ${buttonClassName}`} style={{ zIndex: "999" }}>
+          <div className="bg-white w-[160px] h-[160px] rounded-full" >
+            <img src={img} alt="profile" className="w-full h-full rounded-full" />
           </div>
         </div>
         <div className="grid gap-1 justify-items-start">
