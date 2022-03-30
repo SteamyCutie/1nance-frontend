@@ -28,6 +28,7 @@ import ArrowComponent from './ArrowComponent'
 import MemberComponent from '../MemberComponent'
 
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 
 export const HomeComponent = ({ handler }) => {
   return (
@@ -169,7 +170,7 @@ export const TokenSaleComponent = () => {
               <TokenSaleStepComponent name="Bonus" />
             </div>
             <div className="w-full bg-white rounded-full p-1 px-1.5 lg:p-1.5 lg:px-2"><div className="bg-gradient-to-r from-[#03185B] to-[#0040C1] rounded-[5px] lg:rounded-[8px] w-2/3 h-4 xl:h-6"></div></div>
-            <div className="grid w-full mt-6 justify-items-center lg:mt-12" ><a href='/tokenSale'><CommonButton title="Purchase Token" className="from-[#03185B] via-[#133295] to-[#03185B] text-white font-[500] rounded-[12px] lg:rounded-[16px] text-[19px] lg:text-[24px] leading-[22px] lg:leading-[28px] min-w-[220px] lg:min-w-[250px] py-4" /></a></div>
+            <div className="grid w-full mt-6 justify-items-center lg:mt-12" ><Link to='tokenSale'><CommonButton title="Purchase Token" className="from-[#03185B] via-[#133295] to-[#03185B] text-white font-[500] rounded-[12px] lg:rounded-[16px] text-[19px] lg:text-[24px] leading-[22px] lg:leading-[28px] min-w-[220px] lg:min-w-[250px] py-4" /></Link></div>
           </div>
         </div>
         <div className="flex-row w-full space-y-6 lg:w-1/2 xl:space-y-12">

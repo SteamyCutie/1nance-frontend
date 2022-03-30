@@ -30,7 +30,7 @@ const Home: React.FC<HomeProps> = ({ uri }) => {
   }, []);
 
   useEffect(() => {
-    if (innerUri === '') return
+    if (innerUri === '' || innerUri === '/') return
     let element: any = document.getElementById(innerUri)
     let topPos = element.offsetTop
     let headerHeight: any = document.getElementById('header')?.offsetHeight
