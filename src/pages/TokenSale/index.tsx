@@ -259,7 +259,7 @@ const TokenSale: React.FC<TokenSaleProps> = ({ handler }) => {
       <div>
         <TitleComponent title="Purchase Token" anchor="" content="" />
         <div className="flex items-center m-auto space-x-3">
-          <div className="grid items-start m-auto md:flex gap-x-1">
+          <div className="grid items-start gap-4 m-auto lg:flex">
             <div className="md:order-last flex-1 m-auto min-w-[60%] justify-center grid">
               <div className="w-[350px] grid justify-center items-start md:w-[500px] rounded-[16px] bg-gradient-to-b from-[#FFAF10] to-[#F97919] h-[400px]">
                 <div className="flex items-center justify-center gap-4 mt-20">
@@ -285,16 +285,16 @@ const TokenSale: React.FC<TokenSaleProps> = ({ handler }) => {
                     +
                   </button>
                 </div>
-                <div className="flex justify-center gap-2 mt-5">
+                <div className="grid justify-center w-full grid-cols-1 gap-2 mt-5 md:flex">
                   <input
                     type="number"
                     value={totalUSD}
                     onChange={handleUSDInput}
-                    className="flex appearance-none w-20 w-full px-2 rounded-[16px] text-[24px] text-center text-gray-700 placeholder-gray-400 bg-white border rounded shadow-sm appearance-none md:w-72 focus: border-sky-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="flex appearance-none w-full px-2 rounded-[16px] text-[24px] text-center text-gray-700 placeholder-gray-400 bg-white border rounded shadow-sm appearance-none md:w-72 focus: border-sky-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
-                  <div className="flex items-center justify-center w-36">
+                  <div className="flex items-center justify-center w-full">
                     <Select
-                      className="w-full text-gray-700 rounded shadow-sm"
+                      className="justify-center w-full text-gray-700 rounded shadow-sm w-36"
                       defaultValue={options[0]}
                       options={options}
                       styles={customStyles}

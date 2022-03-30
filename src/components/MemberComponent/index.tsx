@@ -14,14 +14,14 @@ interface MemberComponentProps {
 const MemberComponent: React.FC<MemberComponentProps> = ({ profile = null, name, role, link, description, className = "" }) => {
 
   const img = require(`../../assets/team/${profile === null ? 'user.png' : profile}`);
-  const onHoverColor = "from-[#75777b] to-[#FFFFFF]";
+  // const onHoverColor = "from-[#75777b] to-[#FFFFFF]";
   const onCurrentColor = "from-[#FD4F00] to-[#FFCA91]";
-  const onHoverDeg = "-30deg";
-  const onCurrentDeg = "-40deg";
+  // const onHoverDeg = "-30deg";
+  // const onCurrentDeg = "-40deg";
   const [modal, setModal] = useState(false);
-  const [buttonClassName, setButtonClassName] = useState(onCurrentColor);
-  const [lineDeg, setLineDeg] = useState(onCurrentDeg);
-  const [lineDegClass, setLineDegClass] = useState("line_rotato_stop");
+  const [buttonClassName] = useState(onCurrentColor);
+  // const [lineDeg, setLineDeg] = useState(onCurrentDeg);
+  // const [lineDegClass, setLineDegClass] = useState("line_rotato_stop");
 
   useEffect(() => {
     if (modal)
@@ -30,17 +30,18 @@ const MemberComponent: React.FC<MemberComponentProps> = ({ profile = null, name,
       document.body.style.overflow = 'unset'
   }, [modal])
 
-  const mouseEnterHandle = () => {
-    setButtonClassName(onHoverColor);
-    setLineDeg(onHoverDeg);
-    setLineDegClass("line_rotato");
-  }
+  // const mouseEnterHandle = () => {
+  //   setButtonClassName(onHoverColor);
+  //   setLineDeg(onHoverDeg);
+  //   setLineDegClass("line_rotato");
+  // }
 
-  const mouseLeaveHandle = () => {
-    setButtonClassName(onCurrentColor);
-    setLineDeg(onCurrentDeg);
-    setLineDegClass("line_rotato_stop");
-  }
+  // const mouseLeaveHandle = () => {
+  //   setButtonClassName(onCurrentColor);
+  //   setLineDeg(onCurrentDeg);
+  //   setLineDegClass("line_rotato_stop");
+  // }
+
   return (
     <>
       {
