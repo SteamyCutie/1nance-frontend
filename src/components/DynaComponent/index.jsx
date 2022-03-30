@@ -34,7 +34,7 @@ export const HomeComponent = ({ handler }) => {
     <div className="grid m-[12px] my-12 md:m-18 xl:m-24">
       <div className="grid items-center m-auto xl:flex">
         <div className="grid w-[calc(100vw-24px)] xl:w-1/2 justify-items-center xl:justify-items-end gap-10 xl:gap-12">
-          <p className="font-medium text-[36px] xl:text-4xl text-left xl:text-center leading-[46.88px] px-0 xl:px-6 w-4/5 place-items-end">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p className="font-medium text-[36px] xl:text-4xl text-left xl:text-center leading-[50px] px-0 xl:px-6 w-4/5 place-items-end">We envision that <b>1nance</b> will build a world-class crypto exchange, powering the future of crypto finance.</p>
           <div className="grid w-4/5 gap-3 xl:flex justify-left xl:justify-center">
             <CommonButton title="Purchase Token" handler={() => handler('tokenSale')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" />
             <CommonButton title="Whitepaper" handler={() => handler('whitepaper')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" />
@@ -61,7 +61,7 @@ export const IOCComponent = () => {
             <PlayButton handler={handlePlay} />
           </div>
           <div className="flex-row mt-16 space-y-4 xl:mt-0">
-            <div className="font-light text-[18px] xl:text-[24px] leading-[24px] xl:leading-[28.13px] max-w-xl px-8 xl:px-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit sem suspendisse urna integer est. Ipsum vitae eu dui augue viverra. Enim purus erat commodo eleifend nec enim, ridiculus arcu in. Volutpat, aliquam consequat nulla lorem mauris. Adipiscing mauris eu ultrices et, volutpat, enim. Vitae pretium proin neque neque purus tellus ultrices accumsan. Habitant tellus faucibus volutpat viverra.</div>
+            <div className="font-light text-[18px] xl:text-[24px] leading-[24px] xl:leading-[32.13px] max-w-xl px-8 xl:px-0 indent-4">Basically, there are two types of exchanges: the ones that deal with fiat currency; and others that deal purely in cryptocurrency. It is the latter one that we will focus on. Even though pure crypto exchanges are small now, we strongly believe that they will be bigger, many times bigger, than fiat based exchanges in the near future. Ultimately, they will play an ever more important role in world finance. We call this new paradigm <b className='font-bold'>1nance</b>.</div>
           </div>
         </div>
       </div>
@@ -116,7 +116,7 @@ export const WhitepaperComponent = () => {
       <div className="flex items-center gap-24 m-auto mt-2 xl:mt-20">
         <div className="hidden xl:flex min-w-[30%] justify-center"><img src={_1nanceWhite} alt="IOC ilustr" /></div>
         <div className="grid flex-row space-y-12 justify-items-center xl:justify-items-start">
-          <div className="font-light text-[18px] xl:text-[24px] leading-[28.13px] max-w-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit sem suspendisse urna integer est. Ipsum vitae eu dui augue viverra. Enim purus erat commodo eleifend nec enim, ridiculus arcu in. Volutpat, aliquam consequat nulla lorem mauris. Adipiscing mauris eu ultrices et, volutpat, enim. Vitae pretium proin neque neque purus tellus ultrices accumsan. Habitant tellus faucibus volutpat viverra.</div>
+          <div className="font-light text-[18px] xl:text-[22px] leading-[28.13px] max-w-xl indent-4">Basically, there are two types of exchanges: the ones that deal with fiat currency; and others that deal purely in cryptocurrency. It is the latter one that we will focus on. Even though pure crypto exchanges are small now, we strongly believe that they will be bigger, many times bigger, than fiat based exchanges in the near future. Ultimately, they will play an ever more important role in world finance. We call this new paradigm 1nance.</div>
           <div className="flex xl:hidden min-w-[30%] justify-center"><img src={_1nanceWhite} alt="IOC ilustr" className="rounded-[20px] xl:rounded-0" /></div>
           <DownloadButton lang="English" flag={USFlag} />
         </div>
@@ -147,7 +147,7 @@ export const TokenSaleComponent = () => {
 
   return (
     <div className="grid m-[18px] my-20 md:m-10 xl:m-36">
-      <TitleComponent anchor="tokenSale" title="Token Sale" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida." />
+      <TitleComponent anchor="tokenSale" title="Token Sale" content="Our matching engine is capable of sustaining upto 1,400,000 orders / second, making 1nance one of the fastest exchanges in the market today." />
       <div className="grid items-center gap-4 mt-8 lg:flex xl:gap-16 xl:mt-20">
         <div className="grid w-auto h-full lg:w-1/2 align-center justify-items-end">
           <div className="grid justify-items-end rounded-[16px] px-4 md:px-6 py-6 lg:px-6 lg:p-10 lg:pt-16 w-full h-full bg-gradient-to-b from-[#FFAF10] to-[#F97919]" >
@@ -173,14 +173,14 @@ export const TokenSaleComponent = () => {
           </div>
         </div>
         <div className="flex-row w-full space-y-6 lg:w-1/2 xl:space-y-12">
-          <div className="font-light hidden xl:flex text-[24px] leading-[28.13px] w-full">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida.</div>
+          <div className="font-light hidden xl:flex text-[24px] leading-[28.13px] w-full indent-4">Our matching engine is capable of sustaining upto 1,400,000 orders / second, making 1nance one of the fastest exchanges in the market today. As a result, your orders will never be stuck due to the matching engine even when there are too many transactions.</div>
           <div className="grid w-full grid-cols-1 px-4 xl:grid-cols-2 justify-items-start gap-y-0 xl:gap-y-1 gap-x-4">
-            <ArrowComponent content="Lorem ipsum dolor sit amet," emphasize="consectetur adipiscing elit." />
-            <ArrowComponent content="Lorem ipsum dolor sit amet," emphasize="consectetur adipiscing elit." />
-            <ArrowComponent content="Lorem ipsum dolor sit amet," emphasize="consectetur adipiscing elit." />
-            <ArrowComponent content="Lorem ipsum dolor sit amet," emphasize="consectetur adipiscing elit." />
-            <ArrowComponent content="Lorem ipsum dolor sit amet," emphasize="consectetur adipiscing elit." />
-            <ArrowComponent content="Lorem ipsum dolor sit amet," emphasize="consectetur adipiscing elit." />
+            <ArrowComponent content="We will roll out the platform in" emphasize="Spot trading" />
+            <ArrowComponent content="We will roll out the platform in" emphasize="Margin trading" />
+            <ArrowComponent content="We will roll out the platform in" emphasize="Futures" />
+            <ArrowComponent content="We will roll out the platform in" emphasize="Anonymous instant exchange" />
+            <ArrowComponent content="We will roll out the platform in" emphasize="Decen-tralized (on-chain) exchange" />
+            <ArrowComponent content="We will roll out the platform in" emphasize="And more …" />
           </div>
         </div>
       </div>
@@ -195,7 +195,7 @@ export const MobileAppComponent = () => {
       <div className="grid items-center gap-4 m-auto mt-8 xl:flex xl:gap-16 xl:mt-20">
         <div className="flex-row px-2 space-y-4 xl:px-0 ">
           <div className="font-bold uppercase text-[20px] xl:text-[28px] leading-[32.81px] max-w-xl">ANDROID &amp; IOS APP</div>
-          <div className="font-light px-2 xl:px-0 text-[18px] xl:text-[24px] indent-4 leading-[28.13px] max-w-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit sem suspendisse urna integer est. Ipsum vitae eu dui augue viverra. Enim purus erat commodo eleifend nec enim, ridiculus arcu in. Volutpat, aliquam consequat nulla lorem mauris. Adipiscing mauris eu ultrices et, volutpat, enim. Vitae pretium proin neque neque purus tellus ultrices accumsan. Habitant tellus faucibus volutpat viverra.</div>
+          <div className="font-light px-2 xl:px-0 text-[18px] xl:text-[24px] indent-4 leading-[28.13px] max-w-xl">We will support English, Chinese， Japanese and Korean on all our user interfaces. (The very initial release will be in English and Chinese only.) More languages will be added over time.</div>
           <div className="grid max-w-xl pt-4 gap-y-4 xl:gap-y-8 xl:pt-8">
             <div className="flex gap-2 items-center text-[18px] xl:text-[20px]"><img src={Capa2} alt="Capa2" />Live crypto rate</div>
             <div className="flex gap-2 items-center text-[18px] xl:text-[20px]"><img src={subir1} alt="subir1" />Latest cryptocurrency news</div>
@@ -216,7 +216,7 @@ export const RoadmapComponent = () => {
   return (
     <div className="grid mb-0 my-36">
       <div className="mx-8 md:mx-12 xl:mx-16">
-        <TitleComponent anchor="roadmap" title="Roadmap" content="The time stated in the schedule below is in Universal Time Coordinated- UTC+8 hours." />
+        <TitleComponent anchor="roadmap" title="Roadmap" content="The time stated in the schedule below is in Universal Time Coordinated UTC+8 hours." />
       </div>
       <div className="hidden xl:grid gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance1.svg')] bg-center bg-no-repeat min-h-[860px]"></div>
       <div className="md:grid lg:hidden xl:hidden gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance2.svg')] bg-center bg-no-repeat min-h-[766px]"></div>
@@ -230,7 +230,7 @@ export const OurCoinComponent = () => {
     <div className="grid m-[18px] my-20 md:m-24 xl:m-36">
       <TitleComponent anchor="ourCoin" title="Our Coin" content="1nance Coin is an ERC 20 token since it exists on the ethereum blockchain." />
       <div className="grid items-center w-full gap-4 px-2 mt-3 xl:flex xl:gap-16 xl:mt-20 xl:px-0">
-        <IllustComponent illust={ilustrOurCoin1} title="1NANCE COIN" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit sem suspendisse urna integer est. Ipsum vitae eu dui augue viverra. Enim purus erat commodo eleifend nec enim, ridiculus arcu in. Volutpat, aliquam consequat nulla lorem mauris. Adipiscing mauris eu ultrices et, volutpat, enim. Vitae pretium proin neque neque purus tellus ultrices accumsan. Habitant tellus faucibus volutpat viverra." />
+        <IllustComponent illust={ilustrOurCoin1} title="1NANCE COIN" content="1nance Coin is an ERC 20 token since it exists on the ethereum blockchain. However, more coins will be added over time. Generally, we will only add coins that have strong credibility, high user base, and high liquidity. If you have a coin that you wish to list on 1nance later, it is important to participate in our ICO. At the moment, we have no plans to support any fiat currencies such as USD, RMB, JPY, or KRX." />
       </div>
     </div>
   )
@@ -239,7 +239,7 @@ export const OurCoinComponent = () => {
 export const TokenDistributionComponent = () => {
   return (
     <div className="grid m-[18px] my-20 md:m-24 xl:m-36">
-      <TitleComponent anchor="tokenDistribution" title="Token Distribution" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida." />
+      <TitleComponent anchor="tokenDistribution" title="Token Distribution" content="We will issue our token, the 1nance Coin, which has a straight limit of 200MM. 1nance Coin is an ERC 20 token since it exists on the ethereum blockchain." />
       <div className="flex items-center gap-16 m-auto mt-4 xl:mt-20">
         <IllustComponent illust={ilustGraficFunds1} title="1NANCE COIN" content={
           <div className="grid gap-3">
