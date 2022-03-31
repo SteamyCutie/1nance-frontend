@@ -90,7 +90,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
         <div className="flex justify-center" style={{ paddingLeft: padL + "px" }}>
           <div className="flex items-center">
             <div onClick={() => handleGoSection('ico')} className={getNavLinkClassName}>
-              What is ICO
+              What is 1nance
             </div>
             <div onClick={() => handleGoSection('solutions')} className={getNavLinkClassName}>
               Solutions
@@ -153,7 +153,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
             <div className="demo-content">
               <img src={Logo} className="w-[250px] h-[72px] mb-[20px]" alt="logo" />
               <button onClick={() => { setIsOpen(false); handleGoSection('ico') }} className={getDrawerLinkClassName}>
-                What is ICO
+                What is 1nance
               </button>
               <button onClick={() => { setIsOpen(false); handleGoSection('solutions') }} className={getDrawerLinkClassName}>
                 Solution
