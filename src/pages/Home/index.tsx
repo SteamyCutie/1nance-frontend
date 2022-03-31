@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
-import Header from '../../components/Header'
 import { HomeComponent, IOCComponent, MobileAppComponent, OurCoinComponent, RoadmapComponent, SolutionsComponent, TeamComponent, TokenDistributionComponent, TokenSaleComponent, WhitepaperComponent } from '../../components/DynaComponent'
 import Footer from '../../components/Footer'
 import { ScrollUpButton } from '../../components/ButtonComponent'
@@ -30,7 +29,7 @@ const Home: React.FC<HomeProps> = ({ uri }) => {
   }, []);
 
   useEffect(() => {
-    if (innerUri === '') return
+    if (innerUri === '' || innerUri === '/') return
     let element: any = document.getElementById(innerUri)
     let topPos = element.offsetTop
     let headerHeight: any = document.getElementById('header')?.offsetHeight
@@ -68,8 +67,7 @@ const Home: React.FC<HomeProps> = ({ uri }) => {
   };
 
   return (
-    <div className="m-auto">
-      <Header handler={handleGoSection} />
+    <div className="m-auto main-background">
       <HomeComponent handler={handleGoSection} />
       <IOCComponent />
       <SolutionsComponent />

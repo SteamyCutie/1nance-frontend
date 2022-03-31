@@ -24,18 +24,27 @@ import { CommonButton, DownloadButton, PlayButton } from '../ButtonComponent'
 
 import TitleComponent from './TitleComponent'
 import { TokenSaleStepComponent } from '../StepComponent'
-import ArrowComponent from './ArrowComponent'
+// import ArrowComponent from './ArrowComponent'
 import MemberComponent from '../MemberComponent'
 
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 
 export const HomeComponent = ({ handler }) => {
   return (
     <div className="grid m-[12px] my-12 md:m-18 xl:m-24">
       <div className="grid xl:flex m-auto items-center">
         <div className="grid w-[calc(100vw-24px)] xl:w-1/2 justify-items-center xl:justify-items-end gap-10 xl:gap-12">
+<<<<<<< Updated upstream
           <p className="font-medium text-[36px] xl:text-4xl text-left xl:text-center leading-[46.88px] px-0 xl:px-6 w-4/5 place-items-end">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           <div className="grid xl:flex gap-3 w-4/5 justify-left xl:justify-center">
+=======
+          <div className="font-medium text-[24px] text-left xl:text-justify leading-[30px] px-0 xl:px-6 w-4/5 place-items-end">
+            <p className="indent-4">In our view, there are fundamentally two different types of exchanges: the ones that deal with fiat currency; and the ones that deal purely in crypto. It is the latter one that we will focus on. Even though they are small now, we strongly believe that pure crypto exchanges will be bigger, many times bigger, than fiat based exchanges in the near future. They will play an ever more important role in world finance and we call this new paradigm <b className='font-bold'>1nance</b>.</p>
+            <p className="indent-4 mt-2">With your help, <b className='font-bold'>1nance</b> will build a world-class crypto exchange, powering the future of crypto finance.</p>
+          </div>
+          <div className="grid w-4/5 gap-3 xl:flex justify-left xl:justify-center">
+>>>>>>> Stashed changes
             <CommonButton title="Purchase Token" handler={() => handler('tokenSale')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" />
             <CommonButton title="Whitepaper" handler={() => handler('whitepaper')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" />
           </div>
@@ -53,15 +62,40 @@ export const IOCComponent = () => {
   const handlePlay = () => { }
   return (
     <div className="grid m-[12px] my-12 md:m-18 xl:m-24">
+<<<<<<< Updated upstream
       <TitleComponent anchor="ico" title="What is Crypto ICO" content="The ICO will be done in BTC and ETH, on multiple platforms around the world." />
       <div className="flex m-auto items-center space-x-12">
         <div className="grid xl:flex gap-x-24 m-auto items-center">
+=======
+      {/* <TitleComponent anchor="ico" title="What is Crypto ICO" content="The ICO will be done in BTC and ETH, on multiple platforms around the world." /> */}
+      <TitleComponent anchor="ico" title="What is 1nance" content="" />
+      <div className="flex items-center m-auto space-x-12">
+        <div className="grid items-center m-auto xl:flex gap-x-24">
+>>>>>>> Stashed changes
           <div className="xl:order-last min-w-[30%] justify-center grid">
             <img src={ilustrWhatisICO1} alt="Illustrs" />
             <PlayButton handler={handlePlay} />
           </div>
+<<<<<<< Updated upstream
           <div className="flex-row space-y-4 mt-16 xl:mt-0">
             <div className="font-light text-[18px] xl:text-[24px] leading-[24px] xl:leading-[28.13px] max-w-xl px-8 xl:px-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit sem suspendisse urna integer est. Ipsum vitae eu dui augue viverra. Enim purus erat commodo eleifend nec enim, ridiculus arcu in. Volutpat, aliquam consequat nulla lorem mauris. Adipiscing mauris eu ultrices et, volutpat, enim. Vitae pretium proin neque neque purus tellus ultrices accumsan. Habitant tellus faucibus volutpat viverra.</div>
+=======
+          <div className="flex-row mt-16 space-y-4 xl:mt-0">
+            <div className="font-light text-justify text-[16px] xl:text-[20px] leading-[24px] xl:leading-[32.13px] max-w-xl px-4 xl:px-0 indent-4 gap-2 grid">
+              <p className="indent-4">
+                1nance exchange will be a world leading crypto currency exchange. Which will feature a strong focus on altcoin trading. 1nance will offer crypto-to-crypto trading in more than 500 cryptocurrencies and virtual tokens, including Bitcoin (BTC), Ether (ETH), Litecoin (LTC), Dogecoin (DOGE), and our own token 1nance Coin (1NB). 1nance will be an online exchange where users can trade cryptocurrencies. It will  support most commonly traded cryptocurrencies.
+              </p>
+              <p className="indent-4">
+                1nance will provide a crypto wallet for traders to store their electronic funds.
+              </p>
+              <p className="indent-4">
+                The exchange will be supporting services for users to earn interest or transact using cryptocurrencies. It will also offer programs for miners and to help traders make investment decisions.
+              </p>
+              <p className="indent-4">
+                1nance will have its own blockchain-based token, 1nance Coin (1NB).
+              </p>
+            </div>
+>>>>>>> Stashed changes
           </div>
         </div>
       </div>
@@ -111,6 +145,7 @@ export const SolutionsComponent = () => {
 
 export const WhitepaperComponent = () => {
   return (
+<<<<<<< Updated upstream
   <div className="grid m-[18px] my-20 md:m-24 xl:m-36 mx-8 xl:mx-auto">
     <TitleComponent anchor="whitepaper" title="White Paper" content="Announce 1nance ICO plan, and release whitepaper to general public." />
     <div className="flex m-auto items-center gap-24 mt-2 xl:mt-20">
@@ -120,6 +155,18 @@ export const WhitepaperComponent = () => {
       <div className="flex xl:hidden min-w-[30%] justify-center"><img src={_1nanceWhite} alt="IOC ilustr" className="rounded-[20px] xl:rounded-0" /></div>
       <DownloadButton lang="English" flag={USFlag} />
     </div>
+=======
+    <div className="grid m-[18px] my-20 md:m-24 xl:m-36 mx-8 xl:mx-auto">
+      <TitleComponent anchor="whitepaper" title="White Paper" content="Announce 1nance ICO plan, and release whitepaper to general public." />
+      <div className="flex items-center gap-24 m-auto mt-2 xl:mt-20">
+        <div className="hidden xl:flex min-w-[30%] justify-center"><img src={_1nanceWhite} alt="IOC ilustr" /></div>
+        <div className="grid flex-row space-y-12 justify-items-center xl:justify-items-start">
+          <div className="font-light text-[18px] xl:text-[22px] leading-[28.13px] max-w-xl indent-4"></div>
+          <div className="flex xl:hidden min-w-[30%] justify-center"><img src={_1nanceWhite} alt="IOC ilustr" className="rounded-[20px] xl:rounded-0" /></div>
+          <DownloadButton lang="English" flag={USFlag} />
+        </div>
+      </div>
+>>>>>>> Stashed changes
     </div>
   </div>
   )
@@ -139,10 +186,11 @@ export const TokenSaleComponent = () => {
       await update_balance();
     }
     fetchData();
-  }, []);
+  });
 
   return (
     <div className="grid m-[18px] my-20 md:m-10 xl:m-36">
+<<<<<<< Updated upstream
       <TitleComponent anchor="tokenSale" title="Token Sale" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida." />
       <div className="grid lg:flex items-center gap-4 xl:gap-16 mt-8 xl:mt-20">
       <div className="grid w-auto lg:w-1/2 h-full align-center justify-items-end">
@@ -158,6 +206,80 @@ export const TokenSaleComponent = () => {
         </div>
         <div className="grid w-full place-items-center justify-items-center mt-6 lg:mt-6 text-[24px] text-[#03185B]">
           Remain Amount : {remainAmount}
+=======
+      <TitleComponent anchor="tokenSale" title="Token Sale" content="" />
+      <div className="grid items-center gap-4 my-8 lg:flex xl:gap-16 xl:my-20">
+        <div className="grid w-auto h-full lg:w-1/2 align-center justify-items-end">
+          <div className="grid justify-items-end rounded-[16px] px-4 md:px-6 py-6 lg:px-6 lg:p-10 lg:pt-16 w-full h-full bg-gradient-to-b from-[#FFAF10] to-[#F97919]" >
+            <div className="grid w-full h-24 mt-0 place-items-center justify-items-center lg:mt-4">
+              <Flipclock
+                seconds={12 * 24 * 60 * 60}
+                dark={false}
+                fontSize={fontSize > 25 ? (window.innerWidth >= 1024 && window.innerWidth < 1280 ? fontSize + 5 : fontSize) : (window.innerWidth >= 720 ? fontSize + 14 : 25)}
+                fontWeight={900}
+                fontFamily="fantasy"
+              />
+            </div>
+            <div className="grid w-full place-items-center justify-items-center mt-6 lg:mt-6 text-[24px] text-white font-bold">
+              Remain Amount : {remainAmount}
+            </div>
+            <div className="flex justify-around w-full lg:mt-6">
+              <TokenSaleStepComponent name="Pre-Sale" />
+              <TokenSaleStepComponent name="Soft Cap" />
+              <TokenSaleStepComponent name="Bonus" />
+            </div>
+            <div className="w-full bg-white rounded-full p-1 px-1.5 lg:p-1.5 lg:px-2"><div className="bg-gradient-to-r from-[#03185B] to-[#0040C1] rounded-[5px] lg:rounded-[8px] w-2/3 h-4 xl:h-6"></div></div>
+            <div className="grid w-full mt-6 justify-items-center lg:mt-12" ><Link to='tokenSale'><CommonButton title="Purchase Token" className="from-[#03185B] via-[#133295] to-[#03185B] text-white font-[500] rounded-[12px] lg:rounded-[16px] text-[19px] lg:text-[24px] leading-[22px] lg:leading-[28px] min-w-[220px] lg:min-w-[250px] py-4" /></Link></div>
+          </div>
+        </div>
+        <div className="flex-row w-full space-y-6 lg:w-1/2 xl:space-y-12">
+          <div className="font-light grid text-[18px] md:text-[20px] lg:text-[22px] tracking-[1px] leading-[28.13px] text-justify w-full indent-4 space-y-4">
+            <p className="indent-4">ICO will start from 3PM July 1st, investors can purchase in 3 phases on a first-come, first-served basis until 100,000,000 tokens are sold.
+              As each new phase starts, the price will increase.
+            </p>
+            <p className="indent-4">
+              Investors will receive 1nance tokens within 5 working days after the ICO finishes.
+              The detailed schedule is as below:
+            </p>
+          </div>
+          {/* <div className="grid w-full grid-cols-1 px-4 xl:grid-cols-2 justify-items-start gap-y-0 xl:gap-y-1 gap-x-4"> */}
+          <div className="w-full px-0 justify-items-start gap-y-0 xl:gap-y-1 gap-x-4">
+            {/* <ArrowComponent content="We will roll out the platform in" emphasize="Spot trading" />
+            <ArrowComponent content="We will roll out the platform in" emphasize="Margin trading" />
+            <ArrowComponent content="We will roll out the platform in" emphasize="Futures" />
+            <ArrowComponent content="We will roll out the platform in" emphasize="Anonymous instant exchange" />
+            <ArrowComponent content="We will roll out the platform in" emphasize="Decen-tralized (on-chain) exchange" />
+            <ArrowComponent content="We will roll out the platform in" emphasize="And more …" /> */}
+            <table className="text-white w-full shadow-md">
+              <thead>
+                <tr>
+                  <th className="bg-white bg-opacity-5 text-white p-6">ICO Phase </th>
+                  <th className="bg-white bg-opacity-5 text-white p-6">1st week</th>
+                  <th className="bg-white bg-opacity-5 text-white p-6">2nd week</th>
+                  <th className="bg-white bg-opacity-5 text-white p-6">3rd week</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="text-white">
+                  <td className="p-4">CST/GMT+8</td>
+                  <td className="p-4">15:00 July 1th - <br />15:00 July 7th</td>
+                  <td className="p-4">15:00 July 7th - <br />15:00 July 14th</td>
+                  <td className="p-4">15:00 July 14th - <br />15:00 July 21th</td>
+                </tr>
+                <tr className="bg-white text-white bg-opacity-10">
+                  <td className="p-4">1 ETH</td>
+                  <td className="p-4">2700 <b>1nance tokens</b></td>
+                  <td className="p-4">2500 <b>1nance tokens</b></td>
+                  <td className="p-4">2300 <b>1nance tokens</b></td>
+                </tr>
+                <tr className="text-white">
+                  <td className="p-4">1 BTC</td>
+                  <td className="p-4" colSpan={3}>Based on market price</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+>>>>>>> Stashed changes
         </div>
         <div className="flex w-full justify-around lg:mt-6">
           <TokenSaleStepComponent name="Pre-Sale" />
@@ -188,6 +310,7 @@ export const MobileAppComponent = () => {
   return (
     <div className="grid m-[18px] my-20 md:m-24 xl:m-36">
       <TitleComponent anchor="mobile" title="Mobile App" content="We will support English, Chinese, Japanese and Korean on all our user interfaces." />
+<<<<<<< Updated upstream
       <div className="grid xl:flex items-center gap-4 xl:gap-16 m-auto mt-8 xl:mt-20">
       <div className="flex-row space-y-4 px-2 xl:px-0 ">
         <div className="font-bold uppercase text-[20px] xl:text-[28px] leading-[32.81px] max-w-xl">ANDROID &amp; IOS APP</div>
@@ -196,6 +319,21 @@ export const MobileAppComponent = () => {
         <div className="flex gap-2 items-center text-[18px] xl:text-[20px]"><img src={Capa2} alt="Capa2" />Live crypto rate</div>
         <div className="flex gap-2 items-center text-[18px] xl:text-[20px]"><img src={subir1} alt="subir1" />Latest cryptocurrency news</div>
         <div className="flex gap-2 items-center text-[18px] xl:text-[20px]"><img src={change1} alt="change1" />Cryptocurrenci exchange</div>
+=======
+      <div className="grid items-center gap-4 m-auto mt-8 xl:flex xl:gap-16 xl:mt-20">
+        <div className="flex-row px-2 space-y-4 xl:px-0 ">
+          <div className="font-bold uppercase text-[20px] xl:text-[28px] leading-[32.81px] max-w-xl">ANDROID &amp; IOS APP</div>
+          <div className="font-light px-2 xl:px-0 text-[18px] xl:text-[24px] indent-4 leading-[30.13px] max-w-xl text-justify">We will support English, Chinese， Japanese and Korean on all our user interfaces. (The very initial release will be in English and Chinese only.) More languages will be added over time.</div>
+          <div className="grid max-w-xl pt-4 gap-y-4 xl:gap-y-8 xl:pt-8">
+            <div className="flex gap-2 items-center text-[18px] xl:text-[20px]"><img src={Capa2} alt="Capa2" />Live crypto rate</div>
+            <div className="flex gap-2 items-center text-[18px] xl:text-[20px]"><img src={subir1} alt="subir1" />Latest cryptocurrency news</div>
+            <div className="flex gap-2 items-center text-[18px] xl:text-[20px]"><img src={change1} alt="change1" />Cryptocurrenci exchange</div>
+          </div>
+          <div className="flex justify-center w-full gap-3 py-4 xl:flex xl:w-4/5 xl:py-8 xl:pl-16">
+            <CommonButton title="Android" className="px-8 text-[24px] xl:text-[28px] leading-[32.81px] font-black gap-4 xl:gap-2 min-w-[150px] xl:min-w-[200px]" icon={android1} />
+            <CommonButton title="Apple" className="px-8 xl:px-10 text-[24px] xl:text-[28px] leading-[32.81px] font-black gap-4 xl:gap-2  min-w-[150px] xl:min-w-[200px]" icon={apple1} />
+          </div>
+>>>>>>> Stashed changes
         </div>
         <div className="flex xl:flex gap-3 w-full xl:w-4/5 justify-center py-4 xl:py-8 xl:pl-16">
         <CommonButton title="Android" className="px-8 text-[24px] xl:text-[28px] leading-[32.81px] font-black gap-4 xl:gap-2 min-w-[150px] xl:min-w-[200px]" icon={android1} />
@@ -212,7 +350,11 @@ export const RoadmapComponent = () => {
   return (
     <div className="grid my-36 mb-0">
       <div className="mx-8 md:mx-12 xl:mx-16">
+<<<<<<< Updated upstream
       <TitleComponent anchor="roadmap" title="Roadmap" content="The time stated in the schedule below is in Universal Time Coordinated- UTC+8 hours." />
+=======
+        <TitleComponent anchor="roadmap" title="Roadmap" content="The time stated in the schedule below is in Universal Time Coordinated UTC+8 hours." />
+>>>>>>> Stashed changes
       </div>
       <div className="hidden xl:grid gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance1.svg')] bg-center bg-no-repeat min-h-[860px]"></div>
       <div className="md:grid lg:hidden xl:hidden gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance2.svg')] bg-center bg-no-repeat min-h-[766px]"></div>
@@ -225,8 +367,17 @@ export const OurCoinComponent = () => {
   return (
     <div className="grid m-[18px] my-20 md:m-24 xl:m-36">
       <TitleComponent anchor="ourCoin" title="Our Coin" content="1nance Coin is an ERC 20 token since it exists on the ethereum blockchain." />
+<<<<<<< Updated upstream
       <div className="grid xl:flex items-center gap-4 xl:gap-16 w-full mt-3 xl:mt-20 px-2 xl:px-0">
       <IllustComponent illust={ilustrOurCoin1} title="1NANCE COIN" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit sem suspendisse urna integer est. Ipsum vitae eu dui augue viverra. Enim purus erat commodo eleifend nec enim, ridiculus arcu in. Volutpat, aliquam consequat nulla lorem mauris. Adipiscing mauris eu ultrices et, volutpat, enim. Vitae pretium proin neque neque purus tellus ultrices accumsan. Habitant tellus faucibus volutpat viverra." />
+=======
+      <div className="grid items-center w-full gap-4 px-2 mt-3 xl:flex xl:gap-16 xl:mt-20 xl:px-0">
+        <IllustComponent illust={ilustrOurCoin1} title="" content={
+          <div className="text-[22px]">
+            <p className="font-normal pl-5 my-2">We will issue our token, the 1nance Coin, which has a straight limit of 200MM. 1nance Coin is an ERC 20 token since it exists on the ethereum blockchain.</p>
+          </div>
+        } />
+>>>>>>> Stashed changes
       </div>
     </div>
   )
@@ -235,22 +386,20 @@ export const OurCoinComponent = () => {
 export const TokenDistributionComponent = () => {
   return (
     <div className="grid m-[18px] my-20 md:m-24 xl:m-36">
-      <TitleComponent anchor="tokenDistribution" title="Token Distribution" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ac nisl pellentesque id tellus gravida." />
+      <TitleComponent anchor="tokenDistribution" title="Token Distribution" content="" />
       <div className="flex items-center gap-16 m-auto mt-4 xl:mt-20">
-        <IllustComponent illust={ilustGraficFunds1} title="1NANCE COIN" content={
+        <IllustComponent illust={ilustGraficFunds1} title="Allocation" content={
           <div className="grid gap-3">
             <p className="indent-4">
-              ● 35% of the funds will be used to build the <b className="font-[900]">1Nance</b> platform and perform
-              upgrades to the system as well as team recruiting, training, and the
-              development budget.</p>
-            <p className="indent-4">
-              ● 50% will be used for 1nance branding and marketing, including continuous
+              ● 50% ( 100,000,000 ) will be used for ICO - 1nance branding and marketing, including continuous
               promotion and education. There will be a sufficient budget for various
               advertisement activities, to help  <b className="font-[900]">1Nance</b> become popular among investors,
               and to attract active users to the platform.</p>
             <p className="indent-4">
-              ● 15% will be kept in reserve to cope with any unexpected situations that might
-              come up.</p>
+              ● 40% ( 80,000,000 ) of the funds will be used to build the <b className="font-[900]">1Nance</b> platform and perform
+              upgrades to the system as well as team recruiting, training, and the development budget.</p>
+            <p className="indent-4">
+              ● 10% ( 20,000,000 ) will be provided to the Angel Investors who supports us.</p>
           </div>
         } isRTL />
       </div>
