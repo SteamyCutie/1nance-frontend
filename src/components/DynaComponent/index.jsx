@@ -58,7 +58,7 @@ export const IOCComponent = () => {
   return (
     <div className="grid m-[12px] my-12 md:m-18 xl:m-24">
       {/* <TitleComponent anchor="ico" title="What is Crypto ICO" content="The ICO will be done in BTC and ETH, on multiple platforms around the world." /> */}
-      <TitleComponent anchor="ico" title="What is Crypto ICO" content="" />
+      <TitleComponent anchor="ico" title="What is 1nance" content="" />
       <div className="flex items-center m-auto space-x-12">
         <div className="grid items-center m-auto xl:flex gap-x-24">
           <div className="xl:order-last min-w-[30%] justify-center grid">
@@ -287,12 +287,7 @@ export const OurCoinComponent = () => {
       <div className="grid items-center w-full gap-4 px-2 mt-3 xl:flex xl:gap-16 xl:mt-20 xl:px-0">
         <IllustComponent illust={ilustrOurCoin1} title="" content={
           <div className="text-[22px]">
-            <div className="font-bold">Repurchasing plan
-              <p className="font-normal pl-5 my-2">Every quarter, we will use 20% of our profits to buy back 1nance andtokens destroy them, until we buy 50% of all the 1nance tokens(100MM) back. All buy-back transactions will be announced on the blockchain. We eventually will destroy 100MM 1nance tokens, leaving 100MM 1nance tokens remaining.</p>
-            </div>
-            <div className="font-bold mt-5">Decentralized exchanges
-              <p className="font-normal pl-5 my-2">In the future, 1nance will build a decentralized exchange, where 1nance tokens will be used as one of the key base assets as well as gas to be spent.</p>
-            </div>
+            <p className="font-normal pl-5 my-2">We will issue our token, the 1nance Coin, which has a straight limit of 200MM. 1nance Coin is an ERC 20 token since it exists on the ethereum blockchain.</p>
           </div>
         } />
       </div>
@@ -303,7 +298,7 @@ export const OurCoinComponent = () => {
 export const TokenDistributionComponent = () => {
   return (
     <div className="grid m-[18px] my-20 md:m-24 xl:m-36">
-      <TitleComponent anchor="tokenDistribution" title="Token Distribution" content="We will issue our token, the 1nance Coin, which has a straight limit of 200MM. 1nance Coin is an ERC 20 token since it exists on the ethereum blockchain." />
+      <TitleComponent anchor="tokenDistribution" title="Token Distribution" content="" />
       <div className="flex items-center gap-16 m-auto mt-4 xl:mt-20">
         <IllustComponent illust={ilustGraficFunds1} title="Allocation" content={
           <div className="grid gap-3">
