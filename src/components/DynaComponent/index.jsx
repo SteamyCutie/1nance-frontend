@@ -303,15 +303,15 @@ export const TokenDistributionComponent = () => {
         <IllustComponent illust={ilustGraficFunds1} title="Allocation" content={
           <div className="grid gap-3">
             <p className="indent-4">
-              ● 50% ( 100,000,000 BNB ) will be used for ICO - 1nance branding and marketing, including continuous
+              ● 50% ( 100,000,000 ) will be used for ICO - 1nance branding and marketing, including continuous
               promotion and education. There will be a sufficient budget for various
               advertisement activities, to help  <b className="font-[900]">1Nance</b> become popular among investors,
               and to attract active users to the platform.</p>
             <p className="indent-4">
-              ● 40% ( 80,000,000 BNB ) of the funds will be used to build the <b className="font-[900]">1Nance</b> platform and perform
+              ● 40% ( 80,000,000 ) of the funds will be used to build the <b className="font-[900]">1Nance</b> platform and perform
               upgrades to the system as well as team recruiting, training, and the development budget.</p>
             <p className="indent-4">
-              ● 10% ( 20,000,000 BNB ) will be provided to the Angel Investors who supports us.</p>
+              ● 10% ( 20,000,000 ) will be provided to the Angel Investors who supports us.</p>
           </div>
         } isRTL />
       </div>
