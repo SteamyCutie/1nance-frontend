@@ -274,12 +274,14 @@ export const TokenSaleComponent = () => {
             <div className="grid w-full place-items-center justify-items-center mt-6 lg:mt-6 text-[24px] text-white font-bold">
               Remain Amount : {remainAmount}
             </div>
-            <div className="flex justify-around w-full lg:mt-6">
-              <TokenSaleStepComponent name="Pre-Sale" />
-              <TokenSaleStepComponent name="Soft Cap" />
-              <TokenSaleStepComponent name="Bonus" />
+            <div className="grid gap-0 w-full items-end">
+              <div className="flex justify-around w-full lg:mt-6 h-[48px]">
+                <TokenSaleStepComponent name="Pre-Sale" />
+                <TokenSaleStepComponent name="Soft Cap" />
+                <TokenSaleStepComponent name="Bonus" />
+              </div>
+              <div className="place-self-start w-full bg-white rounded-full p-1 px-1.5 xl:p-1.5 xl:px-2 h-[24px] xl:h-8 flex items-center"><div className="bg-gradient-to-r from-[#03185B] to-[#0040C1] rounded-[5px] xl:rounded-[8px] w-2/3 h-4 xl:h-6"></div></div>
             </div>
-            <div className="w-full bg-white rounded-full p-1 px-1.5 lg:p-1.5 lg:px-2"><div className="bg-gradient-to-r from-[#03185B] to-[#0040C1] rounded-[5px] lg:rounded-[8px] w-2/3 h-4 xl:h-6"></div></div>
             <div className="grid w-full mt-6 justify-items-center lg:mt-12" ><Link to='tokenSale'><CommonButton title="Purchase Token" className="from-[#03185B] via-[#133295] to-[#03185B] text-white font-[500] rounded-[12px] lg:rounded-[16px] text-[19px] lg:text-[24px] leading-[22px] lg:leading-[28px] min-w-[220px] lg:min-w-[250px] py-4" /></Link></div>
           </div>
         </div>
