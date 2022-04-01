@@ -1,6 +1,6 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+/* @tailwind utilities; */
 
 @import url("https://fonts.googleapis.com/css2?family=Concert+One&family=Roboto&display=swap");
 
@@ -184,7 +184,7 @@ body {
   opacity: 0;
   z-index: 997;
 }
-/* animation class on team member component */
+
 @keyframes jello {
   11.1% {
     transform: none;
@@ -228,7 +228,6 @@ body {
   transform-origin: center;
 }
 
-/* animation class on team member component */
 @keyframes line_rotato {
   11.1% {
     transform: rotate(-40deg);

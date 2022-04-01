@@ -116,7 +116,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
             </div>
             <div id="langMore" onMouseEnter={() => setLangMore(true)} onMouseLeave={() => setLangMore(false)} className={`${getNavLinkClassName} flex flex-rows`}>
               <div className="flex items-center w-16">
-                <img src={flagInfo[uiLang].img} className="w-8 w-full h-8" alt={flagInfo[uiLang].code} />
+                <img src={flagInfo[uiLang].img} className="w-8 h-8" alt={flagInfo[uiLang].code} />
                 <div className="ml-2 font-[700] tracking-widest">{flagInfo[uiLang].code}</div>
               </div>
               <ChevronDownIcon className="w-6 h-6" />
@@ -125,7 +125,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
               {flagInfo.map((item, i) =>
                 <div key={i} onClick={() => { setUiLang(i); setLangMore(false) }} className={moreClassName}>
                   <div className="flex items-center gap-2">
-                    <img src={item.img} className="w-8 w-full h-8" alt={item.lang} />
+                    <img src={item.img} className="w-8 h-8" alt={item.lang} />
                     <div>{item.lang}</div>
                   </div>
                 </div>
@@ -184,7 +184,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
         </div>
         <div id="langMoreSM" onClick={() => { if (!langMoreSM) { setLangMoreSM(true); setMoreMenu('LANG') } else { setLangMoreSM(false) } }} className={`${getNavLinkClassName} z-[998] flex flex-rows text-[14px] spacing-[3px] px-0 mx-0 py-5`}>
           <div className="flex items-center w-13">
-            <img src={flagInfo[uiLang].img} className="w-6 w-full h-6 md:w-8 md:h-8" alt={flagInfo[uiLang].code} />
+            <img src={flagInfo[uiLang].img} className="w-6 h-6 md:w-8 md:h-8" alt={flagInfo[uiLang].code} />
             <div className="ml-2 font-[700] w-[20px] md:w-[24px] md:text-[17px] text-center tracking-widest">{flagInfo[uiLang].code}</div>
           </div>
           <ChevronDownIcon className="w-6 h-6" />
@@ -193,7 +193,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
           {flagInfo.map((item, i) =>
             <div key={i} onClick={() => { setUiLang(i); setLangMoreSM(false) }} className={`${moreClassName}`}>
               <div className="flex items-center gap-1.5 md:gap-2 md:text-[16px]">
-                <img src={item.img} className="w-5 w-full h-5 md:w-6 md:h-6" alt={item.lang} />
+                <img src={item.img} className="w-5 h-5 md:w-6 md:h-6" alt={item.lang} />
                 <div>{item.lang}</div>
               </div>
             </div>
