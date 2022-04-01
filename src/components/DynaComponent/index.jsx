@@ -26,6 +26,7 @@ import TitleComponent from './TitleComponent'
 import { TokenSaleStepComponent } from '../StepComponent'
 // import ArrowComponent from './ArrowComponent'
 import MemberComponent from '../MemberComponent'
+import _1NanceLinks from "../../configs/_1NanceLinks.json"
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
@@ -75,10 +76,16 @@ export const IOCComponent = () => {
   const [anim, setAnim] = useState(false)
   const [pageYOffset, setYOffset] = useState(0)
 
+  const [modal, setModal] = useState(false);
+  const [videoHeight, setVideoHeight] = useState(100);
+  const updateWindowDimensions = () => setVideoHeight(window.innerHeight / 2);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setYOffset(window.pageYOffset)
     })
+    updateWindowDimensions();
+    window.addEventListener('resize', updateWindowDimensions)
   }, []);
 
   useEffect(() => {
@@ -89,10 +96,37 @@ export const IOCComponent = () => {
     }
   }, [pageYOffset])
 
+
+  useEffect(() => {
+    if (modal)
+      document.body.style.overflow = 'hidden'
+    else
+      document.body.style.overflow = 'unset'
+  }, [modal])
+
   // Open Model to show video
-  const handlePlay = () => { }
+  const handlePlay = () => setModal(!modal)
+
   return (
     <div className="grid m-[12px] my-12 md:m-18 xl:m-24" id="section-ico">
+      {
+        modal ? <div className="modal w-[100%] h-[100%] m-auto flex" style={{ position: "fixed", top: "0", left: "0", right: "0", backgroundColor: "rgb(255,255,255,0.4)", zIndex: "1000", backdropFilter: "blur(4px)" }} onClick={() => { setModal(!modal) }}>
+          <div className="modal-dialog w-[50%] h-{videoHeight} m-auto items-center rounded-[7px]" style={{ zIndex: "1001", backgroundColor: "rgb(240,240,240)" }}>
+            <div className="m-auto modal-content">
+              <div className="p-2 modal-body">
+                <iframe
+                  width="100%"
+                  height={videoHeight}
+                  src={_1NanceLinks.youtube}
+                  title="Video Player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div> : <></>
+      }
       {/* <TitleComponent anchor="ico" title="What is Crypto ICO" content="The ICO will be done in BTC and ETH, on multiple platforms around the world." /> */}
       <div style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07)" }}><TitleComponent anchor="ico" title="What is 1nance" content="" /></div>
       <div className="flex items-center m-auto space-x-12">

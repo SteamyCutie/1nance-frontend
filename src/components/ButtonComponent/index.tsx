@@ -1,6 +1,6 @@
 import React from "react";
 import { DownloadIcon } from "@heroicons/react/solid"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import _1NanceLinks from "../../configs/_1NanceLinks.json"
 
 interface CommonButtonProps {
@@ -55,44 +55,13 @@ interface PlayButtonProps {
 
 export const PlayButton: React.FC<PlayButtonProps> = ({ handler }) => {
 
-  const [modal, setModal] = useState(false);
-  const [videoHeight, setVideoHeight] = useState(100);
-  const updateWindowDimensions = () => setVideoHeight(window.innerHeight / 2);
 
-  useEffect(() => {
-    updateWindowDimensions();
-    window.addEventListener('resize', updateWindowDimensions);
-  }, []);
-
-  useEffect(() => {
-    if (modal)
-      document.body.style.overflow = 'hidden'
-    else
-      document.body.style.overflow = 'unset'
-  }, [modal])
 
   return (
     <>
-      {
-        modal ? <div className="modal w-[100%] h-[100%] m-auto flex" style={{ position: "fixed", top: "0", left: "0", right: "0", backgroundColor: "rgb(255,255,255,0.4)", zIndex: "1000", backdropFilter: "blur(4px)" }} onClick={() => { setModal(!modal) }}>
-          <div className="modal-dialog w-[50%] h-{videoHeight} m-auto items-center rounded-[7px]" style={{ zIndex: "1001", backgroundColor: "rgb(240,240,240)" }}>
-            <div className="m-auto modal-content">
-              <div className="p-2 modal-body">
-                <iframe
-                  width="100%"
-                  height={videoHeight}
-                  src={_1NanceLinks.youtube}
-                  title="Video Player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </div>
-          </div>
-        </div> : <></>
-      }
+
       <div className="grid justify-items-center mt-[-125px] md:mt-[-170px] lg:mt-[-140px] gap-1 lg:gap-0 text-[14px] md:text-[20px] lg:text-[16px] font-[700]">
-        <button onClick={() => setModal(!modal)} className="cursor-pointer grid w-[60px] h-[60px] mt-[5px] md:w-[80px] md:h-[80px] md:mt-[5px] lg:w-[72px] lg:h-[72px] lg:mt-[-20px] hover:scale-[1.03] active:scale-100 pl-2 rounded-full bg-[#F97919] hover:bg-[#FFAF10] active:bg-[#F97919] transition-all duration-300 ease-out place-content-center">
+        <button onClick={handler} className="cursor-pointer grid w-[60px] h-[60px] mt-[5px] md:w-[80px] md:h-[80px] md:mt-[5px] lg:w-[72px] lg:h-[72px] lg:mt-[-20px] hover:scale-[1.03] active:scale-100 pl-2 rounded-full bg-[#F97919] hover:bg-[#FFAF10] active:bg-[#F97919] transition-all duration-300 ease-out place-content-center">
           <div className="scale-90 lg:scale-100">
             <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0.364746 24.8138V0.175493L25.8057 12.4915L0.364746 24.8138ZM4 6.5V18.1967L17 12.4915L4 6.5Z" fill="white" />
