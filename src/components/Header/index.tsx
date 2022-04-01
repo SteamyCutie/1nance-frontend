@@ -98,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
             <div onClick={() => handleGoSection('section-whitepaper')} className={getNavLinkClassName}>
               WhitePaper
             </div>
-            <div onClick={() => handleGoSection('section-tokensale')} className={getNavLinkClassName}>
+            <div onClick={() => handleGoSection('section-token')} className={getNavLinkClassName}>
               Token Sale
             </div>
             <div onClick={() => handleGoSection('section-roadmap')} className={getNavLinkClassName}>
@@ -161,7 +161,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
               <button onClick={() => { setIsOpen(false); handleGoSection('section-whitepaper') }} className={getDrawerLinkClassName}>
                 Whitepaper
               </button>
-              <button onClick={() => { setIsOpen(false); handleGoSection('section-tokensale') }} className={getDrawerLinkClassName}>
+              <button onClick={() => { setIsOpen(false); handleGoSection('section-token') }} className={getDrawerLinkClassName}>
                 Token Sale
               </button>
               <button onClick={() => { setIsOpen(false); handleGoSection('section-roadmap') }} className={getDrawerLinkClassName}>
