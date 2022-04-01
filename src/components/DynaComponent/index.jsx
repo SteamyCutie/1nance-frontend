@@ -222,6 +222,7 @@ export const WhitepaperComponent = () => {
 export const TokenSaleComponent = () => {
   const fontSize = window.innerWidth / 1920 * 48;
   const [remainAmount, setRemainAmount] = useState(0);
+  const [percent] = useState(0)
 
   const loadBalance = async () => {
     return 5000;
@@ -280,7 +281,7 @@ export const TokenSaleComponent = () => {
                 <TokenSaleStepComponent name="Soft Cap" />
                 <TokenSaleStepComponent name="Bonus" />
               </div>
-              <div className="place-self-start w-full bg-white rounded-full p-1 px-1.5 xl:p-1.5 xl:px-2 h-[24px] xl:h-8 flex items-center"><div className="bg-gradient-to-r from-[#03185B] to-[#0040C1] rounded-[5px] xl:rounded-[8px] w-2/3 h-4 xl:h-6"></div></div>
+              <div className="place-self-start w-full bg-white rounded-full p-1 px-1.5 xl:p-1.5 xl:px-2 h-[24px] xl:h-8 flex items-center"><div className={`bg-gradient-to-r from-[#03185B] to-[#0040C1] rounded-[5px] xl:rounded-[8px] w-[${percent}%] h-4 xl:h-6`}></div></div>
             </div>
             <div className="grid w-full mt-6 justify-items-center lg:mt-12" ><Link to='tokenSale'><CommonButton title="Purchase Token" className="from-[#03185B] via-[#133295] to-[#03185B] text-white font-[500] rounded-[12px] lg:rounded-[16px] text-[19px] lg:text-[24px] leading-[22px] lg:leading-[28px] min-w-[220px] lg:min-w-[250px] py-4" /></Link></div>
           </div>

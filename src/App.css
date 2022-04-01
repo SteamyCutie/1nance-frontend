@@ -4,6 +4,14 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+@font-face {
+  font-family: "TheBoldFont";
+  font-style: bold;
+  font-weight: 400;
+  src: local("TheBoldFont"), local("TheBoldFont"),
+    url("./assets/font/theboldfont.ttf") format("truetype");
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background: linear-gradient(
@@ -68,7 +76,7 @@ body {
 }
 
 .countdown-timer-item .digit-wrapper span {
-  font-family: fantasy;
+  font-family: TheBoldFont;
   background: papayawhip;
   color: #2f2f2f;
 }
