@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { HomeComponent, IOCComponent, MobileAppComponent, OurCoinComponent, RoadmapComponent, SolutionsComponent, TeamComponent, TokenDistributionComponent, TokenSaleComponent, WhitepaperComponent } from '../../components/DynaComponent'
-import Footer from '../../components/Footer'
+import Footer from '../../components/Footer/index'
 import { ScrollUpButton } from '../../components/ButtonComponent'
 
 interface HomeProps {

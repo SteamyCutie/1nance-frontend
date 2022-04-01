@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Select from "react-select";
 import TitleComponent from "../../components/DynaComponent/TitleComponent";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/index";
 import ETH from "../../assets/png/ETH.png";
 import BNB from "../../assets/png/BNB.png";
 import USDT from "../../assets/png/USDT.png";
