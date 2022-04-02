@@ -350,9 +350,9 @@ export const TokenSaleComponent = () => {
               <tbody>
                 <tr className="text-white">
                   <td className="p-4">CST/GMT+8</td>
-                  <td className="p-4">15:00 July 1th - <br />15:00 July 7th</td>
-                  <td className="p-4">15:00 July 7th - <br />15:00 July 14th</td>
-                  <td className="p-4">15:00 July 14th - <br />15:00 July 21th</td>
+                  <td className="p-4">15:00 April 14th - <br />15:00 April 21th</td>
+                  <td className="p-4">15:00 April 22th - <br />15:00 April 28th</td>
+                  <td className="p-4">15:00 April 29th - <br />15:00 May 06th</td>
                 </tr>
                 <tr className="bg-white text-white bg-opacity-10">
                   <td className="p-4">1 ETH</td>
@@ -361,7 +361,7 @@ export const TokenSaleComponent = () => {
                   <td className="p-4">2300 <b>1nance tokens</b></td>
                 </tr>
                 <tr className="text-white">
-                  <td className="p-4">1 BTC</td>
+                  <td className="p-4">1 BNB</td>
                   <td className="p-4" colSpan={3}>Based on market price</td>
                 </tr>
               </tbody>
