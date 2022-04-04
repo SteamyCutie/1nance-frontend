@@ -475,7 +475,7 @@ export const OurCoinComponent = () => {
       <div className="grid items-center w-full gap-4 px-2 mt-3 xl:flex xl:gap-16 xl:mt-20 xl:px-0">
         <IllustComponent illust={ilustrOurCoin1} title="" content={
           <div className="">
-            <p className="font-normal pl-5 my-2">We will issue our token, the 1nance Coin, which has a straight limit of 200MM.</p>
+            <p className="font-normal pl-5 my-2"></p>
           </div>
         } />
       </div>
