@@ -350,8 +350,8 @@ export const TokenSaleComponent = () => {
               <tbody>
                 <tr className="text-white">
                   <td className="p-4">CST/GMT+8</td>
-                  <td className="p-4">15:00 April 14th - <br />15:00 April 21th</td>
-                  <td className="p-4">15:00 April 22th - <br />15:00 April 28th</td>
+                  <td className="p-4">15:00 April 14th - <br />15:00 April 21st</td>
+                  <td className="p-4">15:00 April 22nd - <br />15:00 April 28th</td>
                   <td className="p-4">15:00 April 29th - <br />15:00 May 06th</td>
                 </tr>
                 <tr className="bg-white text-white bg-opacity-10">
@@ -475,7 +475,7 @@ export const OurCoinComponent = () => {
       <div className="grid items-center w-full gap-4 px-2 mt-3 xl:flex xl:gap-16 xl:mt-20 xl:px-0">
         <IllustComponent illust={ilustrOurCoin1} title="" content={
           <div className="">
-            <p className="font-normal pl-5 my-2">We will issue our token, the 1nance Coin, which has a straight limit of 200MM. 1nance Coin is an ERC 20 token since it exists on the ethereum blockchain.</p>
+            <p className="font-normal pl-5 my-2">We will issue our token, the 1nance Coin, which has a straight limit of 200MM.</p>
           </div>
         } />
       </div>
