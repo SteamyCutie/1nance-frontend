@@ -1,44 +1,44 @@
 [
   {
+    "name": "Tadej Francelj",
+    "role": "CEO",
+    "link": "https://www.linkedin.com/in/tadej-francelj-619084130/",
+    "description": "Tadej Francelj, Lawyer I Business developer I Blockchain & Fintech I Finance & Banking I Data Privacy holds the position of CEO for 1nance project.",
+    "profile": "user-1.png"
+  },
+  {
     "name": "Tiago Moura deOliveira",
-    "role": "Founder / CEO",
+    "role": "Operations Director",
     "link": "https://www.linkedin.com/in/tiago-moura-oliveira/",
     "description": "Tiago Moura de Oliveira, a holder of a degree in Financial Management, has consolidated professional expertise and knowledge in the Logistics / Distribution / Purchasing and Warehousing gained from working in various sectors and multicultural environments. He has a track record in team building, relationship management, continuous improvement processes resulting in successful teams and top organisational performance.",
-    "profile": "user-1.png"
+    "profile": "user-2.png"
   },
   {
     "name": "Dennis Han",
     "role": "CTO",
     "link": "https://www.linkedin.com/in/dennis-han-a27545227/",
     "description": "As an experienced developer, professional with seasoned leadership and relationship building skills, Dennis Han has strong experience in developing Decentralized Blockchain applications using Ethereum and Hyper ledger. A young and fast-growing blockchain expert and senior software engineer with a Master’s degree in Computer Science from The Hong Kong University of Science and Technology(HKUST), always focusing on how to get rid of the vulnerabilities of the DApps we build and to serve higher transaction speed and lower gas. Contributed and participated in many projects in DeFi and NFT fields like CronaSwap, SphynxSwap, Solkitties, etc.",
-    "profile": "user-2.png"
-  },
-  {
-    "name": "Maxim Prishchepo",
-    "role": "Chief Architect",
-    "link": "https://www.linkedin.com/in/mprishchepo/",
-    "description": "Maxim, a holder of Software Engineering degree from Novosibirsk State Technical University (NSTU), has over seven years working in the blockchain industry and more than 15 years in the FinTech and the financial information security system sector. Also, he has much experience and interest in web 3.0 application development, mobile app development and cloud application development services.",
     "profile": "user-3.png"
   },
   {
-    "name": "Souphamyxay Souphayxay",
-    "role": "VP of Engineering",
-    "link": "https://www.linkedin.com/in/souphamyxay-souphayxay-080b4a204/",
-    "description": "Souphamyxay Souphayxay is a full-Stack blockchain, web and mobile application developer with over 6 years experience.   He has launched many tokens, developed several exchange platforms, uploaded APIs and web wallets, launched DeFi tokens based on smart contract and Proof of Stake (PoS) algorithms as well as developed time-based rules for backing up and restoring systems.  In addition, he has garnered much experience in tasks maintenance on administrative Linux server, development of e-commerce web apps, customer web portals, documentary launch websites and donations web apps. To back up his experience and achievements, Souphamyxay has mastered advanced skills and knowledge about C/C++/C# and Objective Oriented Programming with a strong background in mathematics, algorithms, and data-processing logic.",
+    "name": "Daniel R",
+    "role": "Chief Architect",
+    "link": "https://www.linkedin.com/in/drmiguel22/",
+    "description": "Danial supports 1nance project with the role of Disruptive & Growth, Strategy Advisor,| Digital & Tech, COO, MCT and Reforge alumni.",
     "profile": "user-4.png"
   },
   {
-    "name": "Gustavo Grossi de Salles",
+    "name": "Akhil P Vijay",
     "role": "Product Director",
-    "link": "https://www.linkedin.com/in/ggrossi91/",
-    "description": "Product Manager, Gustavo is a Crypto Enthusiast and SaaS Founder at Sendsign. Talks about #produtividade, #gestãodotempo, and #crescimentopessoal Talks about hashtag produtividade, hashtag gestãodotempo, and hashtag crescimentopessoal.",
+    "link": "https://www.linkedin.com/in/akhilpvijay3/",
+    "description": "Akhil P Vijay’s favorite programming language is Python (though I also have experience in R). The main libraries I use are Pandas, NumPy, scikit-learn, stats models, Matplotlib, Seaborn, SciPy. He is proficient in several machine learning algorithms, both supervised and unsupervised. These include linear regression, logistic regression and polynomial regression and currently passionately pursuing knowledge further.",
     "profile": "user-5.png"
   },
   {
-    "name": "Claire Keyser",
-    "role": "Operations Director",
-    "link": "https://www.linkedin.com/in/clairehorne1",
-    "description": "Claire is a recruitment specialist, advisor and consultant with more than 15 years in the human resources management sector. With the advent of the blockchain industry, she has brought innovative and effective recruitment strategies to the sector and has worked in several decentralized organizations. She is an outstanding and renowned team leader who has recruited personnel at the entry, middle and senior executive levels, staffing organizations with individuals who proved to be respectable and successful leaders in their own right.",
+    "name": "Rosa L",
+    "role": "VP of Engineering",
+    "link": "https://www.linkedin.com/in/rosa-liu/",
+    "description": "Rosa Liu, who graduated Carnegie Mellon University is a Strategies And Operations Manager at Workrise.",
     "profile": "user-6.png"
   }
 ]
