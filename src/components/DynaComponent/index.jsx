@@ -322,7 +322,7 @@ export const TokenSaleComponent = () => {
         </div>
         <div className="flex-row w-full space-y-6 lg:w-1/2 xl:space-y-12">
           <div className="font-light grid text-[18px] md:text-[20px] lg:text-[22px] tracking-[1px] leading-[28.13px] text-justify w-full indent-4 space-y-4" style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 200ms" }}>
-            <p className="indent-4">ICO will start from 3PM July 1st, investors can purchase in 3 phases on a first-come, first-served basis until 100,000,000 tokens are sold.
+            <p className="indent-4">ICO will start from 3PM April 21st, investors can purchase in 3 phases on a first-come, first-served basis until 100,000,000 tokens are sold.
               As each new phase starts, the price will increase.
             </p>
             <p className="indent-4">
