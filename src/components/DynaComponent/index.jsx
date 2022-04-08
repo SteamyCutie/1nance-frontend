@@ -26,25 +26,44 @@ import TitleComponent from './TitleComponent'
 import { TokenSaleStepComponent } from '../StepComponent'
 // import ArrowComponent from './ArrowComponent'
 import MemberComponent from '../MemberComponent'
+import _1NanceLinks from "../../configs/_1NanceLinks.json"
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 
 export const HomeComponent = ({ handler }) => {
+
+  const [anim, setAnim] = useState(false)
+  const [pageYOffset, setYOffset] = useState(0)
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setYOffset(window.pageYOffset)
+    })
+  }, []);
+
+  useEffect(() => {
+    if (window.pageYOffset > document.getElementById("section-home").offsetTop - 300) {
+      setAnim(true)
+    } else {
+      setAnim(false)
+    }
+  }, [pageYOffset])
+
   return (
-    <div className="grid m-[12px] my-12 md:m-18 xl:m-24">
+    <div className="grid m-[12px] my-12 md:m-18 xl:m-24" id="section-home">
       <div className="grid items-center m-auto xl:flex">
         <div className="grid w-[calc(100vw-24px)] xl:w-1/2 justify-items-center xl:justify-items-end gap-10 xl:gap-12">
-          <div className="font-medium text-[24px] text-left xl:text-justify leading-[30px] px-0 xl:px-6 w-4/5 place-items-end">
-            <p className="indent-4">In our view, there are fundamentally two different types of exchanges: the ones that deal with fiat currency; and the ones that deal purely in crypto. It is the latter one that we will focus on. Even though they are small now, we strongly believe that pure crypto exchanges will be bigger, many times bigger, than fiat based exchanges in the near future. They will play an ever more important role in world finance and we call this new paradigm <b className='font-bold'>1nance</b>.</p>
-            <p className="indent-4 mt-2">With your help, <b className='font-bold'>1nance</b> will build a world-class crypto exchange, powering the future of crypto finance.</p>
+          <div className="font-medium text-[18px] text-left xl:text-justify leading-[30px] px-0 xl:px-6 w-4/5 place-items-end">
+            <p className="indent-4" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07)" }}>In our view, there are fundamentally two different types of exchanges: the ones that deal with fiat currency; and the ones that deal purely in crypto. It is the latter one that we will focus on. Even though they are small now, we strongly believe that pure crypto exchanges will be bigger, many times bigger, than fiat based exchanges in the near future. They will play an ever more important role in world finance and we call this new paradigm <b className='font-bold'>1nance</b>.</p>
+            <p className="indent-4 mt-2" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 100ms" }}>With your help, <b className='font-bold'>1nance</b> will build a world-class crypto exchange, powering the future of crypto finance.</p>
           </div>
-          <div className="grid w-4/5 gap-3 xl:flex justify-left xl:justify-center">
-            <CommonButton title="Purchase Token" handler={() => handler('tokenSale')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" />
-            <CommonButton title="Whitepaper" handler={() => handler('whitepaper')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" />
+          <div className="grid w-4/5 gap-3 xl:flex justify-left xl:justify-center" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 200ms" }}>
+            <CommonButton title="Purchase Token" handler={() => handler('section-token')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" />
+            <CommonButton title="Whitepaper" handler={() => handler('section-whitepaper')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" />
           </div>
         </div>
-        <div className="w-[calc(100vw-24px)] grid justify-items-center xl:w-1/2">
+        <div className="w-[calc(100vw-24px)] grid justify-items-center xl:w-1/2" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 300ms" }}>
           <img src={ilustrHome1nance1} alt="Home ilustr" />
         </div>
       </div>
@@ -53,19 +72,70 @@ export const HomeComponent = ({ handler }) => {
 }
 
 export const IOCComponent = () => {
+
+  const [anim, setAnim] = useState(false)
+  const [pageYOffset, setYOffset] = useState(0)
+
+  const [modal, setModal] = useState(false);
+  const [videoHeight, setVideoHeight] = useState(100);
+  const updateWindowDimensions = () => setVideoHeight(window.innerHeight / 2);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setYOffset(window.pageYOffset)
+    })
+    updateWindowDimensions();
+    window.addEventListener('resize', updateWindowDimensions)
+  }, []);
+
+  useEffect(() => {
+    if (window.pageYOffset > document.getElementById("section-ico").offsetTop - 300) {
+      setAnim(true)
+    } else {
+      setAnim(false)
+    }
+  }, [pageYOffset])
+
+
+  useEffect(() => {
+    if (modal)
+      document.body.style.overflow = 'hidden'
+    else
+      document.body.style.overflow = 'unset'
+  }, [modal])
+
   // Open Model to show video
-  const handlePlay = () => { }
+  const handlePlay = () => setModal(!modal)
+
   return (
-    <div className="grid m-[12px] my-12 md:m-18 xl:m-24">
+    <div className="grid m-[12px] my-12 md:m-18 xl:m-24" id="section-ico">
+      {
+        modal ? <div className="modal w-[100%] h-[100%] m-auto flex" style={{ position: "fixed", top: "0", left: "0", right: "0", backgroundColor: "rgb(255,255,255,0.4)", zIndex: "1000", backdropFilter: "blur(4px)" }} onClick={() => { setModal(!modal) }}>
+          <div className="modal-dialog w-[50%] h-{videoHeight} m-auto items-center rounded-[7px]" style={{ zIndex: "1001", backgroundColor: "rgb(240,240,240)" }}>
+            <div className="m-auto modal-content">
+              <div className="p-2 modal-body">
+                <iframe
+                  width="100%"
+                  height={videoHeight}
+                  src={_1NanceLinks.youtube}
+                  title="Video Player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div> : <></>
+      }
       {/* <TitleComponent anchor="ico" title="What is Crypto ICO" content="The ICO will be done in BTC and ETH, on multiple platforms around the world." /> */}
-      <TitleComponent anchor="ico" title="What is 1nance" content="" />
+      <div style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07)" }}><TitleComponent anchor="ico" title="What is 1nance" content="" /></div>
       <div className="flex items-center m-auto space-x-12">
         <div className="grid items-center m-auto xl:flex gap-x-24">
-          <div className="xl:order-last min-w-[30%] justify-center grid">
+          <div className="xl:order-last min-w-[30%] justify-center grid" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 200ms" }}>
             <img src={ilustrWhatisICO1} alt="Illustrs" />
             <PlayButton handler={handlePlay} />
           </div>
-          <div className="flex-row mt-16 space-y-4 xl:mt-0">
+          <div className="flex-row mt-16 space-y-4 xl:mt-0" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 100ms" }}>
             <div className="font-light text-justify text-[16px] xl:text-[20px] leading-[24px] xl:leading-[32.13px] max-w-xl px-4 xl:px-0 indent-4 gap-2 grid">
               <p className="indent-4">
                 1nance exchange will be a world leading crypto currency exchange. Which will feature a strong focus on altcoin trading. 1nance will offer crypto-to-crypto trading in more than 500 cryptocurrencies and virtual tokens, including Bitcoin (BTC), Ether (ETH), Litecoin (LTC), Dogecoin (DOGE), and our own token 1nance Coin (1NB). 1nance will be an online exchange where users can trade cryptocurrencies. It will  support most commonly traded cryptocurrencies.
@@ -88,9 +158,29 @@ export const IOCComponent = () => {
 }
 
 export const SolutionsComponent = () => {
+
+  const [anim, setAnim] = useState(false)
+  const [pageYOffset, setYOffset] = useState(0)
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setYOffset(window.pageYOffset)
+    })
+  }, []);
+
+  useEffect(() => {
+    if (window.pageYOffset > document.getElementById("section-solutions").offsetTop - 600) {
+      setAnim(true)
+    } else {
+      setAnim(false)
+    }
+  }, [pageYOffset])
+
   return (
-    <div className="grid m-[18px] my-18 md:m-24 xl:m-36">
-      <TitleComponent anchor="solutions" title="Problems and Solutions" content="Most existing cryptocurrency exchanges suffer from a number of problems:" />
+    <div className="grid m-[18px] my-18 md:m-24 xl:m-36" id="section-solutions">
+      <div style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 100ms" }}>
+        <TitleComponent anchor="solutions" title="Problems and Solutions" content="Most existing cryptocurrency exchanges suffer from a number of problems:" />
+      </div>
       <div className="grid gap-24 mx-4 mt-8 xl:gap-36 xl:mt-24 xl:mx-0">
         <IllustComponent illust={ilustrPoorarkitectr1} title="POOR TECHNICAL ARCHITECTURE" content={
           <div className="grid gap-2 pt-2 mx-2 text-justify xl:mx-0">
@@ -128,15 +218,35 @@ export const SolutionsComponent = () => {
 }
 
 export const WhitepaperComponent = () => {
+
+  const [anim, setAnim] = useState(false)
+  const [pageYOffset, setYOffset] = useState(0)
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setYOffset(window.pageYOffset)
+    })
+  }, []);
+
+  useEffect(() => {
+    if (window.pageYOffset > document.getElementById("section-whitepaper").offsetTop - 600) {
+      setAnim(true)
+    } else {
+      setAnim(false)
+    }
+  }, [pageYOffset])
+
   return (
-    <div className="grid m-[18px] my-20 md:m-24 xl:m-36 mx-8 xl:mx-auto">
-      <TitleComponent anchor="whitepaper" title="White Paper" content="Announce 1nance ICO plan, and release whitepaper to general public." />
+    <div className="grid m-[18px] my-20 md:m-24 xl:m-36 mx-8 xl:mx-auto" id="section-whitepaper">
+      <div style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07)" }}>
+        <TitleComponent anchor="whitepaper" title="White Paper" content="Announce 1nance ICO plan, and release whitepaper to general public." />
+      </div>
       <div className="flex items-center gap-24 m-auto mt-2 xl:mt-20">
-        <div className="hidden xl:flex min-w-[30%] justify-center"><img src={_1nanceWhite} alt="IOC ilustr" /></div>
+        <div className="hidden xl:flex min-w-[30%] justify-center" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 100ms" }}><img src={_1nanceWhite} alt="IOC ilustr" /></div>
         <div className="grid flex-row space-y-12 justify-items-center xl:justify-items-start">
           <div className="font-light text-[18px] xl:text-[22px] leading-[28.13px] max-w-xl indent-4"></div>
-          <div className="flex xl:hidden min-w-[30%] justify-center"><img src={_1nanceWhite} alt="IOC ilustr" className="rounded-[20px] xl:rounded-0" /></div>
-          <DownloadButton lang="English" flag={USFlag} />
+          <div className="flex xl:hidden min-w-[30%] justify-center"><img src={_1nanceWhite} alt="IOC ilustr" className="rounded-[20px] xl:rounded-0" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 200ms" }} /></div>
+          <div style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 300ms" }}><DownloadButton lang="English" flag={USFlag} /></div>
         </div>
       </div>
     </div>
@@ -146,6 +256,7 @@ export const WhitepaperComponent = () => {
 export const TokenSaleComponent = () => {
   const fontSize = window.innerWidth / 1920 * 48;
   const [remainAmount, setRemainAmount] = useState(0);
+  const [percent] = useState(0)
 
   const loadBalance = async () => {
     return 5000;
@@ -163,12 +274,29 @@ export const TokenSaleComponent = () => {
     fetchData();
   });
 
+  const [anim, setAnim] = useState(false)
+  const [pageYOffset, setYOffset] = useState(0)
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setYOffset(window.pageYOffset)
+    })
+  }, []);
+
+  useEffect(() => {
+    if (window.pageYOffset > document.getElementById("section-token").offsetTop - 300) {
+      setAnim(true)
+    } else {
+      setAnim(false)
+    }
+  }, [pageYOffset])
+
   return (
-    <div className="grid m-[18px] my-20 md:m-10 xl:m-36">
-      <TitleComponent anchor="tokenSale" title="Token Sale" content="" />
+    <div className="grid m-[18px] my-20 md:m-10 xl:m-36" id="section-token">
+      <div style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 1000ms cubic-bezier(0.07, 0.75, 0.33, 1.07)" }}><TitleComponent anchor="tokenSale" title="Token Sale" content="" /></div>
       <div className="grid items-center gap-4 my-8 lg:flex xl:gap-16 xl:my-20">
         <div className="grid w-auto h-full lg:w-1/2 align-center justify-items-end">
-          <div className="grid justify-items-end rounded-[16px] px-4 md:px-6 py-6 lg:px-6 lg:p-10 lg:pt-16 w-full h-full bg-gradient-to-b from-[#FFAF10] to-[#F97919]" >
+          <div className="grid justify-items-end rounded-[16px] px-4 md:px-6 py-6 lg:px-6 lg:p-10 lg:pt-16 w-full h-full bg-gradient-to-b from-[#FFAF10] to-[#F97919]" style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 100ms" }}>
             <div className="grid w-full h-24 mt-0 place-items-center justify-items-center lg:mt-4">
               <Flipclock
                 seconds={12 * 24 * 60 * 60}
@@ -181,18 +309,20 @@ export const TokenSaleComponent = () => {
             <div className="grid w-full place-items-center justify-items-center mt-6 lg:mt-6 text-[24px] text-white font-bold">
               Remain Amount : {remainAmount}
             </div>
-            <div className="flex justify-around w-full lg:mt-6">
-              <TokenSaleStepComponent name="Pre-Sale" />
-              <TokenSaleStepComponent name="Soft Cap" />
-              <TokenSaleStepComponent name="Bonus" />
+            <div className="grid gap-0 w-full items-end">
+              <div className="flex justify-around w-full lg:mt-6 h-[48px]">
+                <TokenSaleStepComponent name="Pre-Sale" />
+                <TokenSaleStepComponent name="Soft Cap" />
+                <TokenSaleStepComponent name="Bonus" />
+              </div>
+              <div className="place-self-start w-full bg-white rounded-full p-1 px-1.5 xl:p-1.5 xl:px-2 h-[24px] xl:h-8 flex items-center"><div className={`bg-gradient-to-r from-[#03185B] to-[#0040C1] rounded-[5px] xl:rounded-[8px] w-[${percent === 0 ? '0px' : percent + '%'}] h-4 xl:h-6`}></div></div>
             </div>
-            <div className="w-full bg-white rounded-full p-1 px-1.5 lg:p-1.5 lg:px-2"><div className="bg-gradient-to-r from-[#03185B] to-[#0040C1] rounded-[5px] lg:rounded-[8px] w-2/3 h-4 xl:h-6"></div></div>
             <div className="grid w-full mt-6 justify-items-center lg:mt-12" ><Link to='tokenSale'><CommonButton title="Purchase Token" className="from-[#03185B] via-[#133295] to-[#03185B] text-white font-[500] rounded-[12px] lg:rounded-[16px] text-[19px] lg:text-[24px] leading-[22px] lg:leading-[28px] min-w-[220px] lg:min-w-[250px] py-4" /></Link></div>
           </div>
         </div>
         <div className="flex-row w-full space-y-6 lg:w-1/2 xl:space-y-12">
-          <div className="font-light grid text-[18px] md:text-[20px] lg:text-[22px] tracking-[1px] leading-[28.13px] text-justify w-full indent-4 space-y-4">
-            <p className="indent-4">ICO will start from 3PM July 1st, investors can purchase in 3 phases on a first-come, first-served basis until 100,000,000 tokens are sold.
+          <div className="font-light grid text-[18px] md:text-[20px] lg:text-[22px] tracking-[1px] leading-[28.13px] text-justify w-full indent-4 space-y-4" style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 200ms" }}>
+            <p className="indent-4">ICO will start from 3PM April 21st, investors can purchase in 3 phases on a first-come, first-served basis until 100,000,000 tokens are sold.
               As each new phase starts, the price will increase.
             </p>
             <p className="indent-4">
@@ -201,7 +331,7 @@ export const TokenSaleComponent = () => {
             </p>
           </div>
           {/* <div className="grid w-full grid-cols-1 px-4 xl:grid-cols-2 justify-items-start gap-y-0 xl:gap-y-1 gap-x-4"> */}
-          <div className="w-full px-0 justify-items-start gap-y-0 xl:gap-y-1 gap-x-4">
+          <div className="w-full px-0 justify-items-start gap-y-0 xl:gap-y-1 gap-x-4" style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 300ms" }}>
             {/* <ArrowComponent content="We will roll out the platform in" emphasize="Spot trading" />
             <ArrowComponent content="We will roll out the platform in" emphasize="Margin trading" />
             <ArrowComponent content="We will roll out the platform in" emphasize="Futures" />
@@ -211,7 +341,7 @@ export const TokenSaleComponent = () => {
             <table className="text-white w-full shadow-md">
               <thead>
                 <tr>
-                  <th className="bg-white bg-opacity-5 text-white p-6">ICO Phase </th>
+                  <th className="bg-white bg-opacity-5 text-white p-6">ICO Phase</th>
                   <th className="bg-white bg-opacity-5 text-white p-6">1st week</th>
                   <th className="bg-white bg-opacity-5 text-white p-6">2nd week</th>
                   <th className="bg-white bg-opacity-5 text-white p-6">3rd week</th>
@@ -220,9 +350,9 @@ export const TokenSaleComponent = () => {
               <tbody>
                 <tr className="text-white">
                   <td className="p-4">CST/GMT+8</td>
-                  <td className="p-4">15:00 July 1th - <br />15:00 July 7th</td>
-                  <td className="p-4">15:00 July 7th - <br />15:00 July 14th</td>
-                  <td className="p-4">15:00 July 14th - <br />15:00 July 21th</td>
+                  <td className="p-4">15:00 April 14th - <br />15:00 April 21st</td>
+                  <td className="p-4">15:00 April 22nd - <br />15:00 April 28th</td>
+                  <td className="p-4">15:00 April 29th - <br />15:00 May 06th</td>
                 </tr>
                 <tr className="bg-white text-white bg-opacity-10">
                   <td className="p-4">1 ETH</td>
@@ -231,7 +361,7 @@ export const TokenSaleComponent = () => {
                   <td className="p-4">2300 <b>1nance tokens</b></td>
                 </tr>
                 <tr className="text-white">
-                  <td className="p-4">1 BTC</td>
+                  <td className="p-4">1 BNB</td>
                   <td className="p-4" colSpan={3}>Based on market price</td>
                 </tr>
               </tbody>
@@ -244,50 +374,108 @@ export const TokenSaleComponent = () => {
 }
 
 export const MobileAppComponent = () => {
+
+  const [anim, setAnim] = useState(false)
+  const [pageYOffset, setYOffset] = useState(0)
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setYOffset(window.pageYOffset)
+    })
+  }, []);
+
+  useEffect(() => {
+    if (window.pageYOffset > document.getElementById("section-mobile").offsetTop - 300) {
+      setAnim(true)
+    } else {
+      setAnim(false)
+    }
+  }, [pageYOffset])
+
   return (
-    <div className="grid m-[18px] my-20 md:m-24 xl:m-36">
-      <TitleComponent anchor="mobile" title="Mobile App" content="We will support English, Chinese, Japanese and Korean on all our user interfaces." />
+    <div className="grid m-[18px] my-20 md:m-24 xl:m-36" id="section-mobile">
+      <div style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07)" }}><TitleComponent anchor="mobile" title="Mobile App" content="We will support English, Chinese, Japanese and Korean on all our user interfaces." /></div>
       <div className="grid items-center gap-4 m-auto mt-8 xl:flex xl:gap-16 xl:mt-20">
         <div className="flex-row px-2 space-y-4 xl:px-0 ">
-          <div className="font-bold uppercase text-[20px] xl:text-[28px] leading-[32.81px] max-w-xl">ANDROID &amp; IOS APP</div>
-          <div className="font-light px-2 xl:px-0 text-[18px] xl:text-[24px] indent-4 leading-[30.13px] max-w-xl text-justify">We will support English, Chinese， Japanese and Korean on all our user interfaces. (The very initial release will be in English and Chinese only.) More languages will be added over time.</div>
+          <div className="font-bold uppercase text-[20px] xl:text-[28px] leading-[32.81px] max-w-xl" style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 300ms" }}>ANDROID &amp; IOS APP</div>
+          <div className="font-light px-2 xl:px-0 text-[18px] xl:text-[24px] indent-4 leading-[30.13px] max-w-xl text-justify" style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 400ms" }}>We will support English, Chinese， Japanese and Korean on all our user interfaces. (The very initial release will be in English and Chinese only.) More languages will be added over time.</div>
           <div className="grid max-w-xl pt-4 gap-y-4 xl:gap-y-8 xl:pt-8">
-            <div className="flex gap-2 items-center text-[18px] xl:text-[20px]"><img src={Capa2} alt="Capa2" />Live crypto rate</div>
-            <div className="flex gap-2 items-center text-[18px] xl:text-[20px]"><img src={subir1} alt="subir1" />Latest cryptocurrency news</div>
-            <div className="flex gap-2 items-center text-[18px] xl:text-[20px]"><img src={change1} alt="change1" />Cryptocurrenci exchange</div>
+            <div className="flex gap-2 items-center text-[18px] xl:text-[20px]" style={{ transform: `translateY(${anim ? '0' : '50'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 500ms" }}><img src={Capa2} alt="Capa2" />Live crypto rate</div>
+            <div className="flex gap-2 items-center text-[18px] xl:text-[20px]" style={{ transform: `translateY(${anim ? '0' : '50'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 550ms" }}><img src={subir1} alt="subir1" />Latest cryptocurrency news</div>
+            <div className="flex gap-2 items-center text-[18px] xl:text-[20px]" style={{ transform: `translateY(${anim ? '0' : '50'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 600ms" }}><img src={change1} alt="change1" />Cryptocurrenci exchange</div>
           </div>
-          <div className="flex justify-center w-full gap-3 py-4 xl:flex xl:w-4/5 xl:py-8 xl:pl-16">
+          <div className="flex justify-center w-full gap-3 py-4 xl:flex xl:w-4/5 xl:py-8 xl:pl-16" style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 700ms" }}>
             <CommonButton title="Android" className="px-8 text-[24px] xl:text-[28px] leading-[32.81px] font-black gap-4 xl:gap-2 min-w-[150px] xl:min-w-[200px]" icon={android1} />
             <CommonButton title="Apple" className="px-8 xl:px-10 text-[24px] xl:text-[28px] leading-[32.81px] font-black gap-4 xl:gap-2  min-w-[150px] xl:min-w-[200px]" icon={apple1} />
           </div>
         </div>
-        <div className="flex min-w-[30%] justify-center mt-3 xl:mt-1"><img src={ilustrAppMobile1} alt="Illustrs" /></div>
+        <div className="flex min-w-[30%] justify-center mt-3 xl:mt-1" style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 200ms" }}><img src={ilustrAppMobile1} alt="Illustrs" /></div>
       </div>
     </div>
   )
 }
 
 export const RoadmapComponent = () => {
+
+  const [anim, setAnim] = useState(false)
+  const [pageYOffset, setYOffset] = useState(0)
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setYOffset(window.pageYOffset)
+    })
+  }, []);
+
+  useEffect(() => {
+    if (window.pageYOffset > document.getElementById("section-roadmap").offsetTop - 300) {
+      setAnim(true)
+    } else {
+      setAnim(false)
+    }
+  }, [pageYOffset])
+
   return (
-    <div className="grid mb-0 my-36">
-      <div className="mx-8 md:mx-12 xl:mx-16">
+    <div className="grid mb-0 my-36" id="section-roadmap">
+      <div className="mx-8 md:mx-12 xl:mx-16" style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07)" }}>
         <TitleComponent anchor="roadmap" title="Roadmap" content="The time stated in the schedule below is in Universal Time Coordinated UTC+8 hours." />
       </div>
-      <div className="hidden xl:grid gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance1.svg')] bg-center bg-no-repeat min-h-[860px]"></div>
-      <div className="md:grid lg:hidden xl:hidden gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance2.svg')] bg-center bg-no-repeat min-h-[766px]"></div>
-      <div className="lg:grid hidden xl:hidden gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance3.svg')] bg-center bg-no-repeat min-h-[1124px]"></div>
+      <div style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 250ms" }}>
+        <div className="hidden xl:grid gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance1.svg')] bg-center bg-no-repeat min-h-[860px]"></div>
+        <div className="md:grid lg:hidden xl:hidden gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance2.svg')] bg-center bg-no-repeat min-h-[766px]"></div>
+        <div className="lg:grid hidden xl:hidden gap-16 -mt-6 bg-[url('./assets/svg/roadmap1nance3.svg')] bg-center bg-no-repeat min-h-[1124px]"></div>
+      </div>
     </div>
   )
 }
 
 export const OurCoinComponent = () => {
+
+  const [anim, setAnim] = useState(false)
+  const [pageYOffset, setYOffset] = useState(0)
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setYOffset(window.pageYOffset)
+    })
+  }, []);
+
+  useEffect(() => {
+    if (window.pageYOffset > document.getElementById("section-ourcoin").offsetTop - 300) {
+      setAnim(true)
+    } else {
+      setAnim(false)
+    }
+  }, [pageYOffset])
+
   return (
-    <div className="grid m-[18px] my-20 md:m-24 xl:m-36">
-      <TitleComponent anchor="ourCoin" title="Our Coin" content="1nance Coin is an ERC 20 token since it exists on the ethereum blockchain." />
+    <div className="grid m-[18px] my-20 md:m-24 xl:m-36" id="section-ourcoin">
+      <div style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07)" }}>
+        <TitleComponent anchor="ourCoin" title="Our Coin" content="1nance Coin is an ERC 20 token since it exists on the ethereum blockchain." />
+      </div>
       <div className="grid items-center w-full gap-4 px-2 mt-3 xl:flex xl:gap-16 xl:mt-20 xl:px-0">
         <IllustComponent illust={ilustrOurCoin1} title="" content={
-          <div className="text-[22px]">
-            <p className="font-normal pl-5 my-2">We will issue our token, the 1nance Coin, which has a straight limit of 200MM. 1nance Coin is an ERC 20 token since it exists on the ethereum blockchain.</p>
+          <div className="">
+            <p className="font-normal pl-5 my-2"></p>
           </div>
         } />
       </div>
@@ -296,9 +484,29 @@ export const OurCoinComponent = () => {
 }
 
 export const TokenDistributionComponent = () => {
+
+  const [anim, setAnim] = useState(false)
+  const [pageYOffset, setYOffset] = useState(0)
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setYOffset(window.pageYOffset)
+    })
+  }, []);
+
+  useEffect(() => {
+    if (window.pageYOffset > document.getElementById("section-distribution").offsetTop - 500) {
+      setAnim(true)
+    } else {
+      setAnim(false)
+    }
+  }, [pageYOffset])
+
   return (
-    <div className="grid m-[18px] my-20 md:m-24 xl:m-36">
-      <TitleComponent anchor="tokenDistribution" title="Token Distribution" content="" />
+    <div className="grid m-[18px] my-20 md:m-24 xl:m-36" id="section-distribution">
+      <div style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07)" }}>
+        <TitleComponent anchor="tokenDistribution" title="Token Distribution" content="" />
+      </div>
       <div className="flex items-center gap-16 m-auto mt-4 xl:mt-20">
         <IllustComponent illust={ilustGraficFunds1} title="Allocation" content={
           <div className="grid gap-3">
@@ -315,7 +523,7 @@ export const TokenDistributionComponent = () => {
           </div>
         } isRTL />
       </div>
-    </div>
+    </div >
   )
 }
 
@@ -326,12 +534,31 @@ export const TeamComponent = () => {
     let item = _1NanceTeam[i]
     let idx = parseInt(i / 3)
     items[idx] = (items[idx] === undefined ? [] : items[idx])
-    items[idx].push(<MemberComponent key={i} profile={item.profile} name={item.name} role={item.role} link={item.link} description={item.description} className="justify-center" />)
+    items[idx].push(<MemberComponent key={i} anchor={item.link} profile={item.profile} name={item.name} role={item.role} link={item.link} description={item.description} className="justify-center" />)
   }
 
+  const [anim, setAnim] = useState(false)
+  const [pageYOffset, setYOffset] = useState(0)
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setYOffset(window.pageYOffset)
+    })
+  }, []);
+
+  useEffect(() => {
+    if (window.pageYOffset > document.getElementById("section-team").offsetTop - 500) {
+      setAnim(true)
+    } else {
+      setAnim(false)
+    }
+  }, [pageYOffset])
+
   return (
-    <div className="grid m-[18px] my-20 md:m-24 lg:m-36">
-      <TitleComponent anchor="team" showContent title="Team" content="We have a solid team with both traditional Wall Street finance and cryptocurrency experience. We have a track record of successful startups under our belt." />
+    <div className="grid m-[18px] my-20 md:m-24 lg:m-36" id="section-team">
+      <div style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07)" }}>
+        <TitleComponent anchor="team" showContent title="Team" content="We have a solid team with both traditional Wall Street finance and cryptocurrency experience. We have a track record of successful startups under our belt." />
+      </div>
       <div className="hidden xl:grid">
         {
           items.map((item, i) =>
@@ -344,7 +571,7 @@ export const TeamComponent = () => {
       <div className="grid mx-4 xl:hidden lg:mx-12">
         {
           _1NanceTeam.map((item, i) =>
-            <MemberComponent key={i} profile={item.profile} name={item.name} role={item.role} link={item.link} description={item.description} className={i % 2 === 0 ? "justify-start" : "justify-end"} />
+            <MemberComponent key={i} anchor={"anchor-" + item.link} profile={item.profile} name={item.name} role={item.role} link={item.link} description={item.description} className={i % 2 === 0 ? "justify-start" : "justify-end"} />
           )
         }
       </div>

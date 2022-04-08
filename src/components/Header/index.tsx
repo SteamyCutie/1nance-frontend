@@ -89,19 +89,19 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
         </div>
         <div className="flex justify-center" style={{ paddingLeft: padL + "px" }}>
           <div className="flex items-center">
-            <div onClick={() => handleGoSection('ico')} className={getNavLinkClassName}>
+            <div onClick={() => handleGoSection('section-ico')} className={getNavLinkClassName}>
               What is 1nance
             </div>
-            <div onClick={() => handleGoSection('solutions')} className={getNavLinkClassName}>
+            <div onClick={() => handleGoSection('section-solutions')} className={getNavLinkClassName}>
               Solutions
             </div>
-            <div onClick={() => handleGoSection('whitepaper')} className={getNavLinkClassName}>
+            <div onClick={() => handleGoSection('section-whitepaper')} className={getNavLinkClassName}>
               WhitePaper
             </div>
-            <div onClick={() => handleGoSection('tokenSale')} className={getNavLinkClassName}>
+            <div onClick={() => handleGoSection('section-token')} className={getNavLinkClassName}>
               Token Sale
             </div>
-            <div onClick={() => handleGoSection('roadmap')} className={getNavLinkClassName}>
+            <div onClick={() => handleGoSection('section-roadmap')} className={getNavLinkClassName}>
               Roadmap
             </div>
             <div id="menuMore" onMouseEnter={() => setMenuMore(true)} onMouseLeave={() => setMenuMore(false)} className={getNavLinkClassName}>
@@ -109,14 +109,14 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
               <ChevronDownIcon className="w-6 h-6" />
             </div>
             <div id="moreMenu" onMouseEnter={() => setMoreMenu('MENU')} onMouseLeave={() => setMenuMore(false)} className={`${menuMore ? "opacity-1 scale-y-100" : "opacity-0 scale-y-0"} origin-top grid transition-all duration-300 absolute bg-[rgba(240,240,240,0.9)] backdrop-blur-sm px-2 py-1.5 w-[180px] rounded-[0.25rem] drop-shadow-lg"`} style={{ left: menuLeft, top: menuMore ? 90 : 80 }}>
-              <div onClick={() => handleGoSection('mobile')} className={moreClassName}><ChevronRightIcon width={20} height={20} /> Mobile App</div>
-              <div onClick={() => handleGoSection('ourCoin')} className={moreClassName}><ChevronRightIcon width={20} height={20} /> Our Coin</div>
-              <div onClick={() => handleGoSection('tokenDistribution')} className={moreClassName}><ChevronRightIcon width={20} height={20} /> Token Distribution</div>
-              <div onClick={() => handleGoSection('team')} className={moreClassName}><ChevronRightIcon width={20} height={20} /> Team</div>
+              <div onClick={() => handleGoSection('section-mobile')} className={moreClassName}><ChevronRightIcon width={20} height={20} /> Mobile App</div>
+              <div onClick={() => handleGoSection('section-ourcoin')} className={moreClassName}><ChevronRightIcon width={20} height={20} /> Our Coin</div>
+              <div onClick={() => handleGoSection('section-distribution')} className={moreClassName}><ChevronRightIcon width={20} height={20} /> Token Distribution</div>
+              <div onClick={() => handleGoSection('section-team')} className={moreClassName}><ChevronRightIcon width={20} height={20} /> Team</div>
             </div>
             <div id="langMore" onMouseEnter={() => setLangMore(true)} onMouseLeave={() => setLangMore(false)} className={`${getNavLinkClassName} flex flex-rows`}>
               <div className="flex items-center w-16">
-                <img src={flagInfo[uiLang].img} className="w-8 w-full h-8" alt={flagInfo[uiLang].code} />
+                <img src={flagInfo[uiLang].img} className="w-8 h-8" alt={flagInfo[uiLang].code} />
                 <div className="ml-2 font-[700] tracking-widest">{flagInfo[uiLang].code}</div>
               </div>
               <ChevronDownIcon className="w-6 h-6" />
@@ -125,7 +125,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
               {flagInfo.map((item, i) =>
                 <div key={i} onClick={() => { setUiLang(i); setLangMore(false) }} className={moreClassName}>
                   <div className="flex items-center gap-2">
-                    <img src={item.img} className="w-8 w-full h-8" alt={item.lang} />
+                    <img src={item.img} className="w-8 h-8" alt={item.lang} />
                     <div>{item.lang}</div>
                   </div>
                 </div>
@@ -152,31 +152,31 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
           >
             <div className="demo-content">
               <img src={Logo} className="w-[250px] h-[72px] mb-[20px]" alt="logo" />
-              <button onClick={() => { setIsOpen(false); handleGoSection('ico') }} className={getDrawerLinkClassName}>
+              <button onClick={() => { setIsOpen(false); handleGoSection('section-ico') }} className={getDrawerLinkClassName}>
                 What is 1nance
               </button>
-              <button onClick={() => { setIsOpen(false); handleGoSection('solutions') }} className={getDrawerLinkClassName}>
+              <button onClick={() => { setIsOpen(false); handleGoSection('section-solutions') }} className={getDrawerLinkClassName}>
                 Solution
               </button>
-              <button onClick={() => { setIsOpen(false); handleGoSection('whitepaper') }} className={getDrawerLinkClassName}>
+              <button onClick={() => { setIsOpen(false); handleGoSection('section-whitepaper') }} className={getDrawerLinkClassName}>
                 Whitepaper
               </button>
-              <button onClick={() => { setIsOpen(false); handleGoSection('tokenSale') }} className={getDrawerLinkClassName}>
+              <button onClick={() => { setIsOpen(false); handleGoSection('section-token') }} className={getDrawerLinkClassName}>
                 Token Sale
               </button>
-              <button onClick={() => { setIsOpen(false); handleGoSection('roadmap') }} className={getDrawerLinkClassName}>
+              <button onClick={() => { setIsOpen(false); handleGoSection('section-roadmap') }} className={getDrawerLinkClassName}>
                 Roadmap
               </button>
-              <button onClick={() => { setIsOpen(false); handleGoSection('mobile') }} className={getDrawerLinkClassName}>
+              <button onClick={() => { setIsOpen(false); handleGoSection('section-mobile') }} className={getDrawerLinkClassName}>
                 Mobile App
               </button>
-              <button onClick={() => { setIsOpen(false); handleGoSection('ourCoin') }} className={getDrawerLinkClassName}>
+              <button onClick={() => { setIsOpen(false); handleGoSection('section-ourcoin') }} className={getDrawerLinkClassName}>
                 Our Coin
               </button>
-              <button onClick={() => { setIsOpen(false); handleGoSection('tokenDistribution') }} className={getDrawerLinkClassName}>
+              <button onClick={() => { setIsOpen(false); handleGoSection('section-distribution') }} className={getDrawerLinkClassName}>
                 Token Distribution
               </button>
-              <button onClick={() => { setIsOpen(false); handleGoSection('team') }} className={getDrawerLinkClassName}>
+              <button onClick={() => { setIsOpen(false); handleGoSection('section-team') }} className={getDrawerLinkClassName}>
                 Team
               </button>
             </div>
@@ -184,7 +184,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
         </div>
         <div id="langMoreSM" onClick={() => { if (!langMoreSM) { setLangMoreSM(true); setMoreMenu('LANG') } else { setLangMoreSM(false) } }} className={`${getNavLinkClassName} z-[998] flex flex-rows text-[14px] spacing-[3px] px-0 mx-0 py-5`}>
           <div className="flex items-center w-13">
-            <img src={flagInfo[uiLang].img} className="w-6 w-full h-6 md:w-8 md:h-8" alt={flagInfo[uiLang].code} />
+            <img src={flagInfo[uiLang].img} className="w-6 h-6 md:w-8 md:h-8" alt={flagInfo[uiLang].code} />
             <div className="ml-2 font-[700] w-[20px] md:w-[24px] md:text-[17px] text-center tracking-widest">{flagInfo[uiLang].code}</div>
           </div>
           <ChevronDownIcon className="w-6 h-6" />
@@ -193,7 +193,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
           {flagInfo.map((item, i) =>
             <div key={i} onClick={() => { setUiLang(i); setLangMoreSM(false) }} className={`${moreClassName}`}>
               <div className="flex items-center gap-1.5 md:gap-2 md:text-[16px]">
-                <img src={item.img} className="w-5 w-full h-5 md:w-6 md:h-6" alt={item.lang} />
+                <img src={item.img} className="w-5 h-5 md:w-6 md:h-6" alt={item.lang} />
                 <div>{item.lang}</div>
               </div>
             </div>

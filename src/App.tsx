@@ -27,6 +27,7 @@ const App: React.FC = () => {
       localStorage.removeItem("recaptcha");
     });
   }, []);
+
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
@@ -39,7 +40,7 @@ const App: React.FC = () => {
               </Route>
               <Route path="/tokenSale" component={TokenSale} />
             </Switch>
-          </div> : <div className='bg-cover tokenSale-background' style={{position:"absolute", width:"100%", height:"100%"}}>
+          </div> : <div className='bg-cover tokenSale-background' style={{ position: "absolute", width: "100%", height: "100%" }}>
             <div className='recaptcha-position'>
               <Reaptcha sitekey={site_key} onVerify={(res) => {
                 // console.log("Captcha value: pass", res);

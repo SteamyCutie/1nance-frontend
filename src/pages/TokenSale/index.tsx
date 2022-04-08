@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import Select from "react-select";
 import TitleComponent from "../../components/DynaComponent/TitleComponent";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/index";
 import ETH from "../../assets/png/ETH.png";
 import BNB from "../../assets/png/BNB.png";
-import USDT from "../../assets/png/USDT.png";
-import USDC from "../../assets/png/USDC.png";
-import SOL from "../../assets/png/SOL.png";
-import AVAX from "../../assets/png/AVAX.png";
-import DOGE from "../../assets/png/DOGE.png";
-import MATIC from "../../assets/png/MATIC.png";
-import CRO from "../../assets/png/CRO.png";
-import DAI from "../../assets/png/DAI.png";
+// import USDT from "../../assets/png/USDT.png";
+// import USDC from "../../assets/png/USDC.png";
+// import SOL from "../../assets/png/SOL.png";
+// import AVAX from "../../assets/png/AVAX.png";
+// import DOGE from "../../assets/png/DOGE.png";
+// import MATIC from "../../assets/png/MATIC.png";
+// import CRO from "../../assets/png/CRO.png";
+// import DAI from "../../assets/png/DAI.png";
 
 import { useWeb3React } from "@web3-react/core";
 import { connectors } from "../../connectors";
@@ -153,79 +153,79 @@ const TokenSale: React.FC = () => {
           BNB
         </span>
       ),
-    },
-    {
-      value: "tether",
-      label: (
-        <span className="flex text-[20px] mx-1 my-2 items-center">
-          <img src={USDT} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="USDT" />
-          USDT
-        </span>
-      ),
-    },
-    {
-      value: "usd-coin",
-      label: (
-        <span className="flex text-[20px] mx-1 my-2 items-center">
-          <img src={USDC} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="USDC" />
-          USDC
-        </span>
-      ),
-    },
-    {
-      value: "solana",
-      label: (
-        <span className="flex text-[20px] mx-1 my-2 items-center">
-          <img src={SOL} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="SOL" />
-          SOL
-        </span>
-      ),
-    },
-    {
-      value: "avalanche-2",
-      label: (
-        <span className="flex text-[20px] mx-1 my-2 items-center">
-          <img src={AVAX} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="AVAX" />
-          AVAX
-        </span>
-      ),
-    },
-    {
-      value: "dogecoin",
-      label: (
-        <span className="flex text-[20px] mx-1 my-2 items-center">
-          <img src={DOGE} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="DOGE" />
-          DOGE
-        </span>
-      ),
-    },
-    {
-      value: "matic-network",
-      label: (
-        <span className="flex text-[20px] mx-1 my-2 items-center">
-          <img src={MATIC} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="MATIC" />
-          MATIC
-        </span>
-      ),
-    },
-    {
-      value: "crypto-com-chain",
-      label: (
-        <span className="flex text-[20px] mx-1 my-2 items-center">
-          <img src={CRO} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="CRO" />
-          CRO
-        </span>
-      ),
-    },
-    {
-      value: "dai",
-      label: (
-        <span className="flex text-[20px] mx-1 my-2 items-center">
-          <img src={DAI} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="DAI" />
-          DAI
-        </span>
-      ),
-    },
+    }
+    // {
+    //   value: "tether",
+    //   label: (
+    //     <span className="flex text-[20px] mx-1 my-2 items-center">
+    //       <img src={USDT} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="USDT" />
+    //       USDT
+    //     </span>
+    //   ),
+    // },
+    // {
+    //   value: "usd-coin",
+    //   label: (
+    //     <span className="flex text-[20px] mx-1 my-2 items-center">
+    //       <img src={USDC} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="USDC" />
+    //       USDC
+    //     </span>
+    //   ),
+    // },
+    // {
+    //   value: "solana",
+    //   label: (
+    //     <span className="flex text-[20px] mx-1 my-2 items-center">
+    //       <img src={SOL} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="SOL" />
+    //       SOL
+    //     </span>
+    //   ),
+    // },
+    // {
+    //   value: "avalanche-2",
+    //   label: (
+    //     <span className="flex text-[20px] mx-1 my-2 items-center">
+    //       <img src={AVAX} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="AVAX" />
+    //       AVAX
+    //     </span>
+    //   ),
+    // },
+    // {
+    //   value: "dogecoin",
+    //   label: (
+    //     <span className="flex text-[20px] mx-1 my-2 items-center">
+    //       <img src={DOGE} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="DOGE" />
+    //       DOGE
+    //     </span>
+    //   ),
+    // },
+    // {
+    //   value: "matic-network",
+    //   label: (
+    //     <span className="flex text-[20px] mx-1 my-2 items-center">
+    //       <img src={MATIC} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="MATIC" />
+    //       MATIC
+    //     </span>
+    //   ),
+    // },
+    // {
+    //   value: "crypto-com-chain",
+    //   label: (
+    //     <span className="flex text-[20px] mx-1 my-2 items-center">
+    //       <img src={CRO} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="CRO" />
+    //       CRO
+    //     </span>
+    //   ),
+    // },
+    // {
+    //   value: "dai",
+    //   label: (
+    //     <span className="flex text-[20px] mx-1 my-2 items-center">
+    //       <img src={DAI} className="flex items-center justify-center mr-2 rounded-full w-7 h-7" alt="DAI" />
+    //       DAI
+    //     </span>
+    //   ),
+    // },
   ];
 
   const customStyles = {
@@ -249,7 +249,7 @@ const TokenSale: React.FC = () => {
                   >
                     -
                   </button>
-                  <div className="w-32 mx-1 mx-5 md:w-48">
+                  <div className="w-32 mx-5 md:w-48">
                     <input
                       type="number"
                       id="simple-email"
@@ -270,11 +270,11 @@ const TokenSale: React.FC = () => {
                     type="number"
                     value={totalUSD}
                     onChange={handleUSDInput}
-                    className="flex appearance-none w-full px-2 rounded-[16px] text-[24px] text-center text-gray-700 placeholder-gray-400 bg-white border rounded shadow-sm appearance-none md:w-72 focus: border-sky-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="flex w-full px-2 rounded-[16px] text-[24px] text-center text-gray-700 placeholder-gray-400 bg-white border shadow-sm appearance-none md:w-72 focus: border-sky-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                   <div className="flex items-center justify-center w-full">
                     <Select
-                      className="justify-center w-full text-gray-700 rounded shadow-sm w-36"
+                      className="justify-center w-full text-gray-700 rounded shadow-sm"
                       defaultValue={options[0]}
                       options={options}
                       styles={customStyles}

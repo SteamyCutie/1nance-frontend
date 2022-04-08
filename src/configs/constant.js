@@ -1,6 +1,6 @@
 // ------------ Google Recaptcha key
-export const site_key = "6LegSVIfAAAAALH6oLrr2NyJp_SUf0-wYDRwxLmJ";
-export const secret_key = "6LegSVIfAAAAAPYbcaC1iVJ7DcMPFpZXpUrrptjB";
+export const site_key = "6LczdFcfAAAAALAvOOifsRfOdxIvCDu7PY2vvEeH";
+export const secret_key = "6LczdFcfAAAAALhg1HqfmCaTgVe3LWsyCJ_fH9wl";
 // ------------ smart contract 
 export const serverUrl = "";
 export const infura_endpoint = "https://rinkeby.infura.io/v3/b7f1ceb6b5804743827a20b964dcf617";
