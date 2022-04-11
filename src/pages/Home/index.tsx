@@ -67,7 +67,7 @@ const Home: React.FC<HomeProps> = ({ uri }) => {
   };
 
   return (
-    <div className="m-auto">
+    <div className="m-auto main-background">
       <HomeComponent handler={handleGoSection} />
       <IOCComponent />
       <SolutionsComponent />

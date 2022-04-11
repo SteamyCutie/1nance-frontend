@@ -235,7 +235,7 @@ const TokenSale: React.FC = () => {
   };
 
   return (
-    <div className="m-auto">
+    <div className="m-auto tokenSale-background">
       <div>
         <TitleComponent title="Purchase Token" anchor="" content="" />
         <div className="flex items-center m-auto space-x-3">

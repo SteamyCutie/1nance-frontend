@@ -6,23 +6,39 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background: linear-gradient(
-    180deg,
-    #03185b -0.3%,
-    #123194 19.67%,
-    #03195d 38.37%,
-    #102f91 58.22%,
-    #041a60 79.65%,
-    #0f2c8b 100.03%
-  );
+  background: #03185b;
+  /* background                     : linear-gradient(180deg,
+      #03185b -0.3%,
+      #123194 19.67%,
+      #03195d 38.37%,
+      #102f91 58.22%,
+      #041a60 79.65%,
+      #0f2c8b 100.03%); */
   color: #f0f0f0;
-
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
   -webkit-transition-property: all;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transition-duration: 150ms;
+}
+
+.main-background {
+  background: linear-gradient(180deg,
+      #03185b -0.3%,
+      #123194 19.67%,
+      #03195d 38.37%,
+      #102f91 58.22%,
+      #041a60 79.65%,
+      #0f2c8b 100.03%);
+}
+
+.tokenSale-background {
+  background: linear-gradient(180deg,
+      #03185b -0.3%,
+      #123194 30.67%,
+      #102f91 62.22%,
+      #041a60 100.03%);
 }
 
 html,
@@ -183,4 +199,11 @@ body {
 .open .backdrop.langdrop {
   opacity: 0;
   z-index: 997;
+}
+
+.recaptcha-position {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
 }
