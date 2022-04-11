@@ -1,7 +1,14 @@
 [
   {
+    "name": "Tadej Francelj",
+    "role": "CEO",
+    "link": "https://www.linkedin.com/in/tadej-francelj-619084130/",
+    "description": "Tadej Francelj is a Lawyer and Business Developer. He is currently doing his Ph.D in Banking, Corporate Finance and Securities Law. With over 7 years of experience in the and operation field, and over 4 years in leadership, as he has worked for several startups and offered advice to blockchain projects. Mr. Francelj is well versed in the fields of Finance, Banking, Data Privacy, Blockchain and Fintech.",
+    "profile": "user-1.png"
+  },
+  {
     "name": "Tiago Moura deOliveira",
-    "role": "Co-Founder/CEO",
+    "role": "Chief Architect",
     "link": "https://www.linkedin.com/in/tiago-moura-oliveira/",
     "description": "Tiago Moura de Oliveira, a holder of a degree in Financial Management, has consolidated professional expertise and knowledge in the Logistics / Distribution / Purchasing and Warehousing gained from working in various sectors and multicultural environments. He has a track record in team building, relationship management, continuous improvement processes resulting in successful teams and top organisational performance.",
     "profile": "user-2.png"
@@ -12,5 +19,12 @@
     "link": "https://www.linkedin.com/in/dennis-han-a27545227/",
     "description": "As an experienced developer, professional with seasoned leadership and relationship building skills, Dennis Han has strong experience in developing Decentralized Blockchain applications using Ethereum and Hyper ledger. A young and fast-growing blockchain expert and senior software engineer with a Master’s degree in Computer Science from The Hong Kong University of Science and Technology(HKUST), always focusing on how to get rid of the vulnerabilities of the DApps we build and to serve higher transaction speed and lower gas. Contributed and participated in many projects in DeFi and NFT fields like CronaSwap, SphynxSwap, Solkitties, etc.",
     "profile": "user-3.png"
+  },
+  {
+    "name": "Akhil P Vijay",
+    "role": "Operations Director",
+    "link": "https://www.linkedin.com/in/akhilpvijay3/",
+    "description": "Akhil P Vijay, a holder of Post graduate in Business Administration and Masters in Global Financial Trading has solid knowledge and skills in Building strategy and planning for an organization. His interests working for startups such as Uber eats gave him challenging roles to govern a region and lead a team for daily operations. Also his experiences in team building, relationship management drives value to organizations. He also has experiences in artificial intelligence and machine learning which exposes my wide skills set that he has achieved throughout these years. In 1nance, as in charge of Operations Director he plays an important role for creative mindset for design thinking and execution of the product roadmap.",
+    "profile": "user-5.png"
   }
 ]
