@@ -42,7 +42,7 @@ const App: React.FC = () => {
             </Switch>
           </div> : <div className='bg-cover tokenSale-background' style={{ position: "absolute", width: "100%", height: "100%" }}>
             <div className='recaptcha-position'>
-              <Reaptcha sitekey={site_key} onVerify={(res) => {
+              <Reaptcha sitekey={site_key} onVerify={(res:any) => {
                 // console.log("Captcha value: pass", res);
                 localStorage.setItem("recaptcha", res);
                 Cookies.set('browser', "true")
