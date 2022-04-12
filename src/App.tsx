@@ -12,6 +12,7 @@ import { site_key } from "./configs/constant";
 const App: React.FC = () => {
   const [homeUri, setHomeUri] = useState('')
   const [isVerify, setIsVerify] = useState(false);
+  const [width, setWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {
     let recaptcha_value = localStorage.getItem("recaptcha");
@@ -26,7 +27,13 @@ const App: React.FC = () => {
       Cookies.remove('browser');
       localStorage.removeItem("recaptcha");
     });
+    window.addEventListener('resize', (ev) => {
+      ev.preventDefault();
+      setWidth(window.innerWidth);
+    });
   }, []);
+
+  const isMobile = width <= 768;
 
   return (
     <Router>
@@ -41,14 +48,25 @@ const App: React.FC = () => {
               <Route path="/tokenSale" component={TokenSale} />
             </Switch>
           </div> : <div className='bg-cover tokenSale-background' style={{ position: "absolute", width: "100%", height: "100%" }}>
-            <div className='recaptcha-position'>
-              <Reaptcha sitekey={site_key} onVerify={(res) => {
-                // console.log("Captcha value: pass", res);
-                localStorage.setItem("recaptcha", res);
-                Cookies.set('browser', "true")
-                setIsVerify(true);
-              }} />
-            </div>
+            {
+              !isMobile ? <div className="recaptcha-position bg-[white] w-[460px] h-[240px] mt-[-120px]" style={{ marginLeft: "-230px", borderRadius: "10px" }}>
+                <div className='mt-[50px] ml-[68px]'>
+                  <p className='text-[red] font-bold text-[21px] mb-[25px]'>You have to verify you are human</p>
+                  <Reaptcha className="" sitekey={site_key} onVerify={(res: any) => {
+                    localStorage.setItem("recaptcha", res);
+                    Cookies.set('browser', "true")
+                    setIsVerify(true);
+                  }} />
+                </div>
+              </div> : <div className="recaptcha-position mt-[-60px]">
+                  <p className='text-[white] font-medium text-[21px] mb-[30px]'>You have to verify you are human</p>
+                  <Reaptcha className="" sitekey={site_key} onVerify={(res: any) => {
+                    localStorage.setItem("recaptcha", res);
+                    Cookies.set('browser', "true")
+                    setIsVerify(true);
+                  }} />
+              </div>
+            }
           </div>
         }
       </Suspense>
