@@ -5,9 +5,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import TokenSale from './pages/TokenSale';
 
-import Cookies from 'js-cookie'
-import Reaptcha from 'reaptcha';
-import { site_key } from "./configs/constant";
+import { Vertify } from '@alex_xu/react-slider-vertify';
 
 const App: React.FC = () => {
   const [homeUri, setHomeUri] = useState('')
@@ -15,18 +13,6 @@ const App: React.FC = () => {
   const [width, setWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {
-    let recaptcha_value = localStorage.getItem("recaptcha");
-    let browser_cookie = Cookies.get('browser');
-    if (browser_cookie === "true") {
-      if (recaptcha_value !== undefined && recaptcha_value !== null) {
-        setIsVerify(true);
-      }
-    }
-    window.addEventListener("beforeunload", (ev) => {
-      ev.preventDefault();
-      Cookies.remove('browser');
-      localStorage.removeItem("recaptcha");
-    });
     window.addEventListener('resize', (ev) => {
       ev.preventDefault();
       setWidth(window.innerWidth);
@@ -49,22 +35,32 @@ const App: React.FC = () => {
             </Switch>
           </div> : <div className='bg-cover tokenSale-background' style={{ position: "absolute", width: "100%", height: "100%" }}>
             {
-              !isMobile ? <div className="recaptcha-position bg-[white] w-[460px] h-[240px] mt-[-120px]" style={{ marginLeft: "-230px", borderRadius: "10px" }}>
-                <div className='mt-[50px] ml-[68px]'>
-                  <p className='text-[red] font-bold text-[21px] mb-[25px]'>You have to verify you are human</p>
-                  <Reaptcha className="" sitekey={site_key} onVerify={(res: any) => {
-                    localStorage.setItem("recaptcha", res);
-                    Cookies.set('browser', "true")
-                    setIsVerify(true);
-                  }} />
+              !isMobile ? <div className="recaptcha-position bg-[white] w-[420px] h-[310px] mt-[-155px]" style={{ marginLeft: "-210px", borderRadius: "5px" }}>
+                <div className='mt-[5px] mb-[5px]'>
+                  <p className='text-[red] font-bold text-[25px] text-center'>You have to verify you are human</p>
+                  <Vertify
+                    width={400}
+                    height={200}
+                    visible={true}
+                    onSuccess={() => {
+                      setIsVerify(true);
+                    }}
+                    onFail={() => alert('Failed, try again')}
+                    onRefresh={() => alert('Refresh')}
+                  />
                 </div>
-              </div> : <div className="recaptcha-position mt-[-60px]">
-                  <p className='text-[white] font-medium text-[21px] mb-[30px]'>You have to verify you are human</p>
-                  <Reaptcha className="" sitekey={site_key} onVerify={(res: any) => {
-                    localStorage.setItem("recaptcha", res);
-                    Cookies.set('browser', "true")
+              </div> : <div className="recaptcha-position bg-[white] w-[320px] h-[260px] mt-[-130px]" style={{ marginLeft: "-160px", borderRadius: "5px" }}>
+                <p className='text-[red] font-medium text-[20px] text-center mt-[5px] mb-[5px]'>You have to verify you are human</p>
+                <Vertify
+                  width={300}
+                  height={160}
+                  visible={true}
+                  onSuccess={() => {
                     setIsVerify(true);
-                  }} />
+                  }}
+                  onFail={() => alert('Failed, try again')}
+                  onRefresh={() => alert('Refresh')}
+                />
               </div>
             }
           </div>

@@ -1,6 +1,3 @@
-// ------------ Google Recaptcha key
-export const site_key = "6LczdFcfAAAAALAvOOifsRfOdxIvCDu7PY2vvEeH";
-export const secret_key = "6LczdFcfAAAAALhg1HqfmCaTgVe3LWsyCJ_fH9wl";
 // ------------ smart contract
 export const serverUrl = "";
 export const infura_endpoint =
