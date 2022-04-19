@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import TokenSale from './pages/TokenSale';
 
 import { Vertify } from '@alex_xu/react-slider-vertify';
+import PreSale from './pages/PreSale';
 
 const App: React.FC = () => {
   const [homeUri, setHomeUri] = useState('')
@@ -32,6 +33,7 @@ const App: React.FC = () => {
                 <Home uri={homeUri} />
               </Route>
               <Route path="/tokenSale" component={TokenSale} />
+              <Route path="/presale" component={PreSale} />
             </Switch>
           </div> : <div className='bg-cover tokenSale-background' style={{ position: "absolute", width: "100%", height: "100%" }}>
             {

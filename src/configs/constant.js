@@ -9,3 +9,4 @@ export const ether = (wei) => {
     return wei / DECIMALS; // 18 decimal places
   }
 };
+export const PRESALE_END = "2022:06:30:23:59";

@@ -9,7 +9,7 @@ import { CommonButton } from "../../components/ButtonComponent"
 import { useState } from "react"
 import { useEffect } from "react"
 import Drawer from "./Drawer"
-import { useHistory, useLocation } from "react-router-dom"
+import { Link, useHistory, useLocation } from "react-router-dom"
 
 interface HeaderProps {
   handler?: any
@@ -58,8 +58,6 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
     setLangLeft(langLeft ? langLeft : 0)
     setLangLeftSM(langLeftSM ? langLeftSM - 28 : 0)
   }, [])
-
-  const handleSignIn = () => { }
 
   const handleGoSection = (index: string) => {
     if (location.pathname === '/' && index !== '/') {
@@ -131,7 +129,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
                 </div>
               )}
             </div>
-            <CommonButton title="Sign In" handler={handleSignIn} isSmall />
+            <Link to="presale"><CommonButton title="Join Presale" isSmall /></Link>
           </div>
         </div>
       </div >
