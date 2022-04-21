@@ -4,7 +4,7 @@ export const INFURA_ENDPOINT =
   "https://rinkeby.infura.io/v3/b7f1ceb6b5804743827a20b964dcf617";
 export const PRODUCT_KEY = "c05789ae507e4276b0936e73d08216a0";
 const DECIMALS = 10 ** 18;
-export const TO_ETHER = (wei, decimal = 0) => {
+export const TO_ETHER = (wei:any, decimal = 0) => {
   if (wei) {
     return wei / (decimal ? 10 ** decimal : DECIMALS); // 18 decimal places
   }
