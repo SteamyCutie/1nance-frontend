@@ -59,7 +59,8 @@ export const HomeComponent = ({ handler }) => {
             <p className="indent-4 mt-2" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 100ms" }}>With your help, <b className='font-bold'>1nance</b> will build a world-class crypto exchange, powering the future of crypto finance.</p>
           </div>
           <div className="grid w-4/5 gap-3 xl:flex justify-left xl:justify-center" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 200ms" }}>
-            <CommonButton title="Purchase Token" handler={() => handler('section-token')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" />
+            {/* <CommonButton title="Purchase Token" handler={() => handler('section-token')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" /> */}
+            <Link to="presale"><CommonButton title="Join Presale" className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" /></Link>
             <CommonButton title="Whitepaper" handler={() => handler('section-whitepaper')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" />
           </div>
         </div>
