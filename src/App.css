@@ -49,6 +49,8 @@ body {
 * {
   scrollbar-color: #ccc !important;
   scrollbar-width: thin !important;
+  font-family: "Concert One", cursive;
+  font-weight: 100;
 }
 
 ::-webkit-scrollbar {
@@ -87,11 +89,6 @@ body {
   font-family: "Concert One", cursive;
   background: papayawhip;
   color: #2f2f2f;
-}
-
-* {
-  font-family: "Concert One", cursive;
-  font-weight: 100;
 }
 
 #moreMenu:before,

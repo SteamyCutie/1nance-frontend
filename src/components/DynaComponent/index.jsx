@@ -56,7 +56,7 @@ export const HomeComponent = ({ handler }) => {
         <div className="grid w-[calc(100vw-24px)] xl:w-1/2 justify-items-center xl:justify-items-end gap-10 xl:gap-12">
           <div className="font-medium text-[18px] text-left xl:text-justify leading-[30px] px-0 xl:px-6 w-4/5 place-items-end">
             <p className="indent-4" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07)" }}>In our view, there are fundamentally two different types of exchanges: the ones that deal with fiat currency; and the ones that deal purely in crypto. It is the latter one that we will focus on. Even though they are small now, we strongly believe that pure crypto exchanges will be bigger, many times bigger, than fiat based exchanges in the near future. They will play an ever more important role in world finance and we call this new paradigm <b className='font-bold'>1nance</b>.</p>
-            <p className="indent-4 mt-2" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 100ms" }}>With your help, <b className='font-bold'>1nance</b> will build a world-class crypto exchange, powering the future of crypto finance.</p>
+            <p className="mt-2 indent-4" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 100ms" }}>With your help, <b className='font-bold'>1nance</b> will build a world-class crypto exchange, powering the future of crypto finance.</p>
           </div>
           <div className="grid w-4/5 gap-3 xl:flex justify-left xl:justify-center" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 200ms" }}>
             {/* <CommonButton title="Purchase Token" handler={() => handler('section-token')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" /> */}
@@ -283,7 +283,7 @@ export const TokenSaleComponent = () => {
   const [percent] = useState(0)
 
   const loadBalance = async () => {
-    return 5000;
+    return 4000;
   }
 
   const updateBalance = async () => {
@@ -333,7 +333,7 @@ export const TokenSaleComponent = () => {
             <div className="grid w-full place-items-center justify-items-center mt-6 lg:mt-6 text-[24px] text-white font-bold">
               Remain Amount : {remainAmount}
             </div>
-            <div className="grid gap-0 w-full items-end">
+            <div className="grid items-end w-full gap-0">
               <div className="flex justify-around w-full lg:mt-6 h-[48px]">
                 <TokenSaleStepComponent name="Pre-Sale" />
                 <TokenSaleStepComponent name="Soft Cap" />
@@ -341,7 +341,10 @@ export const TokenSaleComponent = () => {
               </div>
               <div className="place-self-start w-full bg-white rounded-full p-1 px-1.5 xl:p-1.5 xl:px-2 h-[24px] xl:h-8 flex items-center"><div className={`bg-gradient-to-r from-[#03185B] to-[#0040C1] rounded-[5px] xl:rounded-[8px] w-[${percent === 0 ? '0px' : percent + '%'}] h-4 xl:h-6`}></div></div>
             </div>
-            <div className="grid w-full mt-6 justify-items-center lg:mt-12" ><Link to='tokenSale'><CommonButton title="Purchase Token" className="from-[#03185B] via-[#133295] to-[#03185B] text-white font-[500] rounded-[12px] lg:rounded-[16px] text-[19px] lg:text-[24px] leading-[22px] lg:leading-[28px] min-w-[220px] lg:min-w-[250px] py-4" /></Link></div>
+            <div className="grid w-full mt-6 justify-items-center lg:mt-12" >
+              {/* <Link to='tokenSale'><CommonButton title="Purchase Token" className="from-[#03185B] via-[#133295] to-[#03185B] text-white font-[500] rounded-[12px] lg:rounded-[16px] text-[19px] lg:text-[24px] leading-[22px] lg:leading-[28px] min-w-[220px] lg:min-w-[250px] py-4" /></Link> */}
+              <Link to='presale'><CommonButton title="Join Presale" className="from-[#03185B] via-[#133295] to-[#03185B] text-white font-[500] rounded-[12px] lg:rounded-[16px] text-[19px] lg:text-[24px] leading-[22px] lg:leading-[28px] min-w-[220px] lg:min-w-[250px] py-4" /></Link>
+            </div>
           </div>
         </div>
         <div className="flex-row w-full space-y-6 lg:w-1/2 xl:space-y-12">
@@ -362,13 +365,13 @@ export const TokenSaleComponent = () => {
             <ArrowComponent content="We will roll out the platform in" emphasize="Anonymous instant exchange" />
             <ArrowComponent content="We will roll out the platform in" emphasize="Decen-tralized (on-chain) exchange" />
             <ArrowComponent content="We will roll out the platform in" emphasize="And more …" /> */}
-            <table className="text-white w-full shadow-md">
+            <table className="w-full text-white shadow-md">
               <thead>
                 <tr>
-                  <th className="bg-white bg-opacity-5 text-white p-6">ICO Phase</th>
-                  <th className="bg-white bg-opacity-5 text-white p-6">1st week</th>
-                  <th className="bg-white bg-opacity-5 text-white p-6">2nd week</th>
-                  <th className="bg-white bg-opacity-5 text-white p-6">3rd week</th>
+                  <th className="p-6 text-white bg-white bg-opacity-5">ICO Phase</th>
+                  <th className="p-6 text-white bg-white bg-opacity-5">1st week</th>
+                  <th className="p-6 text-white bg-white bg-opacity-5">2nd week</th>
+                  <th className="p-6 text-white bg-white bg-opacity-5">3rd week</th>
                 </tr>
               </thead>
               <tbody>
@@ -378,7 +381,7 @@ export const TokenSaleComponent = () => {
                   <td className="p-4">15:00 April 22nd - <br />15:00 April 28th</td>
                   <td className="p-4">15:00 April 29th - <br />15:00 May 06th</td>
                 </tr>
-                <tr className="bg-white text-white bg-opacity-10">
+                <tr className="text-white bg-white bg-opacity-10">
                   <td className="p-4">1 ETH</td>
                   <td className="p-4">2700 <b>1nance tokens</b></td>
                   <td className="p-4">2500 <b>1nance tokens</b></td>
@@ -499,7 +502,7 @@ export const OurCoinComponent = () => {
       <div className="grid items-center w-full gap-4 px-2 mt-3 xl:flex xl:gap-16 xl:mt-20 xl:px-0">
         <IllustComponent illust={ilustrOurCoin1} title="" content={
           <div className="">
-            <p className="font-normal pl-5 my-2"></p>
+            <p className="pl-5 my-2 font-normal"></p>
           </div>
         } />
       </div>

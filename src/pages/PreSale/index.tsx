@@ -26,7 +26,7 @@ const PreSale: React.FC = () => {
 
   const [tokenBalance] = useState(0)
   const [bnbBalance, setBNBBalance] = useState(0)
-  const [hardCap, setHardCap] = useState(0)
+  const [hardCap, setHardCap] = useState(4000)
   const [isLive, setLive] = useState(true)
   const [minLimit, setMinLimit] = useState(0.05)
   const [maxLimit, setMaxLimit] = useState(10)
@@ -66,9 +66,9 @@ const PreSale: React.FC = () => {
       presaleContract.methods.contractPaused().call().then((result: string) => {
         setLive(result !== 'false')
       })
-      presaleContract.methods.hardCap().call().then((result: string) => {
-        setHardCap(TO_ETHER(parseFloat(result)))
-      })
+      // presaleContract.methods.hardCap().call().then((result: string) => {
+      //   setHardCap(TO_ETHER(parseFloat(result)))
+      // })
       presaleContract.methods.minBNBLimit().call().then((result: string) => {
         setMinLimit(TO_ETHER(parseFloat(result)))
       })
@@ -259,8 +259,10 @@ const PreSale: React.FC = () => {
               <p className="mt-2">Your Contributed Amount : </p>
               <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{userContributed}</p> BNB</div>
               <p className="mt-2">Total Contributed Amount : </p>
+              <div className="w-full border-[1px] rounded flex-row justify-center text-[12px]"><p className="items-center text-center -mt-[2px]">{Number(userContributed / hardCap).toFixed(2)}%</p><div className="flex m-[1px] justify-self-start bg-[#2cd337]/80 -mt-[15px] min-h-[15px] rounded-sm" style={{ width: `${userContributed / hardCap}%` }}></div></div>
               <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{totalContributed}</p> BNB</div>
               <p className="mt-2">Total Token Sold Amount : </p>
+              <div className="w-full border-[1px] rounded flex-row justify-center text-[12px]"><p className="items-center text-center -mt-[2px]">{Number(userContributed / hardCap).toFixed(2)}%</p><div className="flex m-[1px] justify-self-start bg-[#ed3b3b]/80 -mt-[15px] min-h-[15px] rounded-sm" style={{ width: `${userContributed / hardCap}%` }}></div></div>
               <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{totalSold}</p> 1NB</div>
             </div>
           </div>
