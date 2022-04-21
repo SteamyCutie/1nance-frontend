@@ -278,7 +278,7 @@ const PreSale: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="grid gap-0 mt-4 w-full rounded-3xl border-[#91b4ff] border-2 border-b-4 p-4">
+        {/* <div className="grid gap-0 mt-4 w-full rounded-3xl border-[#91b4ff] border-2 border-b-4 p-4">
           <div className="flex items-center justify-start my-3 space-x-4">
             <div className="flex justify-center w-[72px]">
               <img src={tokenLogo} width={56} alt="token" />
@@ -294,10 +294,10 @@ const PreSale: React.FC = () => {
             </div>
             <div className="grid">
               <p className="text-[#04d9ff] text-[18px] font-extrabold uppercase">Presale Contract Address</p>
-              <p className="">{ONENANCE_PRESALE}</p>
+              <a href={`https://bscscan.com/address/${ONENANCE_PRESALE}/`} target="_blank" className="max-w-[300px] md:max-w-[768px] lg:max-w-[1024px] text-ellipsis overflow-hidden" rel="noreferrer">{ONENANCE_PRESALE}</a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <Footer />
       <ToastContainer />
