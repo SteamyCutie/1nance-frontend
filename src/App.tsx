@@ -11,7 +11,7 @@ import PreSale from './pages/PreSale';
 
 const App: React.FC = () => {
   const [homeUri, setHomeUri] = useState('')
-  const [isVerify, setIsVerify] = useState(true);
+  const [isVerify, setIsVerify] = useState(false);
   const [width, setWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {
