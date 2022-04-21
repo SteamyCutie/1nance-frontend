@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Home from './pages/Home';
 import TokenSale from './pages/TokenSale';
+import { ToastContainer, toast } from 'react-toastify';
 
 import { Vertify } from '@alex_xu/react-slider-vertify';
 import PreSale from './pages/PreSale';
@@ -20,11 +21,25 @@ const App: React.FC = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (!isVerify) return
+    toast.success('Verification succeeded 🎉', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }, [isVerify])
+
   const isMobile = width <= 768;
 
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
+        <ToastContainer />
         {
           isVerify ? <div className='bg-cover bg-mobileBackground laptop:bg-background'>
             <Header handler={setHomeUri} />
@@ -47,8 +62,24 @@ const App: React.FC = () => {
                     onSuccess={() => {
                       setIsVerify(true);
                     }}
-                    onFail={() => alert('Failed, try again')}
-                    onRefresh={() => alert('Refresh')}
+                    onFail={() => toast.error('Try again 🤣', {
+                      position: "top-right",
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                    })}
+                    onRefresh={() => toast.warn('Refreshing 🤔', {
+                      position: "top-right",
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                    })}
                   />
                 </div>
               </div> : <div className="recaptcha-position bg-[white] w-[320px] h-[260px] mt-[-130px]" style={{ marginLeft: "-160px", borderRadius: "5px" }}>
@@ -60,8 +91,24 @@ const App: React.FC = () => {
                   onSuccess={() => {
                     setIsVerify(true);
                   }}
-                  onFail={() => alert('Failed, try again')}
-                  onRefresh={() => alert('Refresh')}
+                  onFail={() => toast.error('Try again 🤣', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                  })}
+                  onRefresh={() => toast.warn('Refreshing 🤔', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                  })}
                 />
               </div>
             }

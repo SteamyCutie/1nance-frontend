@@ -17,8 +17,8 @@ import { useWeb3React } from "@web3-react/core";
 import { connectors } from "../../connectors";
 import { ethers } from "ethers";
 
-import NBICO from "../../artifacts/contracts/NBICO.sol/NBICO.json";
-import { NBICOAddress } from "../../config";
+import _1NanceICO from "../../configs/_1NanceICO.json";
+import { ONENANCE_ICO } from "../../configs/constant";
 import { CommonButton } from "../../components/ButtonComponent";
 
 declare global {
@@ -123,8 +123,8 @@ const TokenSale: React.FC = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const nbICOContract = new ethers.Contract(
-      NBICOAddress,
-      NBICO.abi,
+      ONENANCE_ICO,
+      _1NanceICO,
       signer
     );
     const etherAmount = ethers.utils.parseUnits(totalUSD.toString(), 'ether');
