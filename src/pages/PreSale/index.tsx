@@ -242,11 +242,11 @@ const PreSale: React.FC = () => {
                 />
               </div>
               <div className="grid justify-center p-2 md:px-4">
-                <CommonButton title="Max" handler={() => setAmount(bnbBalance.toFixed(3))} className="text-black from-[#04d9ff] via-[#04d9ff] to-[#04d9ff] text-[14px] p-2 w-[36px] min-w-0" />
+                <CommonButton title="Max" handler={() => setAmount(bnbBalance.toFixed(3))} className="text-black text-[14px] p-2 w-[36px] min-w-0" />
               </div>
             </div>
-            {!account ? <CommonButton title="Connect" handler={handleConnect} className="from-[#04d9ff] via-[#04d9ff] to-[#04d9ff] text-[black] font-[500] rounded-[8px] lg:rounded-[8px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[220px] lg:min-w-[250px]" />
-              : <CommonButton title="Contribute" handler={handleContribute} className="from-[#04d9ff] via-[#04d9ff] to-[#04d9ff] text-[black] font-[500] rounded-[8px] lg:rounded-[8px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[220px] lg:min-w-[250px]" />}
+            {!account ? <CommonButton title="Connect" handler={handleConnect} className="text-[black] font-[500] rounded-[8px] lg:rounded-[8px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[220px] lg:min-w-[250px]" />
+              : <CommonButton title="Contribute" handler={handleContribute} className="text-[black] font-[500] rounded-[8px] lg:rounded-[8px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[220px] lg:min-w-[250px]" />}
           </div>
         </div>
         <div className="flex-row justify-between w-full space-x-0 md:flex md:space-x-4">
