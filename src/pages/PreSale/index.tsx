@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react"
 import { useWeb3React } from "@web3-react/core"
