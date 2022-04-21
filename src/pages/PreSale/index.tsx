@@ -206,28 +206,28 @@ const PreSale: React.FC = () => {
   return (
     <div className="m-auto tokenSale-background">
       <TitleComponent title="presale ends in" anchor="" content="" />
-      <div className="grid justify-center w-full -mt-12 md:-mt-8">
+      <div className="grid justify-center w-full -mt-12 md:-mt-8 ">
         <div className="flex items-center justify-center m-auto space-x-3 md:space-x-12 lg:space-x-16 xl:space-x-16">
           <div className="flex-1 min-w-[25%]">
-            <p className="text-center text-[#04d9ff] text-[20px]">Days</p>
-            <p className="text-center text-[white] text-[48px] font-[700]">{remain[0].length === 1 ? `0${remain[0]}` : remain[0]}</p>
+            <p className="text-center text-[#FFAF10] text-[20px]">Days</p>
+            <p className="text-center text-white text-[48px] font-[700]">{remain[0].length === 1 ? `0${remain[0]}` : remain[0]}</p>
           </div>
           <div className="flex-1 min-w-[25%]">
-            <p className="text-center text-[#04d9ff] text-[20px]">Hours</p>
-            <p className="text-center text-[white] text-[48px] font-[700]">{remain[1].length === 1 ? `0${remain[1]}` : remain[1]}</p>
+            <p className="text-center text-[#FFAF10] text-[20px]">Hours</p>
+            <p className="text-center text-white text-[48px] font-[700]">{remain[1].length === 1 ? `0${remain[1]}` : remain[1]}</p>
           </div>
           <div className="flex-1 min-w-[25%]">
-            <p className="text-center text-[#04d9ff] text-[20px]">Minutes</p>
-            <p className="text-center text-[white] text-[48px] font-[700]">{remain[2].length === 1 ? `0${remain[2]}` : remain[2]}</p>
+            <p className="text-center text-[#FFAF10] text-[20px]">Minutes</p>
+            <p className="text-center text-white text-[48px] font-[700]">{remain[2].length === 1 ? `0${remain[2]}` : remain[2]}</p>
           </div>
           <div className="flex-1 min-w-[25%]">
-            <p className="text-center text-[#04d9ff] text-[20px]">Seconds</p>
-            <p className="text-center text-[white] text-[48px] font-[700]">{remain[3].length === 1 ? `0${remain[3]}` : remain[3]}</p>
+            <p className="text-center text-[#FFAF10] text-[20px]">Seconds</p>
+            <p className="text-center text-white text-[48px] font-[700]">{remain[3].length === 1 ? `0${remain[3]}` : remain[3]}</p>
           </div>
         </div>
         <div className="grid items-center mt-3 md:mt-4 max-w-[1024px] bg-gradient-to-b from-[#141828ad] to-[#141828ad] rounded-3xl border-[#91b4ff] border-2 border-b-4">
           <div className="grid items-center m-5 md:flex md:justify-between">
-            <p className="flex text-[20px] md:text-[24px] text-[#04d9ff] justify-self-start">Contribute BNB to Get 1NB</p>
+            <p className="flex text-[20px] md:text-[24px] text-white justify-self-start">Contribute BNB to Get 1NB</p>
             {
               isLive ?
                 <p className="text-[14px] md:text-[18px] text-[#2cd337] justify-self-end">Presale now is live</p>
@@ -238,7 +238,7 @@ const PreSale: React.FC = () => {
             <div className="flex justify-center justify-self-center border-[1px] max-w-[600px] rounded-xl lg:flex md:flex items-start text-[14px] lg:text-[22px] leading-[20px] lg:leading-[24px]">
               <div className="m-auto grid justify-center text-[20px] md:text-[24px] lg:text-[28px]">
                 <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} step="1" min={minLimit} max={maxLimit}
-                  className="text-[white] border-[none] text-center m-0 w-48 md:w-52 lg:w-64" style={{ background: "none", outline: "none" }}
+                  className="text-white border-[none] text-center m-0 w-48 md:w-52 lg:w-64" style={{ background: "none", outline: "none" }}
                 />
               </div>
               <div className="grid justify-center p-2 md:px-4">
@@ -253,29 +253,29 @@ const PreSale: React.FC = () => {
           <div className="grid items-center mt-3 md:mt-4 w-full md:w-1/2 bg-gradient-to-b from-[#141828ad] to-[#141828ad] rounded-3xl border-[#91b4ff] border-2 border-b-4">
             <div className="m-6 text-[14px] md:text-[18px]">
               <p className="mt-0">Your 1NB Balance : </p>
-              <p className="text-[#04d9ff] text-[18px] md:text-[24px] ml-4">{tokenBalance} 1NB</p>
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{tokenBalance}</p> 1NB</div>
               <p className="mt-2">Your Available Contribute Amount : </p>
-              <p className="text-[#04d9ff] text-[18px] md:text-[24px] ml-4">{bnbBalance < maxLimit ? bnbBalance.toFixed(3) : maxLimit} BNB</p>
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{bnbBalance < maxLimit ? bnbBalance.toFixed(3) : maxLimit}</p> BNB</div>
               <p className="mt-2">Your Contributed Amount : </p>
-              <p className="text-[#04d9ff] text-[18px] md:text-[24px] ml-4">{userContributed} BNB</p>
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{userContributed}</p> BNB</div>
               <p className="mt-2">Total Contributed Amount : </p>
-              <p className="text-[#04d9ff] text-[18px] md:text-[24px] ml-4">{totalContributed} BNB</p>
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{totalContributed}</p> BNB</div>
               <p className="mt-2">Total Token Sold Amount : </p>
-              <p className="text-[#04d9ff] text-[18px] md:text-[24px] ml-4">{totalSold} 1NB</p>
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{totalSold}</p> 1NB</div>
             </div>
           </div>
           <div className="grid items-center mt-3 md:mt-4 w-full md:w-1/2 bg-gradient-to-b from-[#141828ad] to-[#141828ad] rounded-3xl border-[#91b4ff] border-2 border-b-4">
             <div className="m-6 text-[14px] md:text-[18px]">
               <p className="mt-0">HardCap : </p>
-              <p className="text-[#04d9ff] text-[18px] md:text-[24px] ml-4">{hardCap} BNB</p>
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{hardCap}</p> BNB</div>
               <p className="mt-4">PreSale Price : </p>
-              <p className="text-[#04d9ff] text-[18px] md:text-[24px] ml-4">{Number(bnbPrice / 10).toFixed(3)} 1NB Per 1BNB</p>
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{Number(bnbPrice / 10).toFixed(3)}</p> 1NB Per 1BNB</div>
               <p className="mt-4">Launch Price : </p>
-              <p className="text-[#04d9ff] text-[18px] md:text-[24px] ml-4">{Number(bnbPrice / 15).toFixed(3)} 1NB PER 1BNB</p>
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{Number(bnbPrice / 15).toFixed(3)}</p> 1NB PER 1BNB</div>
               <p className="mt-4">Min Contribute : </p>
-              <p className="text-[#04d9ff] text-[18px] md:text-[24px] ml-4">{minLimit} BNB PER WALLET</p>
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{minLimit}</p> BNB PER WALLET</div>
               <p className="mt-4">Max Contribute : </p>
-              <p className="text-[#04d9ff] text-[18px] md:text-[24px] ml-4">{maxLimit} BNB PER WALLET</p>
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{maxLimit}</p> BNB PER WALLET</div>
             </div>
           </div>
         </div>
@@ -285,7 +285,7 @@ const PreSale: React.FC = () => {
               <img src={tokenLogo} width={56} alt="token" />
             </div>
             <div className="grid">
-              <p className="text-[#04d9ff] text-[18px] font-extrabold uppercase">1NB Token Address</p>
+              <p className="text-white text-[18px] font-extrabold uppercase">1NB Token Address</p>
               <p className="">{ONENANCE_TOKEN}</p>
             </div>
           </div>
@@ -294,7 +294,7 @@ const PreSale: React.FC = () => {
               <img src={contractLogo} width={64} alt="contract" />
             </div>
             <div className="grid">
-              <p className="text-[#04d9ff] text-[18px] font-extrabold uppercase">Presale Contract Address</p>
+              <p className="text-white text-[18px] font-extrabold uppercase">Presale Contract Address</p>
               <a href={`https://bscscan.com/address/${ONENANCE_PRESALE}/`} target="_blank" className="max-w-[300px] md:max-w-[768px] lg:max-w-[1024px] text-ellipsis overflow-hidden" rel="noreferrer">{ONENANCE_PRESALE}</a>
             </div>
           </div>
