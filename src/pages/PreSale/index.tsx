@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { CommonButton } from "../../components/ButtonComponent"
 import TitleComponent from "../../components/DynaComponent/TitleComponent"
 import Footer from "../../components/Footer"
-import { PRESALE_END } from "../../configs/constant"
+import { ONENANCE_PRESALE_WALLET, PRESALE_END } from "../../configs/constant"
 import { connectors } from "../../connectors"
 import tokenLogo from "../../assets/png/logoSM.png"
 import contractLogo from "../../assets/png/contract.png"
@@ -281,8 +281,8 @@ const PreSale: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* <div className="grid gap-0 mt-4 w-full rounded-3xl border-[#91b4ff] border-2 border-b-4 p-4">
-          <div className="flex items-center justify-start my-3 space-x-4">
+        <div className="grid gap-0 mt-4 w-full rounded-3xl border-[#91b4ff] border-2 border-b-4 p-4">
+          {/* <div className="flex items-center justify-start my-3 space-x-4">
             <div className="flex justify-center w-[72px]">
               <img src={tokenLogo} width={56} alt="token" />
             </div>
@@ -299,8 +299,17 @@ const PreSale: React.FC = () => {
               <p className="text-white text-[18px] font-extrabold uppercase">Presale Contract Address</p>
               <a href={`https://bscscan.com/address/${ONENANCE_PRESALE}/`} target="_blank" className="max-w-[300px] md:max-w-[768px] lg:max-w-[1024px] text-ellipsis overflow-hidden" rel="noreferrer">{ONENANCE_PRESALE}</a>
             </div>
+          </div> */}
+          <div className="flex items-center justify-start my-3 space-x-4">
+            <div className="flex justify-center w-[72px]">
+              <img src={tokenLogo} width={56} alt="wallet" />
+            </div>
+            <div className="grid">
+              <p className="text-white text-[18px] font-extrabold uppercase">Presale Wallet Address</p>
+              <a href={`https://bscscan.com/address/${ONENANCE_PRESALE_WALLET}/`} target="_blank" className="text-[20px] text-[#FFAF10] active:text-[#ffaf108d] hover:text-[#ffaf10b1] transition-all duration-150 max-w-[240px] md:max-w-[768px] lg:max-w-[1024px] text-ellipsis overflow-hidden" rel="noreferrer">{ONENANCE_PRESALE}</a>
+            </div>
           </div>
-        </div> */}
+        </div>
       </div>
       <Footer />
       <ToastContainer />
