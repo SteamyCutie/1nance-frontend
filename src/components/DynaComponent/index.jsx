@@ -27,6 +27,7 @@ import { TokenSaleStepComponent } from '../StepComponent'
 // import ArrowComponent from './ArrowComponent'
 import MemberComponent from '../MemberComponent'
 import _1NanceLinks from "../../configs/_1NanceLinks.json"
+import { PRESALE_END } from "../../configs/constant"
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
@@ -281,6 +282,7 @@ export const TokenSaleComponent = () => {
   const fontSize = window.innerWidth / 1920 * 48;
   const [remainAmount, setRemainAmount] = useState(0);
   const [percent] = useState(0)
+  const [remain, setRemain] = useState(0)
 
   const loadBalance = async () => {
     return 4000;
@@ -305,6 +307,12 @@ export const TokenSaleComponent = () => {
     window.addEventListener("scroll", () => {
       setYOffset(window.pageYOffset)
     })
+
+    let now = new Date();
+    let timeInfo_end = PRESALE_END.split(':');
+    let countdownEnd = new Date(parseInt(timeInfo_end[0]), parseInt(timeInfo_end[1]) - 1, parseInt(timeInfo_end[2]), parseInt(timeInfo_end[3]), parseInt(timeInfo_end[4]));
+    let distance = countdownEnd.getTime() - now.getTime();
+    setRemain(distance / 1000)
   }, []);
 
   useEffect(() => {
@@ -323,7 +331,7 @@ export const TokenSaleComponent = () => {
           <div className="grid justify-items-end rounded-[16px] px-4 md:px-6 py-6 lg:px-6 lg:p-10 lg:pt-16 w-full h-full bg-gradient-to-b from-[#FFAF10] to-[#F97919]" style={{ transform: `translateY(${anim ? '0' : '200'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 100ms" }}>
             <div className="grid w-full h-24 mt-0 place-items-center justify-items-center lg:mt-4">
               <Flipclock
-                seconds={12 * 24 * 60 * 60}
+                seconds={remain}
                 dark={false}
                 fontSize={fontSize > 25 ? (window.innerWidth >= 1024 && window.innerWidth < 1280 ? fontSize + 5 : fontSize) : (window.innerWidth >= 720 ? fontSize + 14 : 25)}
                 fontWeight={900}
