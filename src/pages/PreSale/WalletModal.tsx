@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Web3 from "web3";
 import METAMASK_ICON from "../../assets/svg/metamask.svg"
 import COINBASE_ICON from "../../assets/svg/coinbase.svg"
