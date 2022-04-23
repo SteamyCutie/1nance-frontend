@@ -35,7 +35,7 @@ const WalletModal: React.FC<Props> = ({ isOpen, connectHandler, closeHandler }) 
           <div className="grid gap-4 md:flex">
             {ethEnabled() ?
               <div className="items-center justify-center text-[24px] text-black/80 gap-2 md:gap-16 border-2 p-4 px-8 cursor-pointer grid md:flex" onClick={connectHandler}><div className="flex items-center gap-4 text-center"><img src={METAMASK_ICON} alt="metamask" width={48} /> | <img src={COINBASE_ICON} alt="coinbase" width={96} /></div><div className="w-full text-center">Injected</div></div> :
-              <div className="flex items-center text-[24px] text-black/80 gap-4 border-2 p-4 px-8 cursor-pointer"><img src={METAMASK_ICON} alt="metamask" width={48} /><img src={COINBASE_ICON} alt="coinbase" width={96} />Install Metamask</div>
+              <a href="https://metamask.io" className="" target="_blank" rel="noreferrer"><div className="flex items-center text-[24px] text-black/80 gap-4 border-2 p-4 px-8 cursor-pointer"><img src={METAMASK_ICON} alt="metamask" width={48} /><img src={COINBASE_ICON} alt="coinbase" width={96} />Install Metamask</div></a>
             }
           </div>
         </div>
