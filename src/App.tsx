@@ -46,7 +46,7 @@ const App: React.FC = () => {
           isVerify ? <div className='bg-cover bg-mobileBackground laptop:bg-background'>
             <Header handler={setHomeUri} />
             <Switch>
-              <Route exact path="/">
+              <Route path="/">
                 {/* <Home uri={homeUri} /> */}
                 <PreSale />
               </Route>
