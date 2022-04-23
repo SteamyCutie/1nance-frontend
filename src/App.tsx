@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { Suspense, useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
@@ -45,10 +46,11 @@ const App: React.FC = () => {
             <Header handler={setHomeUri} />
             <Switch>
               <Route exact path="/">
-                <Home uri={homeUri} />
+                {/* <Home uri={homeUri} /> */}
+                <PreSale />
               </Route>
-              <Route path="/tokenSale" component={TokenSale} />
-              <Route path="/presale" component={PreSale} />
+              {/* <Route path="/tokenSale" component={TokenSale} /> */}
+              {/* <Route path="/presale" component={PreSale} /> */}
             </Switch>
           </div> : <div className='bg-cover tokenSale-background' style={{ position: "absolute", width: "100%", height: "100%" }}>
             {
