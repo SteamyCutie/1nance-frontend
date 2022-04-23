@@ -20,12 +20,11 @@ import WalletModal from "./WalletModal"
 
 const web3 = new Web3(Web3.givenProvider)
 
-const presaleContract = new web3.eth.Contract(_1NancePresale as AbiItem[], ONENANCE_PRESALE)
-
 const PreSale: React.FC = () => {
 
   const { activate, account, chainId } = useWeb3React()
 
+  const [presaleContract, setPresaleContract] = useState<any>()
   const [tokenBalance] = useState(0)
   const [bnbBalance, setBNBBalance] = useState(0)
   const [hardCap, setHardCap] = useState(4000)
@@ -63,6 +62,7 @@ const PreSale: React.FC = () => {
         setBNBPrice(usdPrice)
       })
 
+    setPresaleContract(new web3.eth.Contract(_1NancePresale as AbiItem[], ONENANCE_PRESALE))
     const getContractInfo = async () => {
       if (!presaleContract) return
       presaleContract.methods.contractPaused().call().then((result: string) => {

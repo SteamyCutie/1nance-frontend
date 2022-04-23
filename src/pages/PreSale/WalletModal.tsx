@@ -29,7 +29,7 @@ const WalletModal: React.FC<Props> = ({ isOpen, connectHandler, closeHandler }) 
 
   return <>
     {isOpen &&
-      <div className="absolute top-0 left-0 flex w-full h-full bg-white/50 z-[1000] backdrop-blur-sm" onClick={closeHandler}>
+      <div className="flex w-[100%] h-[100%] m-auto bg-white/50 z-[1000] backdrop-blur-sm" onClick={closeHandler} style={{ position: "fixed", top: "0", left: "0", right: "0" }}>
         <div className="grid min-w-[280px] md:min-w-[420px] h-[240px] m-auto px-4 bg-white rounded-lg items-center justify-center">
           <div className="text-[28px] text-black text-center">Connect Wallet</div>
           <div className="grid gap-4 md:flex">
