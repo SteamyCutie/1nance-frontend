@@ -22,4 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 yarn.lock
-build.zip
+build-home.zip
+build-presale.zip

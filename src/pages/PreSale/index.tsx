@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { useWeb3React } from "@web3-react/core"
 import Web3 from "web3"
+import Web3Modal from "web3modal"
 import { AbiItem } from 'web3-utils'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,13 +16,32 @@ import tokenLogo from "../../assets/png/logoSM.png"
 import contractLogo from "../../assets/png/contract.png"
 import { TO_ETHER, ONENANCE_TOKEN, ONENANCE_PRESALE } from "../../configs/constant"
 import _1NancePresale from "../../configs/_1NancePresale.json"
+import Authereum from "authereum"
+import WalletConnectProvider from "@walletconnect/web3-provider"
 
-const web3 = new Web3(Web3.givenProvider)
+const providerOptions = {
+  metamask: { package: true },
+  authereum: { package: Authereum },
+  binancechainwallet: { package: true },
+  walletconnect: {
+    package: WalletConnectProvider,
+    options: {
+      infuraId: "27e484dcd9e3efcfd25a83a78777cdf1"
+    }
+  }
+};
 
-const presaleContract = new web3.eth.Contract(_1NancePresale as AbiItem[], ONENANCE_PRESALE)
+const web3Modal = new Web3Modal({
+  network: "mainnet", // optional
+  cacheProvider: true, // optional
+  providerOptions // required
+});
 
 const PreSale: React.FC = () => {
 
+  const [provider, setProvider] = useState()
+  const [web3, setWeb3] = useState<Web3>()
+  const [presaleContract, setPresaleContract] = useState<any>()
   const { activate, account, chainId } = useWeb3React()
 
   const [tokenBalance] = useState(0)
@@ -43,7 +63,25 @@ const PreSale: React.FC = () => {
 
   const [didMount, setDidMount] = useState(false);
 
+  const web3ModalConnect = async () => {
+    if (provider) return
+    setProvider(await web3Modal.connect())
+  }
+
   useEffect(() => {
+    if (!provider) return
+    let _web3 = new Web3(provider)
+    setWeb3(_web3)
+  }, [provider])
+
+  useEffect(() => {
+    if (!web3) return
+    let _presaleContract = new web3.eth.Contract(_1NancePresale as AbiItem[], ONENANCE_PRESALE)
+    setPresaleContract(_presaleContract)
+  }, [web3])
+
+  useEffect(() => {
+    web3ModalConnect()
     setDidMount(true);
     return () => setDidMount(false);
   }, [])
@@ -86,7 +124,7 @@ const PreSale: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    if (!account) return
+    if (!account || !web3) return
     toast.success('👋 Wallet is successfully connected!', {
       position: "top-right",
       autoClose: 3000,
@@ -149,6 +187,7 @@ const PreSale: React.FC = () => {
   }
 
   const handleContribute = () => {
+    if (!web3) return
     if (!account) {
       toast.info('Please connect your wallet first 👍', {
         position: "top-right",
