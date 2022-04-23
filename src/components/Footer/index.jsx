@@ -38,7 +38,7 @@ const Footer = () => {
         <a href={_1NanceLinks.reddit} target="_blank" style={{ transform: `translateY(${anim ? '0' : '40'}px)`, opacity: anim ? 1 : 0, transition: "all 300ms cubic-bezier(0.13, 1.35, 0.77, 1.41) 400ms" }} rel="noreferrer"><IconButton icon={reddit} className="w-[24px] h-[24px] md:w-8 md:h-8 xl:w-12 xl:h-12" /></a>
         <a href={_1NanceLinks.youtube} target="_blank" style={{ transform: `translateY(${anim ? '0' : '40'}px)`, opacity: anim ? 1 : 0, transition: "all 300ms cubic-bezier(0.13, 1.35, 0.77, 1.41) 500ms" }} rel="noreferrer"><IconButton icon={youtube} className="w-[24px] h-[24px] md:w-8 md:h-8 xl:w-12 xl:h-12" /></a>
       </div>
-      <a href="/"><img src={logoSM} className="mt-[-50px] md:mt-[-100px] ml-8 md:ml-16 w-8 h-8 md:w-12 md:h-12 xl:mt-[-220px] xl:ml-32 xl:w-16 xl:h-16" alt="logo" /></a>
+      <a href="https://1nance.com"><img src={logoSM} className="mt-[-50px] md:mt-[-100px] ml-8 md:ml-16 w-8 h-8 md:w-12 md:h-12 xl:mt-[-220px] xl:ml-32 xl:w-16 xl:h-16" alt="logo" /></a>
     </div>
   )
 }

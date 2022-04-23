@@ -23,7 +23,7 @@ import { CommonButton } from "../../components/ButtonComponent";
 
 declare global {
   interface Window {
-    ethereum?: any;
+    // ethereum?: any;
   }
 }
 

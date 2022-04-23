@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import TokenSale from './pages/TokenSale';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Vertify } from '@alex_xu/react-slider-vertify';
 import PreSale from './pages/PreSale';

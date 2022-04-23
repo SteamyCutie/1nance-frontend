@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { useWeb3React } from "@web3-react/core"
 import Web3 from "web3"
+import Web3Modal from "web3modal"
 import { AbiItem } from 'web3-utils'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -86,7 +87,7 @@ const PreSale: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    if (!account) return
+    if (!account || !web3) return
     toast.success('👋 Wallet is successfully connected!', {
       position: "top-right",
       autoClose: 3000,
