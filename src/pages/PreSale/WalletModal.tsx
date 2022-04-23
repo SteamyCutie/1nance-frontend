@@ -34,10 +34,10 @@ const WalletModal: React.FC<Props> = ({ isOpen, connectHandler, closeHandler }) 
           <div className="text-[28px] text-black text-center">Connect Wallet</div>
           <div className="grid gap-4 md:flex">
             {ethEnabled() ?
-              <div className="items-center justify-center text-[24px] text-black/80 gap-2 md:gap-16 border-2 p-4 px-8 cursor-pointer grid md:flex" onClick={connectHandler}><div className="grid items-center gap-4 text-center justify-items-center"><img src={METAMASK_ICON} alt="metamask" width={48} /><div className="w-full text-center">Metamask</div></div></div> :
-              <a href="https://metamask.io" className="" target="_blank" rel="noreferrer"><div className="flex items-center text-[24px] text-black/80 gap-4 border-2 p-4 px-8 cursor-pointer"><img src={METAMASK_ICON} alt="metamask" width={48} />Install Metamask</div></a>
+              <div className="items-center justify-center text-[24px] text-black/80 gap-2 md:gap-16 transition-all hover:bg-[#AAA]/5 p-4 px-8 cursor-pointer grid md:flex" onClick={connectHandler}><div className="grid items-center gap-4 text-center justify-items-center"><img src={METAMASK_ICON} alt="metamask" width={48} height={48} /><div className="w-full text-center">Metamask</div></div></div> :
+              <a href="https://metamask.io" className="" target="_blank" rel="noreferrer"><div className="items-center justify-center text-[24px] text-black/80 gap-2 md:gap-16 transition-all hover:bg-[#AAA]/5 p-4 px-8 cursor-pointer grid md:flex"><div className="grid items-center gap-4 text-center justify-items-center"><img src={METAMASK_ICON} alt="metamask" width={48} height={48} /><div className="w-full text-center">Install Metamask</div></div></div></a>
             }
-            <div className="items-center justify-center text-[24px] text-black/80 gap-2 md:gap-16 border-2 p-4 px-8 cursor-pointer grid md:flex"><div className="grid items-center gap-4 text-center justify-items-center"><img src={TRUSTWALLET_ICON} alt="metamask" width={48} /><div className="w-full text-center">TrustWallet</div></div></div>
+            <div className="items-center justify-center text-[24px] text-black/80 gap-2 md:gap-16 transition-all hover:bg-[#AAA]/5 p-4 px-8 cursor-pointer grid md:flex"><div className="grid items-center gap-4 text-center justify-items-center"><img src={TRUSTWALLET_ICON} alt="metamask" width={48} height={48} /><div className="w-full text-center">TrustWallet</div></div></div>
           </div>
         </div>
       </div>
