@@ -26,13 +26,18 @@ const providerOptions = {
   walletconnect: {
     package: WalletConnectProvider,
     options: {
+      rpc: {
+        56: 'https://bsc-dataseed.binance.org/',
+      },
+      network: 'binance',
+      chainId: 56,
       infuraId: "27e484dcd9e3efcfd25a83a78777cdf1"
     }
   }
 };
 
 const web3Modal = new Web3Modal({
-  network: "mainnet", // optional
+  network: "binance", // optional
   cacheProvider: true, // optional
   providerOptions // required
 });
@@ -81,7 +86,6 @@ const PreSale: React.FC = () => {
   }, [web3])
 
   useEffect(() => {
-    web3ModalConnect()
     setDidMount(true);
     return () => setDidMount(false);
   }, [])
@@ -183,7 +187,8 @@ const PreSale: React.FC = () => {
   }
 
   const handleConnect = () => {
-    activate(connectors.injected)
+    // activate(connectors.injected)
+    web3ModalConnect()
   }
 
   const handleContribute = () => {
