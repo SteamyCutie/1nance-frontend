@@ -16,6 +16,7 @@ import tokenLogo from "../../assets/png/logoSM.png"
 import contractLogo from "../../assets/png/contract.png"
 import { TO_ETHER, ONENANCE_TOKEN, ONENANCE_PRESALE } from "../../configs/constant"
 import _1NancePresale from "../../configs/_1NancePresale.json"
+import WalletModal from "./WalletModal"
 
 const web3 = new Web3(Web3.givenProvider)
 
@@ -39,9 +40,9 @@ const PreSale: React.FC = () => {
   const [totalContributed, setTotalContributed] = useState(0)
   const [totalSold, setTotalSold] = useState(0)
 
-  var [timer, setTimer] = useState<any>()
+  const [timer, setTimer] = useState<any>()
   const [remain, setRemain] = useState(["00", "00", "00", "00"])
-
+  const [isOpen, setOpen] = useState(false);
   const [didMount, setDidMount] = useState(false);
 
   useEffect(() => {
@@ -206,6 +207,7 @@ const PreSale: React.FC = () => {
 
   return (
     <div className="m-auto tokenSale-background">
+      <WalletModal isOpen={isOpen} connectHandler={handleConnect} closeHandler={(e: any) => setOpen(false)} />
       <TitleComponent title="presale ends in" anchor="" content="" />
       <div className="grid justify-center w-full -mt-12 md:-mt-8 ">
         <div className="flex items-center justify-center m-auto space-x-3 md:space-x-12 lg:space-x-16 xl:space-x-16">
@@ -246,7 +248,7 @@ const PreSale: React.FC = () => {
                 <CommonButton title="Max" handler={() => setAmount(bnbBalance.toFixed(3))} className="text-black text-[14px] p-2 w-[36px] min-w-0" />
               </div>
             </div>
-            {!account ? <CommonButton title="Connect" handler={handleConnect} className="text-[black] font-[500] rounded-[8px] lg:rounded-[8px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[220px] lg:min-w-[250px]" />
+            {!account ? <CommonButton title="Connect" handler={() => setOpen(true)} className="text-[black] font-[500] rounded-[8px] lg:rounded-[8px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[220px] lg:min-w-[250px]" />
               : <CommonButton title="Contribute" handler={handleContribute} className="text-[black] font-[500] rounded-[8px] lg:rounded-[8px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[220px] lg:min-w-[250px]" />}
           </div>
         </div>
