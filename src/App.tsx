@@ -1,26 +1,26 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { Suspense, useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import './App.css';
-import Header from './components/Header';
-import Home from './pages/Home';
-import TokenSale from './pages/TokenSale';
-import { ToastContainer, toast } from 'react-toastify';
-
-import { Vertify } from '@alex_xu/react-slider-vertify';
-import PreSale from './pages/PreSale';
+import './App.css'
+import Header from './components/Header'
+import Home from './pages/Home'
+import TokenSale from './pages/TokenSale'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { Vertify } from '@alex_xu/react-slider-vertify'
+import PreSale from './pages/PreSale'
 
 const App: React.FC = () => {
   const [homeUri, setHomeUri] = useState('')
-  const [isVerify, setIsVerify] = useState(false);
-  const [width, setWidth] = useState<number>(window.innerWidth);
+  const [isVerify, setIsVerify] = useState(false)
+  const [width, setWidth] = useState<number>(window.innerWidth)
 
   useEffect(() => {
     window.addEventListener('resize', (ev) => {
-      ev.preventDefault();
-      setWidth(window.innerWidth);
-    });
-  }, []);
+      ev.preventDefault()
+      setWidth(window.innerWidth)
+    })
+  }, [])
 
   useEffect(() => {
     if (!isVerify) return
@@ -32,10 +32,10 @@ const App: React.FC = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-    });
+    })
   }, [isVerify])
 
-  const isMobile = width <= 768;
+  const isMobile = width <= 768
 
   return (
     <Router>
@@ -61,7 +61,7 @@ const App: React.FC = () => {
                     height={200}
                     visible={true}
                     onSuccess={() => {
-                      setIsVerify(true);
+                      setIsVerify(true)
                     }}
                     onFail={() => toast.error('Try again 🤣', {
                       position: "top-right",
@@ -90,7 +90,7 @@ const App: React.FC = () => {
                   height={160}
                   visible={true}
                   onSuccess={() => {
-                    setIsVerify(true);
+                    setIsVerify(true)
                   }}
                   onFail={() => toast.error('Try again 🤣', {
                     position: "top-right",
@@ -117,7 +117,7 @@ const App: React.FC = () => {
         }
       </Suspense>
     </Router>
-  );
+  )
 }
 
 export default React.memo(App)
