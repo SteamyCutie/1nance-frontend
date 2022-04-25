@@ -309,7 +309,7 @@ const PreSale: React.FC = () => {
             </div>
             <div className="grid">
               <p className="text-white text-[18px] font-extrabold uppercase">Presale Wallet Address</p>
-              <a href={`https://bscscan.com/address/${ONENANCE_PRESALE_WALLET}/`} target="_blank" className="text-[20px] text-[#FFAF10] active:text-[#ffaf108d] hover:text-[#ffaf10b1] transition-all duration-150 max-w-[240px] md:max-w-[768px] lg:max-w-[1024px] text-ellipsis overflow-hidden" rel="noreferrer">{ONENANCE_PRESALE}</a>
+              <a href={`https://bscscan.com/address/${ONENANCE_PRESALE_WALLET}/`} target="_blank" className="text-[20px] text-[#FFAF10] active:text-[#ffaf108d] hover:text-[#ffaf10b1] transition-all duration-150 max-w-[240px] md:max-w-[768px] lg:max-w-[1024px] text-ellipsis overflow-hidden" rel="noreferrer">{ONENANCE_PRESALE_WALLET}</a>
             </div>
           </div>
         </div>
