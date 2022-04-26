@@ -13,7 +13,7 @@ export const TO_ETHER = (wei:any, decimal = 0) => {
 export const PRESALE_END = "2022:05:30:23:59";
 export const ONENANCE_TOKEN = "Coming Soon...";
 export const ONENANCE_ICO = "Coming Soon...";
-export const ONENANCE_PRESALE_WALLET = "0xaCdBe67c9086e7C09Ea4783D793A2a0F2D28041A";
+export const ONENANCE_PRESALE_WALLET = "0x20139b1eCDda10853F73f7102dA2019050D103bF";
 export const ONENANCE_PRESALE = "0xd0f43400f0d5bBdA8f3B42945A3BBaC3f843486C";
 export const ONENANCE_PRESALE_TEST =
   "0x9F37267130a0cE8d381e678Afd75b32463c6f5B6";
