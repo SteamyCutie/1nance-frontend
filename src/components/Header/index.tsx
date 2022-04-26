@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Logo from "../../assets/png/logo.png"
 import LogoSM from "../../assets/png/logo-sm.png"
 import Flag1 from "../../assets/png/flag1.png"
@@ -180,7 +181,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
             </div>
           </Drawer>
         </div>
-        <div id="langMoreSM" onClick={() => { if (!langMoreSM) { setLangMoreSM(true); setMoreMenu('LANG') } else { setLangMoreSM(false) } }} className={`${getNavLinkClassName} z-[998] flex flex-rows text-[14px] spacing-[3px] px-0 mx-0 py-5`}>
+        {/* <div id="langMoreSM" onClick={() => { if (!langMoreSM) { setLangMoreSM(true); setMoreMenu('LANG') } else { setLangMoreSM(false) } }} className={`${getNavLinkClassName} z-[998] flex flex-rows text-[14px] spacing-[3px] px-0 mx-0 py-5`}>
           <div className="flex items-center w-13">
             <img src={flagInfo[uiLang].img} className="w-6 h-6 md:w-8 md:h-8" alt={flagInfo[uiLang].code} />
             <div className="ml-2 font-[700] w-[20px] md:w-[24px] md:text-[17px] text-center tracking-widest">{flagInfo[uiLang].code}</div>
@@ -196,7 +197,9 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
               </div>
             </div>
           )}
-        </div>
+        </div> */}
+        <a href="https://presale.1nance.com/" className="md:hidden"><CommonButton title="Join" className="px-5 py-2 mr-4" isSmall /></a>
+        <a href="https://presale.1nance.com/" className="hidden md:flex"><CommonButton title="Join Presale" isSmall /></a>
       </div>
       <div className="backdrop langdrop" onClick={() => setLangMoreSM(false)} />
     </div>
