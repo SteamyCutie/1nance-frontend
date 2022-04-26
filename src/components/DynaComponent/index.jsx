@@ -30,7 +30,6 @@ import _1NanceLinks from "../../configs/_1NanceLinks.json"
 import { PRESALE_END } from "../../configs/constant"
 
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'
 
 export const HomeComponent = ({ handler }) => {
 
@@ -61,7 +60,7 @@ export const HomeComponent = ({ handler }) => {
           </div>
           <div className="grid w-4/5 gap-3 xl:flex justify-left xl:justify-center" style={{ transform: `translateY(${anim ? '0' : '100'}px)`, opacity: anim ? 1 : 0, transition: "all 800ms cubic-bezier(0.07, 0.75, 0.33, 1.07) 200ms" }}>
             {/* <CommonButton title="Purchase Token" handler={() => handler('section-token')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" /> */}
-            <Link to="presale"><CommonButton title="Join Presale" className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" /></Link>
+            <a href="https://presale.1nance.com"><CommonButton title="Join Presale" className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" /></a>
             <CommonButton title="Whitepaper" handler={() => handler('section-whitepaper')} className="text-[20px] xl:text-[24px] leading-[28px] xl:leading-[26px] py-3 xl:py-4 min-w-[0] xl:min-w-[200px] w-[fit-content] xl:w-auto" />
           </div>
         </div>
@@ -285,7 +284,7 @@ export const TokenSaleComponent = () => {
   const [remain, setRemain] = useState(0)
 
   const loadBalance = async () => {
-    return 4000;
+    return 1500;
   }
 
   const updateBalance = async () => {

@@ -9,7 +9,7 @@ import { CommonButton } from "../../components/ButtonComponent"
 import { useState } from "react"
 import { useEffect } from "react"
 import Drawer from "./Drawer"
-import { Link, useHistory, useLocation } from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
 
 interface HeaderProps {
   handler?: any
@@ -82,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
       <div className="items-center hidden xl:grid" id="header">
         <div className="absolute z-0 flex">
           <div className="cursor-pointer">
-            <a href="/"><img src={Logo} alt="logo" /></a>
+            <a href="https://1nance.com"><img src={Logo} alt="logo" /></a>
           </div>
         </div>
         <div className="flex justify-center" style={{ paddingLeft: padL + "px" }}>
@@ -129,7 +129,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
                 </div>
               )}
             </div>
-            <Link to="presale"><CommonButton title="Join Presale" isSmall /></Link>
+            <a href="https://presale.1nance.com"><CommonButton title="Join Presale" isSmall /></a>
           </div>
         </div>
       </div >
@@ -140,9 +140,9 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
           <hr className="w-[20px] md:w-[24px]" style={{ border: '2px solid white' }} />
         </div>
         <div className="z-0 flex">
-          <div onClick={() => handleGoSection('/')} className="justify-center cursor-pointer" style={{ transform: 'translateX(10px)' }}>
+          <a href="https://1nance.com" className="justify-center cursor-pointer" style={{ transform: 'translateX(10px)' }}>
             <img src={LogoSM} alt="logo" />
-          </div>
+          </a>
           <Drawer
             isOpen={isOpen}
             onClose={() => setIsOpen(false)}
