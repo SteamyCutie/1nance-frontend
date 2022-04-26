@@ -27,7 +27,8 @@ const PreSale: React.FC = () => {
   const [presaleContract, setPresaleContract] = useState<any>()
   const [tokenBalance] = useState(0)
   const [bnbBalance, setBNBBalance] = useState(0)
-  const [hardCap, setHardCap] = useState(4000)
+  const [softCap, setSoftCap] = useState(350)
+  const [hardCap, setHardCap] = useState(1500)
   const [isLive, setLive] = useState(true)
   const [minLimit, setMinLimit] = useState(0.05)
   const [maxLimit, setMaxLimit] = useState(10)
@@ -271,7 +272,9 @@ const PreSale: React.FC = () => {
           </div>
           <div className="grid items-center mt-3 md:mt-4 w-full md:w-1/2 bg-gradient-to-b from-[#141828ad] to-[#141828ad] rounded-3xl border-[#91b4ff] border-2 border-b-4">
             <div className="m-6 text-[14px] md:text-[18px]">
-              <p className="mt-0">HardCap : </p>
+              <p className="mt-0">SoftCap : </p>
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{softCap}</p> BNB</div>
+              <p className="mt-4">HardCap : </p>
               <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{hardCap}</p> BNB</div>
               <p className="mt-4">PreSale Price : </p>
               <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{Number(bnbPrice / 10).toFixed(3)}</p> 1NB Per 1BNB</div>
