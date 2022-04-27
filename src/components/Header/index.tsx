@@ -180,8 +180,8 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
               )}
             </div>
             {/* <a href="https://presale.1nance.com/"><CommonButton title="Join Presale" isSmall /></a> */}
-            {!account ? <CommonButton title="Connect" handler={() => setModalOpen(true)} className="text-[black] font-[500] rounded-[8px] lg:rounded-[8px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[220px] lg:min-w-[250px]" />
-              : <CommonButton title="Disconnect" handler={handleDisconnect} className="text-[black] font-[500] rounded-[8px] lg:rounded-[8px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[220px] lg:min-w-[250px]" />}
+            {!account ? <CommonButton title="Connect" handler={() => setModalOpen(true)} className="text-[black] font-[500] px-4 py-2 mr-2 rounded-[12px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[80px] lg:min-w-[160px]" />
+              : <CommonButton title="Disconnect" handler={handleDisconnect} className="text-[black] font-[500] px-4 py-2 mr-2 rounded-[12px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[80px] lg:min-w-[160px]" />}
           </div>
         </div>
       </div >
@@ -251,8 +251,8 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
         </div> */}
         {/* <a href="https://presale.1nance.com/" className="md:hidden"><CommonButton title="Join" className="px-5 py-2 mr-4" isSmall /></a>
         <a href="https://presale.1nance.com/" className="hidden md:flex"><CommonButton title="Join Presale" isSmall /></a> */}
-        {!account ? <CommonButton title="Connect" handler={() => setModalOpen(true)} className="text-[black] font-[500] px-4 py-2 mr-2 rounded-[12px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[80px] lg:min-w-[250px]" />
-          : <CommonButton title="Disconnect" handler={handleDisconnect} className="text-[black] font-[500] px-4 py-2 mr-2 rounded-[12px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[80px] lg:min-w-[250px]" />}
+        {!account ? <CommonButton title="Connect" handler={() => setModalOpen(true)} className="text-[black] font-[500] px-4 py-2 mr-2 rounded-[12px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[80px] lg:min-w-[160px]" />
+          : <CommonButton title="Disconnect" handler={handleDisconnect} className="text-[black] font-[500] px-4 py-2 mr-2 rounded-[12px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[80px] lg:min-w-[160px]" />}
       </div>
       <div className="backdrop langdrop" onClick={() => setLangMoreSM(false)} />
       <ToastContainer />
