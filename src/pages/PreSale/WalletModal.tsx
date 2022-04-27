@@ -9,6 +9,8 @@ interface Props {
   closeHandler: any,
 }
 
+declare var window: any
+
 const WalletModal: React.FC<Props> = ({ isOpen, connectHandler, closeHandler }) => {
 
   useEffect(() => {
@@ -20,6 +22,7 @@ const WalletModal: React.FC<Props> = ({ isOpen, connectHandler, closeHandler }) 
 
   const ethEnabled = () => {
     if (window.web3) {
+      // if (window.ethereum) {
       window.web3 = new Web3(window.web3.currentProvider);
       // window.ethereum.enable();
       return true;
