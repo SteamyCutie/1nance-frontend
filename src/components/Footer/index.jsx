@@ -4,6 +4,7 @@ import telegram from "../../assets/svg/telegram.svg"
 import facebook from "../../assets/svg/facebook.svg"
 import reddit from "../../assets/svg/reddit.svg"
 import youtube from "../../assets/svg/youtube.svg"
+import mail from "../../assets/svg/mail.svg"
 import backpattern from "../../assets/svg/footerframe1.svg"
 import logoSM from "../../assets/png/logoSM.png"
 import _1NanceLinks from "../../configs/_1NanceLinks.json"
@@ -37,8 +38,9 @@ const Footer = () => {
         <a href={_1NanceLinks.facebook} target="_blank" style={{ transform: `translateY(${anim ? '0' : '40'}px)`, opacity: anim ? 1 : 0, transition: "all 300ms cubic-bezier(0.13, 1.35, 0.77, 1.41) 300ms" }} rel="noreferrer"><IconButton icon={facebook} className="w-[24px] h-[24px] md:w-8 md:h-8 xl:w-12 xl:h-12" /></a>
         <a href={_1NanceLinks.reddit} target="_blank" style={{ transform: `translateY(${anim ? '0' : '40'}px)`, opacity: anim ? 1 : 0, transition: "all 300ms cubic-bezier(0.13, 1.35, 0.77, 1.41) 400ms" }} rel="noreferrer"><IconButton icon={reddit} className="w-[24px] h-[24px] md:w-8 md:h-8 xl:w-12 xl:h-12" /></a>
         <a href={_1NanceLinks.youtube} target="_blank" style={{ transform: `translateY(${anim ? '0' : '40'}px)`, opacity: anim ? 1 : 0, transition: "all 300ms cubic-bezier(0.13, 1.35, 0.77, 1.41) 500ms" }} rel="noreferrer"><IconButton icon={youtube} className="w-[24px] h-[24px] md:w-8 md:h-8 xl:w-12 xl:h-12" /></a>
+        <a href={`mailto:${_1NanceLinks.contact}`} target="_blank" style={{ transform: `translateY(${anim ? '0' : '40'}px)`, opacity: anim ? 1 : 0, transition: "all 300ms cubic-bezier(0.13, 1.35, 0.77, 1.41) 500ms" }} rel="noreferrer"><div className="scale-[1.5]"><IconButton icon={mail} className="w-[24px] h-[24px] md:w-8 md:h-8 xl:w-12 xl:h-12" /></div></a>
       </div>
-      <a href="/"><img src={logoSM} className="mt-[-50px] md:mt-[-100px] ml-8 md:ml-16 w-8 h-8 md:w-12 md:h-12 xl:mt-[-220px] xl:ml-32 xl:w-16 xl:h-16" alt="logo" /></a>
+      <a href="https://1nance.com"><img src={logoSM} className="mt-[-50px] md:mt-[-100px] ml-8 md:ml-16 w-8 h-8 md:w-12 md:h-12 xl:mt-[-220px] xl:ml-32 xl:w-16 xl:h-16" alt="logo" /></a>
     </div>
   )
 }
