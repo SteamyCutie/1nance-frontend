@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Logo from "../../assets/png/logo.png"
 import LogoSM from "../../assets/png/logo-sm.png"
 import Flag1 from "../../assets/png/flag1.png"
@@ -10,12 +11,18 @@ import { useState } from "react"
 import { useEffect } from "react"
 import Drawer from "./Drawer"
 import { useHistory, useLocation } from "react-router-dom"
+import { useWeb3React } from "@web3-react/core"
+import { connectors } from "../../connectors"
+import WalletModal from "../../pages/PreSale/WalletModal"
+import { ToastContainer, toast } from 'react-toastify';
 
 interface HeaderProps {
   handler?: any
 }
 
 const Header: React.FC<HeaderProps> = ({ handler }) => {
+
+  const { activate, account, chainId, deactivate } = useWeb3React()
 
   const padL = ((1920 - window.innerWidth) * (300 / (1920 - 1300))).toFixed()
   const getNavLinkClassName = "z-50 cursor-pointer px-4 py-10 items-center text-[papayawhip] mx-auto text-[18px] hover:text-[papayawhip]/50 flex transform-all duration-300 ease-in"
@@ -30,6 +37,9 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
   const [langLeftSM, setLangLeftSM] = useState(0)
   const [uiLang, setUiLang] = useState(0)
   const [isOpen, setIsOpen] = useState(false);
+
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [wrongNet, setWrongNet] = useState(false)
 
   const location = useLocation();
   const history = useHistory()
@@ -77,8 +87,48 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
     }
   }
 
+  useEffect(() => {
+    if (!account) return
+    toast.success('👋 Wallet is successfully connected!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }, [account])
+
+  useEffect(() => {
+    if (chainId === undefined) return
+    setWrongNet(chainId !== 56)
+  }, [chainId])
+
+  useEffect(() => {
+    if (!wrongNet) return
+    toast.error('Wrong network! Change your network to BSC Mainnet (ChainId: 56) 😰', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }, [wrongNet])
+
+  const handleConnect = () => {
+    activate(connectors.injected)
+  }
+
+  const handleDisconnect = () => {
+    deactivate()
+  }
+
   return (
     <div className={`${langMoreSM ? "open " : ""}`}>
+      <WalletModal isOpen={isModalOpen} connectHandler={handleConnect} closeHandler={(e: any) => setModalOpen(false)} />
       <div className="items-center hidden xl:grid" id="header">
         <div className="absolute z-0 flex">
           <div className="cursor-pointer">
@@ -129,7 +179,9 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
                 </div>
               )}
             </div>
-            <a href="https://presale.1nance.com"><CommonButton title="Join Presale" isSmall /></a>
+            {/* <a href="https://presale.1nance.com/"><CommonButton title="Join Presale" isSmall /></a> */}
+            {!account ? <CommonButton title="Connect" handler={() => setModalOpen(true)} className="text-[black] font-[500] px-4 py-2 mr-2 rounded-[12px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[80px] lg:min-w-[160px]" />
+              : <CommonButton title="Disconnect" handler={handleDisconnect} className="text-[black] font-[500] px-4 py-2 mr-2 rounded-[12px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[80px] lg:min-w-[160px]" />}
           </div>
         </div>
       </div >
@@ -140,9 +192,9 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
           <hr className="w-[20px] md:w-[24px]" style={{ border: '2px solid white' }} />
         </div>
         <div className="z-0 flex">
-          <a href="https://1nance.com" className="justify-center cursor-pointer" style={{ transform: 'translateX(10px)' }}>
+          <div onClick={() => handleGoSection('/')} className="justify-center cursor-pointer" style={{ transform: 'translateX(10px)' }}>
             <img src={LogoSM} alt="logo" />
-          </a>
+          </div>
           <Drawer
             isOpen={isOpen}
             onClose={() => setIsOpen(false)}
@@ -180,7 +232,7 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
             </div>
           </Drawer>
         </div>
-        <div id="langMoreSM" onClick={() => { if (!langMoreSM) { setLangMoreSM(true); setMoreMenu('LANG') } else { setLangMoreSM(false) } }} className={`${getNavLinkClassName} z-[998] flex flex-rows text-[14px] spacing-[3px] px-0 mx-0 py-5`}>
+        {/* <div id="langMoreSM" onClick={() => { if (!langMoreSM) { setLangMoreSM(true); setMoreMenu('LANG') } else { setLangMoreSM(false) } }} className={`${getNavLinkClassName} z-[998] flex flex-rows text-[14px] spacing-[3px] px-0 mx-0 py-5`}>
           <div className="flex items-center w-13">
             <img src={flagInfo[uiLang].img} className="w-6 h-6 md:w-8 md:h-8" alt={flagInfo[uiLang].code} />
             <div className="ml-2 font-[700] w-[20px] md:w-[24px] md:text-[17px] text-center tracking-widest">{flagInfo[uiLang].code}</div>
@@ -196,9 +248,14 @@ const Header: React.FC<HeaderProps> = ({ handler }) => {
               </div>
             </div>
           )}
-        </div>
+        </div> */}
+        {/* <a href="https://presale.1nance.com/" className="md:hidden"><CommonButton title="Join" className="px-5 py-2 mr-4" isSmall /></a>
+        <a href="https://presale.1nance.com/" className="hidden md:flex"><CommonButton title="Join Presale" isSmall /></a> */}
+        {!account ? <CommonButton title="Connect" handler={() => setModalOpen(true)} className="text-[black] font-[500] px-4 py-2 mr-2 rounded-[12px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[80px] lg:min-w-[160px]" />
+          : <CommonButton title="Disconnect" handler={handleDisconnect} className="text-[black] font-[500] px-4 py-2 mr-2 rounded-[12px] text-[18px] lg:text-[22px] leading-[20px] lg:leading-[24px] min-w-[80px] lg:min-w-[160px]" />}
       </div>
       <div className="backdrop langdrop" onClick={() => setLangMoreSM(false)} />
+      <ToastContainer />
     </div>
   )
 }
