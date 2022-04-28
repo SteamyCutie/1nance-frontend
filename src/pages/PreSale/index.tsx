@@ -277,9 +277,11 @@ const PreSale: React.FC = () => {
               <p className="mt-4">HardCap : </p>
               <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{hardCap}</p> BNB</div>
               <p className="mt-4">PreSale Price : </p>
-              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{Number(bnbPrice / 10).toFixed(3)}</p> 1NB Per 1BNB</div>
+              {/* <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{Number(bnbPrice / 10).toFixed(3)}</p> 1NB Per 1BNB</div> */}
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{38.999}</p> 1NB (per 1BNB)</div>
               <p className="mt-4">Launch Price : </p>
-              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{Number(bnbPrice / 15).toFixed(3)}</p> 1NB PER 1BNB</div>
+              {/* <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{Number(bnbPrice / 15).toFixed(3)}</p> 1NB PER 1BNB</div> */}
+              <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{29.999}</p> 1NB (per 1BNB)</div>
               <p className="mt-4">Min Contribute : </p>
               <div className="flex gap-1 text-white text-[16px] md:text-[22px] items-center ml-4"><p className="text-[#FFAF10] text-[18px] md:text-[24px]">{minLimit}</p> BNB PER WALLET</div>
               <p className="mt-4">Max Contribute : </p>
