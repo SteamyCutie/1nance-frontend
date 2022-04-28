@@ -283,6 +283,8 @@ export const TokenSaleComponent = () => {
   const [percent] = useState(0)
   const [remain, setRemain] = useState(0)
 
+  const [bnbPrice, setBNBPrice] = useState(400)
+
   const loadBalance = async () => {
     return 1500;
   }
@@ -293,6 +295,13 @@ export const TokenSaleComponent = () => {
   }
 
   useEffect(() => {
+    fetch("https://api.coingecko.com/api/v3/coins/binancecoin")
+      .then((res) => res.json())
+      .then((data) => {
+        let usdPrice = data.market_data.current_price.usd
+        setBNBPrice(usdPrice)
+      })
+
     const fetchData = async () => {
       await updateBalance();
     }
@@ -388,15 +397,12 @@ export const TokenSaleComponent = () => {
                   <td className="p-4">15:00 April 22nd - <br />15:00 April 28th</td>
                   <td className="p-4">15:00 April 29th - <br />15:00 May 06th</td>
                 </tr>
-                <tr className="text-white bg-white bg-opacity-10">
-                  <td className="p-4">1 ETH</td>
-                  <td className="p-4">2700 <b>1nance tokens</b></td>
-                  <td className="p-4">2500 <b>1nance tokens</b></td>
-                  <td className="p-4">2300 <b>1nance tokens</b></td>
-                </tr>
-                <tr className="text-white">
+                <tr className="text-white bg-white/10">
                   <td className="p-4">1 BNB</td>
                   <td className="p-4" colSpan={3}>Based on market price</td>
+                </tr>
+                <tr className="text-white text-center text-xl align-baseline">
+                  <td className="p-4" colSpan={4}>1 BNB ≈ ${bnbPrice}</td>
                 </tr>
               </tbody>
             </table>
